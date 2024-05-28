@@ -27,7 +27,7 @@ jobs:
         with:
           root_file: main.tex
       
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         name: Upload PDF to current workflow
         with:
           name: PDF
