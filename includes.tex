@@ -29,56 +29,28 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 \usepackage{ifxetex}
-% \usepackage{textpos}
-% \usepackage{natbib}
+
 \usepackage{kpfonts}
 \usepackage[letterpaper,hmargin=2.8cm,vmargin=2.0cm,includeheadfoot]{geometry}
-% \usepackage{ifxetex}
-\usepackage{stackengine}
 \usepackage{tabularx,longtable,multirow,subfigure,caption}%hangcaption
 \usepackage{fncylab} %formatting of labels
 \usepackage{fancyhdr}
 \usepackage{color}
-% \usepackage[tight,ugly]{units}
 \usepackage{url}
-\usepackage{float}
+\usepackage{booktabs}
 \usepackage[english]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage{dsfont}
-\usepackage{epstopdf} % automatically replace .eps with .pdf in graphics
-% \usepackage{natbib}
-% \usepackage{backref}
 \usepackage{array}
 \usepackage{latexsym}
 \usepackage{etoolbox}
-
-\usepackage{enumerate} % for numbering with [a)] format 
-
+\usepackage{enumerate} 
 \usepackage[backend=biber,style=apa,citestyle=authoryear]{biblatex}
 \addbibresource{solar.bib}
+\addbibresource{solar_equity.bib}
 
-\ifxetex
-\usepackage{fontspec}
-\usepackage{tabularx}
-\setmainfont[Scale=.8]{OpenDyslexic-Regular}
-\else
-
-% \hypersetup{pdftitle={},
-%   pdfsubject={}, 
-%   pdfauthor={\reportauthorOne},
-%   pdfkeywords={}, 
-%   pdfstartview=FitH,
-%   pdfpagemode={UseOutlines},% None, FullScreen, UseOutlines
-%   bookmarksnumbered=true, bookmarksopen=true, colorlinks,
-%     citecolor=black,%
-%     filecolor=black,%
-%     linkcolor=black,%
-%     urlcolor=black}
-
-
-\usepackage{tcolorbox}
 
 % various theorems
 \usepackage{ntheorem}
@@ -89,21 +61,6 @@
 \newtheorem{definition}{Definition}
 \newtheorem{proof}{Proof}
 
-% example-environment
-\newenvironment{example}[1][]
-{ 
-\vspace{4mm}
-\noindent\makebox[\linewidth]{\rule{\hsize}{1.5pt}}
-\textbf{Example #1}\\
-}
-{ 
-\noindent\newline\makebox[\linewidth]{\rule{\hsize}{1.0pt}}
-}
-
-
-
-%\renewcommand{\rmdefault}{pplx} % Palatino
-% \renewcommand{\rmdefault}{put} % Utopia
 
 \ifxetex
 \else
@@ -111,54 +68,65 @@
 \renewcommand*{\ttdefault}{cmtt} % Computer Modern Typewriter
 %\renewcommand*{\rmdefault}{phv} % Helvetica
 %\renewcommand*{\rmdefault}{iwona} % Avant Garde
-
+\fi
 
 % \setlength{\parindent}{0em}  % indentation of paragraph
 
+% Set up headers
+\fancyhead[RO]{\leftmark}
+\fancyhead[LO]{ }
+\fancyhead[LE]{ }
+\fancyhead[RE]{\leftmark}
+
+
+
 \setlength{\headheight}{14.5pt}
 \pagestyle{fancy}
-\fancyfoot[ER,OL]{\thepage}%Page no. in the left on
+\fancyfoot[ER,OR]{\thepage}%Page no. in the left on
                                 %odd pages and on right on even pages
 \fancyfoot[OC,EC]{\sffamily }
 \renewcommand{\headrulewidth}{0.1pt}
 \renewcommand{\footrulewidth}{0.1pt}
 \captionsetup{margin=10pt,font=small,labelfont=bf}
 
+% Custom command to set a different section name in the header
+\newcommand{\customsection}[2]{
+  \section[#1]{#2}
+  \markright{#1}
+}
 
-%--- chapter heading
 
-\def\@makechapterhead#1{%
-  \vspace*{10\p@}%
-  {\parindent \z@ \raggedright %\sffamily
-        %{\Large \MakeUppercase{\@chapapp} \space \thechapter}
-        %\\
-        %\hrulefill
-        %\par\nobreak
-        %\vskip 10\p@
-    \interlinepenalty\@M
-    \Huge \bfseries 
-    \thechapter \space\space #1\par\nobreak
-    \vskip 30\p@
-  }}
+% %--- chapter heading
 
-%---chapter heading for \chapter*  
-\def\@makeschapterhead#1{%
-  \vspace*{10\p@}%
-  {\parindent \z@ \raggedright
-    \sffamily
-    \interlinepenalty\@M
-    \Huge \bfseries  
-    #1\par\nobreak
-    \vskip 30\p@
-  }}
+% \def\@makechapterhead#1{%
+%   \vspace*{10\p@}%
+%   {\parindent \z@ \raggedright %\sffamily
+%         %{\Large \MakeUppercase{\@chapapp} \space \thechapter}
+%         %\\
+%         %\hrulefill
+%         %\par\nobreak
+%         %\vskip 10\p@
+%     \interlinepenalty\@M
+%     \Huge \bfseries 
+%     \thechapter \space\space #1\par\nobreak
+%     \vskip 30\p@
+%   }}
+
+% %---chapter heading for \chapter*  
+% \def\@makeschapterhead#1{%
+%   \vspace*{10\p@}%
+%   {\parindent \z@ \raggedright
+%     \sffamily
+%     \interlinepenalty\@M
+%     \Huge \bfseries  
+%     #1\par\nobreak
+%     \vskip 30\p@
+%   }}
   
 
 \usepackage{setspace}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} 
 
-\usepackage[colorlinks=true, allcolors=blue]{hyperref} % provide links in pdf
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: "notes"
-%%% End: 
 \usepackage[all]{hypcap}
+
+\usepackage{float}
