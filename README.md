@@ -1,1 +1,1 @@
-Please refer to the pdf for the latest version of the paper.
+# "Equity in Solar PV Adoption in New Mexico" White Paper Supplementary Code
