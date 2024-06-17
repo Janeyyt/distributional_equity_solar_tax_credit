@@ -1,4 +1,4 @@
-# "Equity in Solar PV Adoption in New Mexico" Online Supplmentary Information
+# "Equity in Solar PV Adoption in New Mexico" Online Supplementary Information
 
 ## Full paper 
 
