@@ -1,0 +1,134 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% University Assignment Title Page 
+% LaTeX Template
+% Version 1.0 (27/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% WikiBooks (http://en.wikibooks.org/wiki/LaTeX/Title_Creation)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% Instructions for using this template:
+% This title page is capable of being compiled as is. This is not useful for 
+% including it in another document. To do this, you have two options: 
+%
+% 1) Copy/paste everything between \begin{document} and \end{document} 
+% starting at \begin{titlepage} and paste this into another LaTeX file where you 
+% want your title page.
+% OR
+% 2) Remove everything outside the \begin{titlepage} and \end{titlepage} and 
+% move this file to the same directory as the LaTeX file you wish to add it to. 
+% Then add \input{./title_page_1.tex} to your LaTeX file where you want your
+% title page.
+%
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\usepackage{ifxetex}
+
+\usepackage{kpfonts}
+\usepackage[letterpaper,hmargin=2.8cm,vmargin=2.0cm,includeheadfoot]{geometry}
+\usepackage{tabularx,longtable,multirow,subfigure,caption}%hangcaption
+\usepackage{fncylab} %formatting of labels
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{dsfont}
+\usepackage{array}
+\usepackage{latexsym}
+\usepackage{etoolbox}
+\usepackage{enumerate} 
+\usepackage[backend=biber,style=apa,citestyle=authoryear]{biblatex}
+\addbibresource{solar.bib}
+\addbibresource{solar_equity.bib}
+
+
+% various theorems
+\usepackage{ntheorem}
+\theoremstyle{break}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}
+\newtheorem{proof}{Proof}
+
+\raggedbottom
+
+
+\ifxetex
+\else
+\renewcommand*{\rmdefault}{bch} % Charter
+\renewcommand*{\ttdefault}{cmtt} % Computer Modern Typewriter
+%\renewcommand*{\rmdefault}{phv} % Helvetica
+%\renewcommand*{\rmdefault}{iwona} % Avant Garde
+\fi
+
+% \setlength{\parindent}{0em}  % indentation of paragraph
+
+% Set up headers
+\fancyhead[RO]{\leftmark}
+\fancyhead[LO]{ }
+\fancyhead[LE]{ }
+\fancyhead[RE]{\leftmark}
+
+
+
+\setlength{\headheight}{14.5pt}
+\pagestyle{fancy}
+\fancyfoot[ER,OR]{\thepage}%Page no. in the left on
+                                %odd pages and on right on even pages
+\fancyfoot[OC,EC]{\sffamily }
+\renewcommand{\headrulewidth}{0.1pt}
+\renewcommand{\footrulewidth}{0.1pt}
+\captionsetup{margin=10pt,font=small,labelfont=bf}
+
+% Custom command to set a different section name in the header
+\newcommand{\customsection}[2]{
+  \section[#1]{#2}
+  \markright{#1}
+}
+
+
+% %--- chapter heading
+
+% \def\@makechapterhead#1{%
+%   \vspace*{10\p@}%
+%   {\parindent \z@ \raggedright %\sffamily
+%         %{\Large \MakeUppercase{\@chapapp} \space \thechapter}
+%         %\\
+%         %\hrulefill
+%         %\par\nobreak
+%         %\vskip 10\p@
+%     \interlinepenalty\@M
+%     \Huge \bfseries 
+%     \thechapter \space\space #1\par\nobreak
+%     \vskip 30\p@
+%   }}
+
+% %---chapter heading for \chapter*  
+% \def\@makeschapterhead#1{%
+%   \vspace*{10\p@}%
+%   {\parindent \z@ \raggedright
+%     \sffamily
+%     \interlinepenalty\@M
+%     \Huge \bfseries  
+%     #1\par\nobreak
+%     \vskip 30\p@
+%   }}
+  
+
+\usepackage{setspace}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref} 
+
+\usepackage[all]{hypcap}
+
+\usepackage{float}
