@@ -1,4 +1,4 @@
-\documentclass[12pt,twoside,letterpaper]{article}
+\documentclass[11pt,twoside,letterpaper]{article}
 
 \input{includes} % various packages needed for maths 
 
@@ -345,9 +345,10 @@ The key variable we use to estimate the adoption disparities is the aggregate co
 
 The dataset comprises 498 tracts in NM from 2010 through 2022 after excluding one census tract with a zero population across all study years. Table \ref{tab:datasource} provides detailed explanations of variables used in the empirical analysis and their respective data sources. 
 
-\begin{table}[!ht]
+\begin{table}[H]
 \caption{Variable descriptions and data sources}
 \centering
+\singlespacing
 \label{tab:datasource}
 \resizebox{0.945\textwidth}{!}{%
 \begin{tabular}{lll}
@@ -419,7 +420,7 @@ The extensive margin analysis indicates that demographic and socioeconomic facto
 \centering
 \caption{Regression results for the extensive margin}
 \label{tab:probability_regression}
-\resizebox{0.8\textwidth}{!}{
+\resizebox{0.7\textwidth}{!}{
 \begin{tabular}{@{\extracolsep{2pt}}lcc}
 \small
 \\[-1.8ex]\hline
@@ -466,52 +467,53 @@ The average number of residential solar PV installations per census tract-year i
 \end{aligned}
 \end{equation}
 
-Table \ref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression for comparison with the results from the NB model (full results in \autoref{tab:count_regression_full}). The linear model yields estimates similar to the NB model, and owing to its straightforward interpretability, we use this model for the analysis. Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} reveal that solar installations are concentrated in census tract with a high White population share (greater than 50\%), but decreases as White population share exceeds 80\%. To address this trend, we introduce a non-linear term into the OLS model as the third model specification. 
+Table \ref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression for comparison with the results from the NB model (full results in \autoref{tab:count_regression_full}). The linear model yields estimates similar to the NB model, and owing to its straightforward interpretability, we use this model for the analysis. Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} reveal that solar installations are concentrated in census tract with a high White population share (greater than 50\%), but decreases as White population share exceeds 80\%. To address this trend, we introduce a non-linear term into the OLS model as the third model specification. \autoref{fig:installation_count} shows a rapid growth in solar installations in past years, to capture the impact of past installations on current installations, we add a lag-term into the NB model as the fourth model specification. 
 
 \begin{table}[!ht]
 \caption{Regression results for the intensive margin}
 \label{tab:count_regression}
 \centering
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{lccc}
+\resizebox{1\textwidth}{!}{
+\begin{tabular}{lcccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
- & \multicolumn{3}{c}{Dependent Variable: System Count} \\ \cline{2-4}
- & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}  \\
- & NB Marginal Effect & OLS & OLS with non-linear term   \\ \cline{1-4}
-Hispanic & 0.024** & 0.018 & 0.009 \\
- & (0.012) & (0.018) & (0.018) \\
-White & -0.038 & 0.055 & 0.543** \\
- & (0.025) & (0.037) & (0.214) \\
-\multicolumn{3}{l}{$(\text{White})^2$} & -0.005**  \\
- & & & (0.002)  \\
-Log Area Median Income & 3.885*** & 3.373*** & 3.266*** \\
- & (0.643) & (0.837) & (0.838) \\
-Bachelor & 0.103*** & 0.115*** & 0.112*** \\
- & (0.017) & (0.024) & (0.024) \\
-Disadvantage & -1.829*** & -1.185** & -1.150** \\
- & (0.384) & (0.563) & (0.563) \\
-Credit & 6.461*** & 7.221*** & 7.250*** \\
- & (0.608) & (0.951) & (0.951) \\
-Log population & 6.780*** & 7.758*** & 7.687*** \\
-\cline{1-4}
-Control & Yes & Yes & Yes  \\
-Year FE & Yes & Yes & Yes  \\
-County FE & Yes & Yes & Yes  \\
-Year & All & All & All  \\
-Observations & 3,849 & 3,849 & 3,849  \\
-\multicolumn{2}{l}{R-squared} & 0.45 & 0.45  \\ \cline{1-4}
-\hline
+ & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
+ & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+ & NB Marginal Effect & OLS & OLS with non-linear term & NB with lag term marginal effect \\ \cline{1-5}
+Hispanic & 0.024** & 0.018 & 0.009 & 0.034** \\
+ & (0.012) & (0.018) & (0.018) & (0.014) \\
+White & -0.038 & 0.055 & 0.543** & 0.079 \\
+ & (0.025) & (0.037) & (0.214) & (0.159) \\
+\multicolumn{3}{l}{$(\text{White})^2$} & -0.005** & \\
+ & & & (0.002) & \\
+Log Area Median Income & 3.885*** & 3.373*** & 3.266*** & 3.704*** \\
+ & (0.643) & (0.837) & (0.838) & (0.732) \\
+Bachelor & 0.103*** & 0.115*** & 0.112*** & 0.067*** \\
+ & (0.017) & (0.024) & (0.024) & (0.018) \\
+Disadvantage & -1.829*** & -1.185** & -1.150** & -1.768*** \\
+ & (0.384) & (0.563) & (0.563) & (0.418) \\
+Credit & 6.461*** & 7.221*** & 7.250*** & 2.439*** \\
+ & (0.608) & (0.951) & (0.951) & (0.667) \\
+Count\_lag & & & & 0.364*** \\
+ & & & & (0.020) \\ \cline{1-5}
+Control & Yes & Yes & Yes & Yes \\
+Year FE & Yes & Yes & Yes & Yes \\
+County FE & Yes & Yes & Yes & Yes \\
+Year & All & All & All & 2011 - 2022 \\
+Observations & 3,849 & 3,849 & 3,849 & 3,628 \\
+\multicolumn{2}{l}{R-squared} & 0.45 & 0.45 &  \\ \hline
 \hline \\[-1.8ex]
-\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
+\textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
 \end{tabular}}
 \end{table}
+
 
 The OLS estimation indicates that racial and ethnic factors are not statistically significant, suggesting that they do not play a significant role in shaping solar PV across census tracts. This result demonstrates that NM does not experience significant racial and ethnic disparities in solar adoption, contrary to what prior literature suggested \parencite{gao_solar_2022,darghouth_characterizing_2022}. While the direct impact of the White population rate is not statistically significant, Model (3) reveals a significant non-linear correlation. As the White population rate increases, the solar PV adoption grows but at a diminishing rate.
 
 
 The OLS results also highlight the significant roles of income, educational attainment, disadvantage status, and credit incentive availability in solar PV adoption across census tracts. Consistent with the findings of \textcite{oshaughnessy_income-targeted_2021} and \textcite{darghouth_characterizing_2022}, areas with higher income and educational attainment are more likely to install solar PV due to greater environmental awareness and a higher capacity to invest in solar energy technologies. Conversely, disadvantaged tracts face greater barriers to adoption, exhibiting a negative effect on solar PV uptake. Additionally, our analysis finds that solar credit incentives markedly increase solar PV installations, reflecting findings in \textcite{borenstein_private_2017} on the importance of financial incentives in promoting solar energy. 
 
+Model (4) indicates that more installations in the previous year are associated with an increase in installations in the current year. This pattern confirms that New Mexico is in a period of growth in solar installations. The introduction of the lag term reduces the positive impact of the state credit incentives, likely because the lag term captures some of the earlier effects of the incentive on promoting solar installations. 
 
 Given the significantly positive impact of income on solar installations, we further explore how this impact varies across different income brackets. Additionally, we assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income. To answer these research questions, we estimate the OLS model on two subsamples: (1) divided by income quartile, and (2) divided by the availability of state solar incentives.
 
@@ -707,7 +709,7 @@ We estimate model (5) of the main regression for the two tax credit program peri
 \begin{table}[!ht] \centering
   \caption{Regression results on state credit claim by program period}
   \label{tab:reg_by_program}
-  \resizebox{0.9\textwidth}{!}{
+  \resizebox{0.8\textwidth}{!}{
 \begin{tabular}{@{\extracolsep{5pt}}lcc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
@@ -872,7 +874,7 @@ We define the house built year group as follows: Built after 2020 = 1; Built bet
 \subsubsection*{Racial diversity}
 The racial diversity is defined as:
 \begin{equation}
-\text{Racial diversity} = \sum_{i} (\frac{\text{Population identified as race }i}{\text{Total one-race population}})^2
+\text{Racial diversity} = \sum_{i} \left(\frac{\text{Population identified as race }i}{\text{Total one-race population}}\right)^2
 \end{equation}
 where $i = $ White, Black or African American, American Indian and Alaska Native,	Asian, Native Hawaiian and Other Pacific Islander, and other race.
 
@@ -985,7 +987,7 @@ Credit & 6474 & 0.77 & 0.42 & 1 & 1 & 0 \\ \hline
 \singlespacing
 \caption{Full results for regression model (\ref{reg_1})}
 \label{tab:probability_regression_full}
-\resizebox{0.8\textwidth}{!}{
+\resizebox{0.7\textwidth}{!}{
 \begin{tabular}{@{\extracolsep{2pt}}lcc}
 \small
 \\[-1.8ex]\hline
@@ -1074,60 +1076,58 @@ Credit & 3849 & 0.77 & 0.42 & 1 & 1 & 0 \\ \hline
 \caption{Full results for regression model (\ref{reg_2})}
 \label{tab:count_regression_full}
 \centering
-\singlespacing
-\resizebox{0.9\textwidth}{!}{
-\begin{tabular}{lccc}
+\resizebox{1\textwidth}{!}{
+\begin{tabular}{lcccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
- & \multicolumn{3}{c}{Dependent Variable: System Count} \\ \cline{2-4}
- & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}  \\
- & NB Marginal Effect & OLS & OLS with non-linear term   \\ \cline{1-4}
-Hispanic & 0.024** & 0.018 & 0.009 \\
- & (0.012) & (0.018) & (0.018) \\
-White & -0.038 & 0.055 & 0.543** \\
- & (0.025) & (0.037) & (0.214) \\
-\multicolumn{3}{l}{$(\text{White})^2$} & -0.005**  \\
- & & & (0.002)  \\
-Log Area Median Income & 3.885*** & 3.373*** & 3.266*** \\
- & (0.643) & (0.837) & (0.838) \\
-Bachelor & 0.103*** & 0.115*** & 0.112*** \\
- & (0.017) & (0.024) & (0.024) \\
-Disadvantage & -1.829*** & -1.185** & -1.150** \\
- & (0.384) & (0.563) & (0.563) \\
-Credit & 6.461*** & 7.221*** & 7.250*** \\
- & (0.608) & (0.951) & (0.951) \\
-Log population & 6.780*** & 7.758*** & 7.687*** \\
- & (1.010) & (1.312) & (1.312) \\
-Electricity & -0.000 & 0.019 & 0.019 \\
- & (0.018) & (0.026) & (0.026) \\
-Electricity price & 0.169 & -0.403* & -0.385* \\
- & (0.156) & (0.219) & (0.219) \\
-Installation price & -4.248*** & -3.333*** & -3.387*** \\
- & (0.225) & (0.291) & (0.291) \\
-Log total housing unit & 0.849 & -1.007 & -0.9 \\
- & (1.004) & (1.285) & (1.285) \\
-Urban & 0.004 & 0.016** & 0.017** \\
- & (0.006) & (0.008) & (0.008) \\
-Owner occupied & 0.058*** & 0.137*** & 0.136*** \\
- & (0.009) & (0.012) & (0.012) \\
-Built year group & -0.824*** & -1.031*** & -1.062*** \\
- & (0.118) & (0.174) & (0.174) \\
-PNM & -1.864*** & -4.574*** & -4.561*** \\
- & (0.365) & (0.574) & (0.574) \\
-GHI & 0.016*** & 0.013 & 0.014* \\
- & (0.005) & (0.008) & (0.008) \\
-Racial diversity & 9.466*** & -2.565 & 20.98* \\
- & (2.185) & (3.324) & (10.710) \\ \cline{1-4}
-Year FE & Yes & Yes & Yes  \\
-County FE & Yes & Yes & Yes  \\
-% Year & All & All & All  \\
-Observations & 3,849 & 3,849 & 3,849  \\
-\multicolumn{2}{l}{R-squared} & 0.45 & 0.45  \\
-\hline
+ & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
+ & (1) & (2) & (3) & (4) \\
+ & NB Marginal Effect & OLS & OLS with non-linear term & NB with lag term marginal effect \\ \hline
+Hispanic & 0.024** & 0.018 & 0.009 & 0.034** \\
+ & (0.012) & (0.018) & (0.018) & (0.014) \\
+White & -0.038 & 0.055 & 0.543** & 0.079 \\
+ & (0.025) & (0.037) & (0.214) & (0.159) \\
+\multicolumn{3}{l}{$(\text{White})^2$} & -0.005** &  \\
+ &  &  & (0.002) &  \\
+Log Area Median Income & 3.885*** & 3.373*** & 3.266*** & 3.704*** \\
+ & (0.643) & (0.837) & (0.838) & (0.732) \\
+Bachelor & 0.103*** & 0.115*** & 0.112*** & 0.067*** \\
+ & (0.017) & (0.024) & (0.024) & (0.018) \\
+Disadvantage & -1.829*** & -1.185** & -1.150** & -1.768*** \\
+ & (0.384) & (0.563) & (0.563) & (0.418) \\
+Credit & 6.461*** & 7.221*** & 7.250*** & 2.439*** \\
+ & (0.608) & (0.951) & (0.951) & (0.667) \\
+Log population & 6.780*** & 7.758*** & 7.687*** & 5.011*** \\
+ & (1.010) & (1.312) & (1.312) & (1.107) \\
+Electricity & -0.000 & 0.019 & 0.019 & -0.009 \\
+ & (0.018) & (0.026) & (0.026) & (0.020) \\
+Electricity price & 0.169 & -0.403* & -0.385* & 0.277 \\
+ & (0.156) & (0.219) & (0.219) & (0.174) \\
+Installation price & -4.248*** & -3.333*** & -3.387*** & -3.953*** \\
+ & (0.225) & (0.291) & (0.291) & (0.301) \\
+Log total housing unit & 0.849 & -1.007 & -0.900 & 1.735 \\
+ & (1.004) & (1.285) & (1.285) & (1.104) \\
+Urban & 0.004 & 0.016** & 0.017** & 0.002 \\
+ & (0.006) & (0.008) & (0.008) & (0.006) \\
+Owner occupied & 0.058*** & 0.137*** & 0.136*** & 0.026* \\
+ & (0.009) & (0.012) & (0.012) & (0.010) \\
+Built year group & -0.824*** & -1.031*** & -1.062*** & -0.417*** \\
+ & (0.118) & (0.174) & (0.174) & (0.129) \\
+PNM & -1.864*** & -4.574*** & -4.561*** & -0.720* \\
+ & (0.365) & (0.574) & (0.574) & (0.402) \\
+GHI & 0.016*** & 0.013 & 0.014* & 0.014** \\
+ & (0.005) & (0.008) & (0.008) & (0.006) \\
+Racial diversity & 9.466*** & -2.565 & 20.980* & 5.242 \\
+ & (2.185) & (3.324) & (10.710) & (7.607) \\ \hline
+Year FE & Yes & Yes & Yes & \multicolumn{1}{c}{Yes} \\
+County FE & Yes & Yes & Yes & \multicolumn{1}{c}{Yes} \\
+Observations & 3,849 & 3,849 & 3,849 & \multicolumn{1}{c}{3,628} \\
+\multicolumn{2}{l}{R-squared} & 0.45 & 0.45 & 0.755 \\ \hline
 \hline \\[-1.8ex]
-\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
+\textit{Note:} & \multicolumn{4}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
 \end{tabular}}
 \end{table}
+
 
 
 
@@ -1138,7 +1138,7 @@ Observations & 3,849 & 3,849 & 3,849  \\
 \centering
 \singlespacing
 \label{tab:count_regression_income}
-\resizebox{1\textwidth}{!}{
+\resizebox{0.7\textwidth}{!}{
 \begin{tabular}{lccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
@@ -1193,7 +1193,7 @@ R-squared & 0.392 & 0.526 & 0.424 \\
 \centering
 \singlespacing
 \label{tab:count_regression_3 periods}
-\resizebox{1\textwidth}{!}{
+\resizebox{0.85\textwidth}{!}{
 \begin{tabular}{lccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
