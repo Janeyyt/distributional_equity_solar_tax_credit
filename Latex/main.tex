@@ -403,7 +403,7 @@ Table \ref{tab:first-stage summary stat} presents summary statistics for all var
     \label{fig:stack_installation}
 \end{figure}
 
-We compare the impact of various demographic and socioeconomic characteristics on the probability of having solar installations through a linear probability model (LPM) with county and year-fixed effects. Below is the model specification. Considering the limitations of the LPM, such as the linearity assumption, we use the fixed effect Logit model as a robustness check.
+We compare the impact of various demographic and socioeconomic characteristics on the probability of having solar installations through a linear probability model (LPM) with county and year-fixed effects. Below is the LPM specification. Considering the limitations of the LPM, such as the linearity assumption, we use the fixed effect Logit model as a robustness check.
 
 
 \begin{equation}\label{reg_1}
@@ -455,7 +455,7 @@ R-squared & 0.522 &  \\
 
 \subsection{The intensive margin of adoption}
 
-Given the spatial disparities in adoption across different census tracts, we aim to assess the extent of solar PV adoption within these tracts and identify whether certain demographic and socioeconomic groups are installing more systems by estimating adoption equity on the intensive margin. We use the count of solar installations within a census tract-year as the dependent variable. Table \ref{tab: second-stage summary stat} presents summary statistics for the main variables, conditional on having at least one installation within a tract-year over the sample period. 
+Given the spatial disparities in adoption across different census tracts, our next step is to assess the extent of solar PV adoption within these tracts and identify whether certain demographic and socioeconomic groups are installing more systems by estimating adoption equity on the intensive margin. We use the count of solar installations within a census tract-year as the dependent variable. Table \ref{tab: second-stage summary stat} presents summary statistics for the main variables, conditional on having at least one installation within a tract-year over the sample period. 
 
 The average number of residential solar PV installations per census tract-year is 10.64, with installation counts ranging from a minimum of 1 to a maximum of 155, and a standard deviation of 14.84. We aim to identify the key demographic and socioeconomic factors leading to this variability in installation count through a count model. Given the presence of over-dispersion in our dependent variable, we choose the Negative Binomial (NB) model over the Poisson model. The NB regression with county and year fixed effect model can be specified as follows:
 
@@ -466,8 +466,18 @@ The average number of residential solar PV installations per census tract-year i
 &\quad + \sum_{m}\delta_{m}C_{it} + \theta_{t} + \phi_{j} + \eta_{jt}
 \end{aligned}
 \end{equation}
+In this regression, we assume that the installed system count follow a Negative Binomial distribution, and $\mu_{i,t}$ is the average system count.
 
-Table \ref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression for comparison with the results from the NB model (full results in \autoref{tab:count_regression_full}). The linear model yields estimates similar to the NB model, and owing to its straightforward interpretability, we use this model for the analysis. Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} reveal that solar installations are concentrated in census tract with a high White population share (greater than 50\%), but decreases as White population share exceeds 80\%. To address this trend, we introduce a non-linear term into the OLS model as the third model specification. \autoref{fig:installation_count} shows a rapid growth in solar installations in past years, to capture the impact of past installations on current installations, we add a lag-term into the NB model as the fourth model specification. 
+
+Table \ref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression with the system count as the dependent variable (model (2)) for comparison with the marginal effect from the NB model (full results in \autoref{tab:count_regression_full}). The linear model yields estimates similar to the NB marginal effects. Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} suggest that solar installations are concentrated in census tracts with high White population shares (greater than 50\%), but decreases as White population shares exceeds 80\%. To confirm this pattern, we introduce a non-linear term into the OLS model as the third model specification (model (3)). Following \textcite{ros_residential_2023}, we add lagged system count into the NB model (model (4)) to capture any potential non-contemporaneous relationship between the explanatory variables and solar installation counts. This dynamic model can be expressed as 
+\begin{equation}
+\label{reg_2.2}
+\begin{aligned}
+\log(\mu_{it}) &= \beta_{0} + \beta_{1}H_{it} + \beta_{2}WH_{it} + \beta_{3}\log(\text{Inc}_{it}) + \beta_{4}EDU_{it} + \beta_{5}DIS_{it} + \beta_{6}CR_{it} + \beta_7Count_{i,t-1}\\
+&\quad + \sum_{m}\delta_{m}C_{it} + \theta_{t} + \phi_{j} + \eta_{jt},
+\end{aligned}
+\end{equation}
+where $Count_{i,t-1}$ is the lagged system count.
 
 \begin{table}[!ht]
 \caption{Regression results for the intensive margin}
@@ -479,22 +489,23 @@ Table \ref{tab:count_regression} displays the intensive margin of solar adoption
 \hline \\[-1.8ex]
  & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
- & NB Marginal Effect & OLS & OLS with non-linear term & NB with lag term marginal effect \\ \cline{1-5}
-Hispanic & 0.024** & 0.018 & 0.009 & 0.034** \\
+ & NB & OLS & OLS with non-linear term & NB with lagged count  \\ 
+ & Marginal Effect &  &  & Marginal Effect \\ \cline{1-5}
+Hispanic & 0.027** & 0.022 & 0.016 & 0.034** \\
  & (0.012) & (0.018) & (0.018) & (0.014) \\
-White & -0.038 & 0.055 & 0.543** & 0.079 \\
- & (0.025) & (0.037) & (0.214) & (0.159) \\
-\multicolumn{3}{l}{$(\text{White})^2$} & -0.005** & \\
- & & & (0.002) & \\
-Log Area Median Income & 3.885*** & 3.373*** & 3.266*** & 3.704*** \\
- & (0.643) & (0.837) & (0.838) & (0.732) \\
-Bachelor & 0.103*** & 0.115*** & 0.112*** & 0.067*** \\
- & (0.017) & (0.024) & (0.024) & (0.018) \\
-Disadvantage & -1.829*** & -1.185** & -1.150** & -1.768*** \\
+White & -0.039 & 0.050 & 0.414** & 0.079 \\
+ & (0.025) & (0.037) & (0.198) & (0.159) \\
+\multicolumn{3}{l}{$(\text{White})^2$} & -0.004** &  \\
+ &  &  & (0.002) &  \\
+Log Area Median Income & 4.064*** & 4.051*** & 3.987*** & 3.704*** \\
+ & (0.663) & (0.949) & (0.950) & (0.732) \\
+Bachelor & 0.102*** & 0.106*** & 0.106*** & 0.067*** \\
+ & (0.017) & (0.025) & (0.025) & (0.018) \\
+Disadvantage & -1.822*** & -1.110** & -1.105** & -1.768*** \\
  & (0.384) & (0.563) & (0.563) & (0.418) \\
-Credit & 6.461*** & 7.221*** & 7.250*** & 2.439*** \\
- & (0.608) & (0.951) & (0.951) & (0.667) \\
-Count\_lag & & & & 0.364*** \\
+Credit & 6.491*** & 7.145*** & 7.274*** & 2.439*** \\
+ & (0.609) & (0.952) & (0.954) & (0.667) \\
+Lagged System Count & & & & 0.364*** \\
  & & & & (0.020) \\ \cline{1-5}
 Control & Yes & Yes & Yes & Yes \\
 Year FE & Yes & Yes & Yes & Yes \\
@@ -508,24 +519,28 @@ Observations & 3,849 & 3,849 & 3,849 & 3,628 \\
 \end{table}
 
 
-The OLS estimation indicates that racial and ethnic factors are not statistically significant, suggesting that they do not play a significant role in shaping solar PV across census tracts. This result demonstrates that NM does not experience significant racial and ethnic disparities in solar adoption, contrary to what prior literature suggested \parencite{gao_solar_2022,darghouth_characterizing_2022}. While the direct impact of the White population rate is not statistically significant, Model (3) reveals a significant non-linear correlation. As the White population rate increases, the solar PV adoption grows but at a diminishing rate.
+To evaluate the impact of the main demographic characteristics on solar installations in NM, we compare results of different model specifications in Table \ref{tab:count_regression}. We highlight several key findings: 
+
+First, we found that the Hispanic population in NM does not experience a disadvantage in solar PV adoption; rather, it has a slight advantage. This is contrary to findings from other studies using national samples, which suggest significant disparities \parencite{gao_solar_2022, darghouth_characterizing_2022}. While the Hispanic population rate does show a statistically significant positive impact on installation counts in NB models (models (1) and (4)), the overall numerical effect remains small, indicating that ethnic factors do not play a significant role in shaping solar PV adoption across census tracts in NM.
+
+Second, the result shows that being White does not confer an advantage in solar PV adoption, as evidenced by the small and statistically insignificant coefficients for the White population rate in both OLS and NB models. However, model (3) indicates a significant non-linear relationship. The positive first-order coefficient suggests that higher percentages of White residents correlate with increased solar adoption, but the negative second-order coefficient indicates that this effect diminishes at higher rates. This non-linear dynamic explains why the average effect may appear insignificant, capturing the complexity of how demographic factors influence solar adoption.
+
+Third, the consistent result across all model specifications reveals that demographic factors such as income, educational attainment, and residence in underserved communities continue to influence disparities in solar PV adoption, with income showing the most significant impact. Specifically, a one percent increase in the area median income within a census tract correlates with approximately four additional solar installations per year. Conversely, tracts categorized as disadvantaged experience fewer installations, typically around two less annually compared to non-disadvantaged tracts. These findings align with literature by that highlighted the role of higher income and educational levels in fostering greater environmental awareness and investment capacity in solar technologies \parencite{oshaughnessy_income-targeted_2021, darghouth_characterizing_2022}. In contrast, disadvantaged areas encounter significant barriers, leading to reduced adoption rates. Furthermore, the availability of solar tax credits has been found to boost installations across all demographic groups, underscoring the effectiveness of financial incentives in promoting solar energy adoption \parencite{borenstein_private_2017}. 
 
 
-The OLS results also highlight the significant roles of income, educational attainment, disadvantage status, and credit incentive availability in solar PV adoption across census tracts. Consistent with the findings of \textcite{oshaughnessy_income-targeted_2021} and \textcite{darghouth_characterizing_2022}, areas with higher income and educational attainment are more likely to install solar PV due to greater environmental awareness and a higher capacity to invest in solar energy technologies. Conversely, disadvantaged tracts face greater barriers to adoption, exhibiting a negative effect on solar PV uptake. Additionally, our analysis finds that solar credit incentives markedly increase solar PV installations, reflecting findings in \textcite{borenstein_private_2017} on the importance of financial incentives in promoting solar energy. 
+Lastly, we observe a statistically significant positive impact from the lagged system count on current period installations in model (4), indicating that NM is still experiencing a growth phase in solar installations. The positive coefficient (0.364) suggests that higher installation numbers in one period are likely to lead to even more in the following period. While we do not delve into specific mechanisms, we refer to insights from the literature to gain some plausible explanations. The growing trend in solar installation may be attributed to peer effects, which reduce the uncertainty and lead to increased trust in the reliability of solar PV, consequently resulting in higher installations \parencite{oshaughnessy_role_2023}.  Additionally, learning-by-doing among installers may lead to decreased costs over time \parencite{oshaughnessy_non-monotonic_2019}. When combined with state tax credits, these reduced costs make solar installations more financially accessible for households, further encouraging adoption. However, it is important to note that as the market matures and potentially approaches saturation, the positive impact of previous installations might diminish, possibly even turning negative.
 
-Model (4) indicates that more installations in the previous year are associated with an increase in installations in the current year. This pattern confirms that New Mexico is in a period of growth in solar installations. The introduction of the lag term reduces the positive impact of the state credit incentives, likely because the lag term captures some of the earlier effects of the incentive on promoting solar installations. 
-
-Given the significantly positive impact of income on solar installations, we further explore how this impact varies across different income brackets. Additionally, we assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income. To answer these research questions, we estimate the OLS model on two subsamples: (1) divided by income quartile, and (2) divided by the availability of state solar incentives.
+Given the significantly positive impact of income on solar installations, we further explore how this impact varies across different income brackets. Additionally, we assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income. To answer these research questions, we estimate the marginal effect of NB model on two subsamples: (1) divided by income quartile, and (2) divided by the availability of state solar incentives.
 
 \subsubsection{Adoption disparity by income groups}
 
-To assess the impact of tract-level characteristics by income bracket, we calculate the average area median income over the study period and categorize census tracts into three groups: the top income quartile, the bottom income quartile, and the middle. Table \ref{tab:count_regression_income} presents the estimation results for each group, revealing several notable observations.
+To assess the impact of tract-level characteristics on solar installation across different income brackets, we calculate the average area median income over the study period and segmented the census tracts into three groups: the top income quartile, the bottom income quartile, and the middle. Table \ref{tab:count_regression_income} presents the NB model estimation results for each group, revealing several notable observations.
 
-First, in the bottom income quartile, none of the key demographic factors significantly impact solar installations. While the Hispanic population rate shows a positive and statistically significant effect, its overall numerical impact is small. That is, there is little disparity in solar adoption within the bottom income quartile. 
+First, within the bottom income quartile, solar installations appear to be largely uninfluenced by key demographic factors. While the Hispanic population rate shows a positive and statistically significant effect, its overall numerical impact is small. Interestingly, being classified as disadvantaged within the bottom income quartile is correlated with an additional two installations per year, which contrasts with results from the full sample. This suggests little disparity in solar adoption among this income group. 
 
-Second, in the top income quartile, the white population share negatively impacts solar installations. Specifically, a 1 percent increase in the white population correlates with an average decrease of 0.78 solar installations. This negative trend may be attributed to the non-linear effects of white population share on solar installations. As shown in Figure \ref{fig:combined_income_WH}, census tracts in the top income quartile generally have higher shares of white populations. Moreover, racial diversity has a strong positive impact on installations; areas with less racial diversity in the top quartile tend to have more installations.
+Second, in the top income quartile, the white population share negatively impacts solar installations. Specifically, a 1 percent increase in the white population correlates with an average decrease of 0.57 solar installations. This negative trend may be attributed to the non-linear effects of white population share on solar installations. As shown in Figure \ref{fig:combined_income_WH}, census tracts in the top income quartile generally have higher shares of white populations. Moreover, racial diversity has a strong positive impact on installations; areas with less racial diversity in the top quartile tend to have more installations.
 
-Third, an intriguing trend is observed in the top income quartile’s higher sensitivity to financial factors compared to the other income groups. Contrary to expectations, income significantly boosts solar installations in this group; a 1 percent increase in area median income correlates with an additional 5.352 installations. Additionally, financial responsiveness extends to installation costs and state incentives. A one-dollar increase in the average installation price per watt results in a decrease of 4.53 installations, whereas the availability of state solar incentives contributes to an average increase of 14.55 installations. These findings suggest that households in top quartile areas exhibit high financial sensitivity when deciding on solar investments, suggesting that solar PV is a luxury good even among more affluent households.
+Third, the top income quartile exhibits greater sensitivity to financial factors compared to the other income groups. Contrary to expectations, income significantly boosts solar installations in this group; a 1 percent increase in area median income correlates with approximately six additional installations. Financial responsiveness also extends to installation costs and state incentives. A one-dollar increase in the average installation price per watt leads to six fewer installations, while the availability of state solar incentives is associated with an average increase of 11.6 installations. These findings indicate that households in top quartile areas demonstrate heightened financial sensitivity when making solar investment decisions and show a higher uptake of the state tax incentive compared to other income groups.
 
 
 % As expected, income positively affects solar installations across all income groups, with the strongest effect in the top quartile (5.352) and a notable impact in the middle group (4.345). However, the income effect is not significant in the bottom quartile, likely due to the low income variation within this group, which diminishes its influence on solar adoption. Moreover, households in the bottom quartile face a larger financial burden, making small income increases insufficient to significantly promote solar adoption. 
@@ -554,7 +569,7 @@ To evaluate whether state-level solar incentives alleviate or exacerbate dispari
 
 Our findings indicate that in NM, state solar credits significantly mitigate racial disparities in solar adoption. When state incentives were available, no significant racial disparities were observed. In contrast, during periods without these incentives, a 1 percentage point increase in the White population correlated with an average increase of 0.3 solar installations, suggesting that areas with higher White population share were more likely to adopt solar technology. This pattern underscores the effectiveness of state incentives to help create a more equitable environment for solar adoption across different racial groups. 
 
-Further analysis of income’s influence on solar adoption highlights a significant trend: during the years without state incentives (2017-2019), the correlation between income and solar installation counts was notably strong, as indicated by a coefficient of 9.787, pointing to increased income-related disparities. However, with the reintroduction of the NSMDTC in 2020, this impact significantly diminished, with the income coefficient turning negative (-0.728). This reversal suggests that the state tax credits have effectively reduced income-based disparities. 
+Further analysis of income’s influence on solar adoption highlights a significant trend: during the years without state incentives (2017-2019), the correlation between income and solar installation counts was notably strong, as indicated by a coefficient of 5.950, pointing to increased income-related disparities. However, with the reintroduction of the NSMDTC in 2020, this impact significantly diminished, with the income coefficient turning negative (-2.600). This reversal suggests that the state tax credits have effectively reduced income-based disparities. 
 
 Nonetheless, when examining the income subsample regression (\autoref{tab:count_regression_income}), it becomes evident that while the top income quartile is highly responsive to the state tax credit, the bottom quartile is not. This discrepancy may be due to the non-refundable nature of the tax credit. Therefore, those in the bottom income quartile with insufficient tax liability cannot benefit from it. Consequently, while the state tax credit reduces within-group disparity among income quartiles, it does not substantially narrow the gap across groups, diverging from the effects suggested by \textcite{oshaughnessy_rooftop_2022}. This outcome underscores the importance of incentive design in achieving equitable benefits across different income levels, as highlighted by \textcite{borenstein_distributional_2016}.
 
@@ -1076,49 +1091,51 @@ Credit & 3849 & 0.77 & 0.42 & 1 & 1 & 0 \\ \hline
 \caption{Full results for regression model (\ref{reg_2})}
 \label{tab:count_regression_full}
 \centering
+\singlespacing
 \resizebox{1\textwidth}{!}{
 \begin{tabular}{lcccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
  & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
- & (1) & (2) & (3) & (4) \\
- & NB Marginal Effect & OLS & OLS with non-linear term & NB with lag term marginal effect \\ \hline
-Hispanic & 0.024** & 0.018 & 0.009 & 0.034** \\
+  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
+ & NB & OLS & OLS with non-linear term & NB with lagged count  \\ 
+ & Marginal Effect &  &  & Marginal Effect \\ \cline{1-5}\\ 
+Hispanic & 0.027** & 0.022 & 0.016 & 0.034** \\
  & (0.012) & (0.018) & (0.018) & (0.014) \\
-White & -0.038 & 0.055 & 0.543** & 0.079 \\
- & (0.025) & (0.037) & (0.214) & (0.159) \\
-\multicolumn{3}{l}{$(\text{White})^2$} & -0.005** &  \\
+White & -0.039 & 0.050 & 0.414** & 0.079 \\
+ & (0.025) & (0.037) & (0.198) & (0.159) \\
+\multicolumn{3}{l}{$(\text{White})^2$} & -0.004** &  \\
  &  &  & (0.002) &  \\
-Log Area Median Income & 3.885*** & 3.373*** & 3.266*** & 3.704*** \\
- & (0.643) & (0.837) & (0.838) & (0.732) \\
-Bachelor & 0.103*** & 0.115*** & 0.112*** & 0.067*** \\
- & (0.017) & (0.024) & (0.024) & (0.018) \\
-Disadvantage & -1.829*** & -1.185** & -1.150** & -1.768*** \\
+Log Area Median Income & 4.064*** & 4.051*** & 3.987*** & 3.704*** \\
+ & (0.663) & (0.949) & (0.950) & (0.732) \\
+Bachelor & 0.102*** & 0.106*** & 0.106*** & 0.067*** \\
+ & (0.017) & (0.025) & (0.025) & (0.018) \\
+Disadvantage & -1.822*** & -1.110** & -1.105** & -1.768*** \\
  & (0.384) & (0.563) & (0.563) & (0.418) \\
-Credit & 6.461*** & 7.221*** & 7.250*** & 2.439*** \\
- & (0.608) & (0.951) & (0.951) & (0.667) \\
-Log population & 6.780*** & 7.758*** & 7.687*** & 5.011*** \\
- & (1.010) & (1.312) & (1.312) & (1.107) \\
-Electricity & -0.000 & 0.019 & 0.019 & -0.009 \\
+Credit & 6.491*** & 7.145*** & 7.274*** & 2.439*** \\
+ & (0.609) & (0.952) & (0.954) & (0.667) \\
+Log population & 6.400*** & 6.786*** & 6.768*** & 5.011*** \\
+ & (1.005) & (1.374) & (1.374) & (1.107) \\
+Electricity & -0.002 & 0.017 & 0.017 & -0.009 \\
  & (0.018) & (0.026) & (0.026) & (0.020) \\
-Electricity price & 0.169 & -0.403* & -0.385* & 0.277 \\
- & (0.156) & (0.219) & (0.219) & (0.174) \\
-Installation price & -4.248*** & -3.333*** & -3.387*** & -3.953*** \\
- & (0.225) & (0.291) & (0.291) & (0.301) \\
-Log total housing unit & 0.849 & -1.007 & -0.900 & 1.735 \\
- & (1.004) & (1.285) & (1.285) & (1.104) \\
-Urban & 0.004 & 0.016** & 0.017** & 0.002 \\
+Electricity price & 0.179 & -0.390* & -0.368* & 0.277 \\
+ & (0.156) & (0.219) & (0.220) & (0.174) \\
+Installation price & -4.243*** & -3.289*** & -3.351*** & -3.953*** \\
+ & (0.225) & (0.292) & (0.293) & (0.301) \\
+Log total housing unit & 1.319 & 0.113 & 0.151 & 1.735 \\
+ & (0.996) & (1.356) & (1.355) & (1.104) \\
+Urban & 0.017** & 0.017** & 0.004 & 0.002 \\
  & (0.006) & (0.008) & (0.008) & (0.006) \\
-Owner occupied & 0.058*** & 0.137*** & 0.136*** & 0.026* \\
+Owner occupied & 0.059*** & 0.138*** & 0.137*** & 0.026* \\
  & (0.009) & (0.012) & (0.012) & (0.010) \\
-Built year group & -0.824*** & -1.031*** & -1.062*** & -0.417*** \\
+Built year group & -0.818*** & -1.016*** & -1.030*** & -0.417*** \\
  & (0.118) & (0.174) & (0.174) & (0.129) \\
-PNM & -1.864*** & -4.574*** & -4.561*** & -0.720* \\
+PNM & -1.886*** & -4.576*** & -4.574*** & -0.720* \\
  & (0.365) & (0.574) & (0.574) & (0.402) \\
-GHI & 0.016*** & 0.013 & 0.014* & 0.014** \\
+GHI & 0.016*** & 0.014* & 0.014* & 0.014** \\
  & (0.005) & (0.008) & (0.008) & (0.006) \\
-Racial diversity & 9.466*** & -2.565 & 20.980* & 5.242 \\
- & (2.185) & (3.324) & (10.710) & (7.607) \\ \hline
+Racial diversity & 9.026*** & -2.366 & 14.46 & 5.242 \\
+ & (2.109) & (3.239) & (9.526) & (7.607) \\ \hline
 Year FE & Yes & Yes & Yes & \multicolumn{1}{c}{Yes} \\
 County FE & Yes & Yes & Yes & \multicolumn{1}{c}{Yes} \\
 Observations & 3,849 & 3,849 & 3,849 & \multicolumn{1}{c}{3,628} \\
@@ -1131,56 +1148,56 @@ Observations & 3,849 & 3,849 & 3,849 & \multicolumn{1}{c}{3,628} \\
 
 
 
-
-
 \begin{table}[H]
-\caption{Regression results for system count by income quartile}
+\caption{Negative binomial marginal effects for system count by income quartile}
 \centering
 \singlespacing
 \label{tab:count_regression_income}
-\resizebox{0.7\textwidth}{!}{
+\resizebox{0.75\textwidth}{!}{
 \begin{tabular}{lccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
  & \multicolumn{3}{c}{Dependent variable: System count} \\ \cline{2-4}
  & (1) & (2) & (3) \\
  & Bottom 25\% & Top 25\% & Middle quartiles \\ \cline{1-4}
-Hispanic & 0.084** & 0.094* & 0.014 \\
- & (0.033) & (0.051) & (0.021) \\
-White & 0.06 & -0.772*** & 0.223*** \\
- & (0.061) & (0.122) & (0.049) \\
-Log area median income & 0.101 & 5.352* & 4.345*** \\
- & (1.644) & (2.905) & (1.370) \\
-Bachelor & -0.021 & 0.197*** & 0.084** \\
- & (0.047) & (0.064) & (0.033) \\
-Disadvantage & 1.286 & 9.269 & 0.73 \\
- & (1.544) & (8.589) & (0.597) \\
-Credit & 2.825* & 14.550*** & 5.384*** \\
- & (1.450) & (2.109) & (1.197) \\
-Log population & 2.507 & 9.843*** & 6.553*** \\
- & (2.040) & (3.808) & (1.781) \\
-Electricity& 0.043 & 0.184** & -0.022 \\
- & (0.032) & (0.089) & (0.033) \\
-Electricity price & -0.508* & -1.024 & -0.359 \\
- & (0.301) & (0.657) & (0.287) \\
-Installation price & -2.527*** & -4.530*** & -3.102*** \\
- & (0.418) & (0.860) & (0.369) \\
-Log total housing unit & -0.069 & -1.347 & -0.212 \\
- & (1.991) & (3.900) & (1.749) \\
-Urban& 0.00772 & -0.0175 & 0.0243** \\
- & (0.014) & (0.020) & (0.011) \\
-Owner occupied & 0.070*** & 0.166*** & 0.096*** \\
- & (0.019) & (0.037) & (0.017) \\
-Built year group & -0.942*** & -0.451 & -0.985*** \\
- & (0.282) & (0.453) & (0.222) \\
-PNM & -1.276 & -4.955*** & -3.674*** \\
- & (1.131) & (1.134) & (0.784) \\
-Racial Diversity & -0.935 & 50.72*** & -12.74*** \\
- & (5.320) & (9.389) & (4.327) \\ \cline{1-4}
+Hispanic & 0.057** & 0.127*** & 0.014 \\
+ & (0.022) & (0.040) & (0.013) \\
+White & 0.106* & -0.570*** & 0.255*** \\
+ & (0.056) & (0.080) & (0.039) \\
+Log area median income & 0.904 & 6.111*** & 1.665* \\
+ & (1.046) & (2.072) & (0.878) \\
+Bachelor & 0.006 & 0.293*** & 0.078*** \\
+ & (0.031) & (0.047) & (0.020) \\
+Disadvantage & 2.182** & 4.710 & -0.301 \\
+ & (1.017) & (11.47) & (0.361) \\
+Credit & 3.086*** & 11.62*** & 4.869*** \\
+ & (0.850) & (1.478) & (0.669) \\
+Log population & 2.684* & 13.82*** & 4.870*** \\
+ & (1.390) & (2.797) & (1.207) \\
+Electricity & 0.010 & 0.114* & -0.049** \\
+ & (0.022) & (0.068) & (0.020) \\
+Electricity price & -0.060 & 0.581 & 0.185 \\
+ & (0.191) & (0.500) & (0.182) \\
+Installation price & -2.785*** & -6.111*** & -3.374*** \\
+ & (0.322) & (0.679) & (0.254) \\
+Log total housing unit & 0.129 & -1.363 & 1.556 \\
+ & (1.389) & (2.812) & (1.209) \\
+Urban & 0.005 & -0.025* & 0.022*** \\
+ & (0.009) & (0.015) & (0.007) \\
+Owner occupied & 0.050*** & 0.026 & 0.079*** \\
+ & (0.014) & (0.029) & (0.011) \\
+Built year group & -0.851*** & -0.276 & -0.678*** \\
+ & (0.184) & (0.329) & (0.135) \\
+PNM & -0.178 & -1.579** & -2.181*** \\
+ & (0.691) & (0.783) & (0.466) \\
+GHI & -0.008 & 0.046*** & -0.016** \\
+ & (0.015) & (0.015) & (0.007) \\
+Racial Diversity & -5.223 & 45.57*** & -11.48*** \\
+ & (4.601) & (6.325) & (3.268) \\ \cline{1-4}
 Year FE & Yes & Yes & Yes \\
 County FE & Yes & Yes & Yes \\
 Observations & 674 & 1,235 & 1,940 \\
-R-squared & 0.392 & 0.526 & 0.424 \\ 
+Year & All & All & All \\ 
 \hline
 \hline \\[-1.8ex]
 \textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
@@ -1189,52 +1206,53 @@ R-squared & 0.392 & 0.526 & 0.424 \\
 
 
 \begin{table}[H]
-\caption{Regression results for system count by state credit availability}
+\caption{Negative binomial marginal effects for system count by state credit availability}
 \centering
 \singlespacing
 \label{tab:count_regression_3 periods}
-\resizebox{0.85\textwidth}{!}{
+\resizebox{0.7\textwidth}{!}{
 \begin{tabular}{lccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
  & \multicolumn{3}{c}{Dependent variable: System count} \\ \cline{2-4}
  & (1) & (2) & (3) \\
  & 2010-2016 & 2017-2019 & 2020-2022 \\ \cline{1-4}
-\% population identified as Hispanic & 0.009 & 0.072* & -0.029 \\
- & (0.015) & (0.040) & (0.042) \\
-\% population identified as White & -0.004 & 0.310*** & 0.045 \\
- & (0.036) & (0.110) & (0.069) \\
-Log area median income & 4.943*** & 9.787*** & -0.728 \\
- & (0.819) & (2.525) & (2.195) \\
-\% of population with bachelor degree   (\textgreater{}25) & 0.142*** & 0.045 & 0.081 \\
- & (0.022) & (0.052) & (0.055) \\
-Within disadvantage census tract & -0.466 & -0.331 & -2.189* \\
- & (0.459) & (1.206) & (1.291) \\
-Log population & 5.765*** & 5.22 & 3.342 \\
- & (1.225) & (3.336) & (2.917) \\
-\% housing unit used electricity as   heating source & 0.017 & 0.254*** & -0.104* \\
- & (0.025) & (0.066) & (0.060) \\
-Electricity price & 0.075 & 0.072 & 0.358 \\
- & (0.192) & (0.555) & (0.590) \\
-Installation price & -1.444*** & -2.507** & -36.09*** \\
- & (0.208) & (1.051) & (10.840) \\
-Log total housing unit & -0.16 & 5.363 & 2.97 \\
- & (1.215) & (3.389) & (2.825) \\
-Urban share & -0.028*** & 0.060*** & 0.110*** \\
- & (0.007) & (0.020) & (0.019) \\
-Owner occupancy rate & 0.059*** & 0.154*** & 0.233*** \\
- & (0.010) & (0.045) & (0.044) \\
-Built year group & 0.129 & -0.840** & -2.641*** \\
- & (0.149) & (0.364) & (0.403) \\
-PNM & -0.447 & -6.044*** & -8.286*** \\
- & (0.473) & (1.155) & (1.356) \\
-RD & -4.480 & -28.51*** & 0.885 \\
- & (3.080) & (8.778) & (6.460) \\ \cline{1-4}
+Hispanic & 0.011 & 0.063** & -0.016 \\
+ & (0.009) & (0.032) & (0.032) \\
+White & 0.014 & 0.343*** & -0.000 \\
+ & (0.028) & (0.110) & (0.053) \\
+Log area median income & 3.722*** & 5.950*** & -2.600 \\
+ & (0.504) & (1.920) & (1.664) \\
+Bachelor & 0.111*** & 0.026 & 0.072* \\
+ & (0.013) & (0.040) & (0.040) \\
+Disadvantage & -0.560** & -1.600* & -3.388*** \\
+ & (0.280) & (0.918) & (0.975) \\
+Log population & 4.256*** & 2.526 & 3.151 \\
+ & (0.767) & (2.764) & (2.436) \\
+Electricity & 0.013 & 0.204*** & -0.112** \\
+ & (0.015) & (0.052) & (0.047) \\
+Electricity price & 0.218* & 0.301 & 0.732 \\
+ & (0.119) & (0.416) & (0.474) \\
+Installation price & -1.336*** & -4.248*** & -36.52*** \\
+ & (0.131) & (0.805) & (8.084) \\
+Log total housing unit & 0.403 & 9.155*** & 5.507** \\
+ & (0.765) & (2.846) & (2.422) \\
+Urban & -0.021*** & 0.061*** & 0.086*** \\
+ & (0.004) & (0.016) & (0.015) \\
+Owner occupied & 0.017*** & 0.226*** & 0.263*** \\
+ & (0.006) & (0.035) & (0.034) \\
+Built year group & 0.111 & -1.143*** & -1.641*** \\
+ & (0.089) & (0.286) & (0.298) \\
+PNM & -0.103 & -2.906*** & -3.915*** \\
+ & (0.265) & (0.834) & (0.971) \\
+GHI & 0.011** & 0.038** & 0.044** \\
+ & (0.005) & (0.016) & (0.017) \\
+Racial Diversity & -0.728 & -19.86** & 7.222 \\
+ & (2.268) & (8.461) & (4.960) \\ \cline{1-4}
 Year FE & Yes & Yes & Yes \\
 County FE & Yes & Yes & Yes \\
 State credit & SMDTC & - & NSMDTC \\
 Observations & 1,791 & 882 & 1,176 \\
-R-squared & 0.417 & 0.524 & 0.468 \\ 
 \hline
 \hline \\[-1.8ex]
 \textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
