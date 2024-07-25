@@ -12,15 +12,15 @@
 \setcounter{page}{1}
 \section*{Executive Summary}
 
-The state of New Mexico’s Energy Transition Act (ETA), passed in 2019, sets ambitious goals for renewable energy, aiming for 50\% by 2030, 80\% by 2040, and ultimately 100\% carbon-free electricity by 2045. This legislative move reflects the state’s commitment to addressing climate change. New Mexico’s unique demographic and economic landscape, characterized by its dependence on the oil and gas industry and substantial renewable energy resources, underscores the importance of ensuring an equitable energy transition. The focus of this research is on understanding the adoption patterns of residential solar photovoltaic (PV) systems and their implications for equity in this transition.
+The state of New Mexico passed the Energy Transition Act (ETA) in 2019 which sets statewide renewable energy standard to achieve 100\% carbon-free electricity by 2045. This legislative move reflects the state’s commitment to addressing climate change. New Mexico’s unique demographic and economic landscape, characterized by its diverse population, dependence on the oil and gas industry, and substantial renewable energy resources, underscores the importance of ensuring an equitable energy transition. The focus of this research is on understanding the adoption patterns of residential solar photovoltaic (PV) systems and their implications for equity in this transition.
 
-We construct comprehensive data on solar installations collected from state agencies and utility companies to examine current trends and the distribution of solar PV adoption across New Mexico. We analyze how solar adoption varies by geographical location, income levels, and racial and ethnic groups. Additionally, we evaluate the impact of state solar tax credit on promoting solar adoption among different segments of the population and its distributional effects.
+We construct a comprehensive dataset on solar installations collected from state agencies and utility companies to examine current trends and the distribution of solar PV adoption across New Mexico. We analyze how solar adoption varies by geographical location, income levels, and racial and ethnic groups. Additionally, we evaluate the impact of state solar tax credit on promoting solar adoption among different segments of the population and its distributional effects.
 
 Our key findings are:
 \begin{itemize}
     \item Residential solar PV installation in New Mexico has grown exponentially, fueled by decreasing costs and supportive tax incentives. However, this growth is unevenly distributed, with higher adoption rates observed in urban areas, higher-income neighborhoods, and White-majority census tracts.
-    \item There is minimal racial disparity in solar adoption within New Mexico. The predominant sources of existing adoption inequality stem from disparities in income and education.
-    \item State-level incentives have effectively mitigated adoption inequality but require further refinement to address the inequitable distribution of benefits from solar tax credits.
+    \item There is minimal racial disparity in solar adoption within New Mexico. The predominant sources of existing adoption inequality stem from disparities in income and education level.
+    \item State-level incentives have effectively mitigated adoption inequality. However, the distribution of the tax credit benefits is concentrated among wealthier households with higher electricity consumption level.
 \end{itemize}
 
 This study documents the current landscape of solar PV adoption in New Mexico and provides the first evidence that the state solar tax incentive effectively promotes equitable solar adoption. We recommend the continuous monitoring and adjustment of incentive programs to ensure they remain inclusive and effective in reducing disparities in solar adoption. The findings also highlight the need for innovative and targeted policy designs to reduce structural barriers to solar adoption, enhance the distributional equity of state incentives, and reduce potential informational barriers for disadvantaged groups.
@@ -45,7 +45,7 @@ This study documents the current landscape of solar PV adoption in New Mexico an
 \subsection{Energy transition in New Mexico}
 
 
-In 2019, the state of New Mexico (NM) passed its Energy Transition Act (ETA), which sets a statewide renewable energy standard of 50\% by 2030, with a further goal of achieving 80\% by 2040. The ultimate objective is to have 100\% carbon-free electricity by 2045 for investor-owned utilities (IOU) and by 2050 for rural electric cooperatives (\autoref{fig:nm_eta}) \parencite{nmleg2019}. The ETA exemplifies the state's commitment to achieving carbon neutrality in the era of climate change. Ensuring a just and equitable transition towards clean energy is especially important in the NM context given its unique socioeconomic status.
+In 2019, the state of New Mexico (NM) passed its Energy Transition Act (ETA), which sets a statewide Renewable Portfolio Standard (RPS). The RPS mandates that 50\% of the electricity supplied by investor-owned utilities (IOUs) and rural electric cooperatives (rural co-ops) must come from zero-carbon resources by 2030, with a further goal of achieving 80\% by 2040. The ultimate objective is to have 100\% carbon-free electricity supplied by IOUs and rural co-ops by 2045 and 2050, respectively (\autoref{fig:nm_eta}) \parencite{nmleg2019}. The ETA exemplifies the state's commitment to achieving carbon neutrality in the era of climate change. Ensuring a just and equitable transition towards clean energy is especially important in the NM context given its unique socioeconomic status.
 
 \begin{figure}[!ht]
     \centering
@@ -54,11 +54,11 @@ In 2019, the state of New Mexico (NM) passed its Energy Transition Act (ETA), wh
     \label{fig:nm_eta}
 \end{figure}
 
-NM is notable for its distinctive demographic composition and climate. Ranking 5th in land area at 121,590 square miles and 36th in population with 2.1 million residents, NM has one of the lowest population densities in the nation \parencite{uscensus2022}.\footnote{NM is the 46th most densely populated state in the nation \parencite{uscensus2022}.} NM is also a majority-minority state, with over 50\% of the population identifies as Hispanic and 11.2\% as Native American \parencite{uscensus2020}.  Around 86\% of the population lives in disadvantaged census tracts defined as overburdened and under-served by the Climate and Economic Justice Screening Tool (CEJST).\footnote{Author's calculation. See \url{https://screeningtool.geoplatform.gov/en/methodology} for a detailed definition of disadvantaged census tracts.} 
+NM is notable for its distinctive demographic composition and climate. Ranking 5th in land area at 121,590 square miles and 36th in population with 2.1 million residents, NM has one of the lowest population densities in the nation \parencite{uscensus2022}.\footnote{NM is the 46th most densely populated state in the nation \parencite{uscensus2022}.} NM is also a majority-minority state, with over 50\% of the population identifies as Hispanic and 11.2\% as Native American \parencite{uscensus2020}.  Around 86\% of the population lives in disadvantaged census tracts defined as overburdened and under-served by the Climate and Economic Justice Screening Tool (CEJST).\footnote{Author's calculation. Disadvantaged communities are defined as overburdened in one or several of the following aspects: climate change, energy, health, housing, legacy pollution, transportation, waste and wastewater, and workforce development. See \url{https://screeningtool.geoplatform.gov/en/methodology} for a detailed definition of for each of the aspects.} 
 
 In terms of the state's economy, NM Ranks 41st in GDP per capita among the U.S. states.\footnote{Data source: Statista, Real per capita gross domestic product of United States in 2023, by state \url{https://www.statista.com/statistics/248063/per-capita-us-real-gross-domestic-product-gdp-by-state/}.} NM's economy has been significantly reliant on the oil and gas (O\&G) industry since the discovery of the Permian Basin oil fields in the 1920s. The O\&G industry contributes to around 10\% of NM's annual Gross Domestic Product (GDP) and 25\% to 30\% of the state's tax revenue \parencite{eia2023nm, nmlegislative2023}. This dependency on the fossil fuel industry also poses a challenge to the equitable energy transition.
 
-NM is also well-suited to achieve 100\% renewables as NM boasts abundant wind, solar, and geothermal potential. The state's eastern high plains offer significant wind energy opportunities, while NM ranks third in solar energy potential and sixth in geothermal energy potential nationally. In 2022, renewable sources accounted for 42\% of the state's total electricity generation, well on track to achieve the 2030 50\% renewable target \parencite{eia2023energy}.
+NM is also well-suited to achieve 100\% renewables as it boasts abundant wind, solar, and geothermal potential. The state's eastern high plains offer significant wind energy opportunities, while NM ranks third in solar energy potential and sixth in geothermal energy potential nationally. In 2022, renewable sources accounted for 42\% of the state's total electricity generation, well on track to achieve the 2030 50\% renewable target \parencite{eia2023energy}.
 
 The interplay between NM's unique demographics, O\&G dependency, and abundant renewable energy resources underlines the importance of exploring equitable energy transition pathways (\autoref{fig:nm_background}). In this research, we focus on solar photovoltaic (PV) and investigate the current state of residential solar PV adoption in NM and its equity implications. 
 
@@ -78,13 +78,13 @@ In the context of energy transition, the definition of equity encompasses multip
 
 \subsubsection{Access equity}
 
- Access equity refers to the availability and accessibility of clean energy technologies for all communities, regardless of income, race, or geographic location. \textcite{brockway_inequitable_2021} find using California data that existing grid infrastructure may not be sufficiently robust to handle the increased load from widespread solar PV installations without significant upgrades. This can lead to inequitable access, where certain regions or communities might have lesser ability to connect their solar systems to the grid due to these capacity issues. This finding is relevant in the NM context as solar installations are concentrated in urban areas where in some areas grid infrastructure limits solar installations. For example, in parts of Albuquerque and Rio Rancho, the feeder grids are already at maximum capacity.\footnote{See \url{https://pnm.maps.arcgis.com/apps/webappviewer/index.html?id=cbd3bad85fc64f2180dda652e957bacd} for areas with maximum feeder capacity.} Residents in those communities cannot be approved for new solar installations with grid interconnection until the infrastructure is upgraded.\footnote{In 2021, 2022, and 2023, the Public Service Company of New Mexico (PNM) put 96, 70, and 29 new solar applications on hold, respectively, due to a lack of feeder capacity \parencite{pnm2021,pnm2022,pnm2023}. }
+ Access equity refers to the availability and accessibility of clean energy technologies for all communities, regardless of income, race, or geographic location. \textcite{brockway_inequitable_2021} find using California data that existing grid infrastructure may not be sufficiently robust to handle the increased load from widespread solar PV installations without significant upgrades. This can lead to inequitable access, where certain regions or communities might have lesser ability to connect their solar systems to the grid due to these capacity issues. This finding is relevant in the NM context as solar installations are concentrated in urban areas where the grid infrastructure limits solar installations in some neighborhoods. For example, in parts of Albuquerque and Rio Rancho, the feeder grids are already at maximum capacity.\footnote{See \url{https://pnm.maps.arcgis.com/apps/webappviewer/index.html?id=cbd3bad85fc64f2180dda652e957bacd} for areas with maximum feeder capacity.} Residents in those communities cannot be approved for new solar installations with grid interconnection until the infrastructure is upgraded.\footnote{In 2021, 2022, and 2023, the Public Service Company of New Mexico (PNM) put 96, 70, and 29 new solar applications on hold, respectively, due to a lack of feeder capacity \parencite{pnm2021,pnm2022,pnm2023}. }
 
- In addition to grid constraints, other technical barriers, including the lack of suitable roof space or home ownership, or financial barriers, such as high upfront cost, can also limit the ability of some households to adopt solar PV.
+ In addition to grid constraints, other technical barriers, including the lack of suitable roof space or home ownership and restrictions of homeowner associations (HOA), or financial barriers, such as high upfront cost, can also limit the access of some households to solar PV.
  
  \subsubsection{Adoption equity}
 
-Adoption equity in the context of solar PV systems refers to the equitable distribution of solar technology across various socio-economic groups, particularly focusing on income levels, and racial and ethnic groups. Research has consistently highlighted disparities in solar adoption related to these factors. For instance, \textcite{gao_solar_2022} observe a reduction in racial and ethnic disparities in solar PV adoption between 2012 and 2019, yet noted that Asian-, Black-, and Hispanic-majority census tracts still lag behind White-majority tracts in the number of installations. Similarly, \textcite{darghouth_characterizing_2022} identify a significant income-related inequality in U.S. rooftop solar adoption, with more affluent households having a higher likelihood of installing solar systems. They also found that areas with greater racial diversity, higher education levels, and higher owner-occupancy rates showed more equitable solar adoption. Moreover, \textcite{reames_exploring_2021} suggests that although communities of color have marginally lower rooftop solar potential, this does not account for the substantial disparities in adoption rates, highlighting the influence of other non-physical factors.
+Adoption equity in the context of solar PV systems refers to the equitable distribution of solar technology across various socio-economic groups, particularly focusing on income levels, and racial and ethnic groups. Research has consistently highlighted disparities in solar adoption related to these factors. For instance, \textcite{gao_solar_2022} observe a reduction in racial and ethnic disparities in solar PV adoption between 2012 and 2019, yet noted that Asian-, Black-, and Hispanic-majority census tracts still lag behind White-majority tracts in the number of installations. \textcite{darghouth_characterizing_2022} identify a significant income-related inequality in U.S. rooftop solar adoption, with more affluent households having a higher likelihood of installing solar systems. They also found that areas with greater racial diversity, higher education levels, and higher owner-occupancy rates showed more equitable solar adoption. Moreover, \textcite{reames_exploring_2021} suggests that although communities of color have marginally lower rooftop solar potential, this does not account for the substantial disparities in adoption rates, highlighting the influence of other non-physical factors.
 
 Researchers also point to supply-side barriers impacting solar equity. \textcite{oshaughnessy_income-targeted_2021} note that solar installers tend to offer fewer quotes to low-income households, thereby reducing their chances of adopting solar technology. This indicates the presence of significant market-driven barriers that could deter solar adoption among economically disadvantaged groups.
 
@@ -94,11 +94,11 @@ Examining the issue of adoption equity is particularly relevant in NM given its 
 
 \subsubsection{Distributional equity}
 
-Distributional equity refers to whether the benefits of clean energy incentives are uniformly distributed across different demographic groups. The issue of distributional inequality is not limited to incentives for solar adoption. \textcite{borenstein_distributional_2016} use tax filing data to examine the uptake of four major clean energy tax credits: weatherization (Nonbusiness Energy Property Credit), residential solar (Residential Energy Efficient Property Credit), hybrid and electric vehicles (Alternative Motor Vehicle Credit), and plug-in electric vehicles (Qualified Plug-In Electric Drive Motor Vehicle Credit). They find significant inequities in the distribution of tax credits, with the top income quintile receiving about 60\% of all clean energy tax credits, while the bottom three income quintiles receive about 10\%. \textcite{jacobsen_race_2024} uses survey data from the Residential Energy Consumption Survey (RECS) and finds significant racial and ethnic disparities in the receipt of energy efficiency incentives in the U.S., driven primarily by differences in home-ownership rates. As NM provides state solar tax credits to households, understanding the distributional effect of existing credits provides insights into efficient and equitable policy design.
+Distributional equity refers to whether the benefits of clean energy incentives are uniformly distributed across different demographic groups. The issue of distributional inequality is not limited to incentives for solar adoption. \textcite{borenstein_distributional_2016} use tax filing data to examine the uptake of four major clean energy tax credits: weatherization (Nonbusiness Energy Property Credit), residential solar (Residential Energy Efficient Property Credit), alternative fuel vehicles (Alternative Motor Vehicle Credit), and electric and plug-in hybrid vehicles (Qualified Plug-In Electric Drive Motor Vehicle Credit). They find significant inequities in the distribution of tax credits, with the top income quintile receiving about 60\% of all clean energy tax credits, while the bottom three income quintiles receive about 10\%. \textcite{jacobsen_race_2024} uses survey data from the Residential Energy Consumption Survey (RECS) and finds significant racial and ethnic disparities in the receipt of energy efficiency incentives in the U.S., driven primarily by differences in home-ownership rates. As NM provides state solar tax credits to households, understanding the distributional effect of existing credits provides insights into efficient and equitable policy design.
 
 \subsection[Policy background]{Policy background}
 
-Incentives to promote solar PV adoption in the residential sector have been implemented at different regulatory levels, from federal to service-providing utilities. These incentives play important roles in the households' decision-making of going solar. All incentives are essentially financial, which either lowers the upfront cost of solar investment or reduces the payback period of solar. In the remainder of this section, we review the incentives available to NM households since 2005 for solar PV investments. \autoref{fig:nm_incentive} summarizes the various incentives and their respective policy time spans. For each incentive, we describe the incentive structure, time of initiation and expiration, and eligibility. 
+Incentives to promote solar PV adoption in the residential sector have been implemented at different regulatory levels, from the federal government to service-providing utilities. These incentives play important roles in the households' decision-making of going solar. All incentives are essentially financial, which either lowers the upfront cost of solar investment or reduces the payback period of solar. In the remainder of this section, we review the incentives available to NM households since 2005 for solar PV investments. \autoref{fig:nm_incentive} summarizes the various incentives and their respective policy time spans. For each incentive, we describe the incentive structure, time of initiation and expiration, and eligibility. 
 
 \begin{figure}[H]
     \centering
@@ -113,13 +113,14 @@ Incentives to promote solar PV adoption in the residential sector have been impl
 \subsubsection{Federal incentives}
 
 
-The federal tax credit for solar panel installations, also known as the Investment Tax Credit (ITC), was initially introduced in the Energy Policy Act in 2005. It provided a tax credit of 30\% for residential and commercial solar energy installations. ITC was extended multiple times and maintained a 30\% credit for solar installations through 2019. The tax credit percentage was stepped down in 2020, where the systems installed in 2020 and 2021 were eligible for a 26\% tax credit \parencite{doeitc}. ITC was originally set to phase down after 2022 (26\% in 2022, 22\% in 2023, 0\% by 2024) before the introduction of the Inflation Reduction Act (IRA) in 2022. IRA extended the ITC, now known as the Residential Clean Energy Credit, which provides a 30\% tax credit from 2022 through 2032. The credit rate phases down to 26\% in 2033 and 22\% in 2034, unless otherwise noted. The federal tax credit places no limit on the total amount claimed, and any credit exceeding tax liability can be carried forward to future tax years \parencite{irs}.
+The federal tax credit for solar panel installations, also known as the Investment Tax Credit (ITC), was initially introduced in the Energy Policy Act in 2005. It provided a tax credit of 30\% for residential and commercial solar energy installations. ITC was extended multiple times and maintained a 30\% credit for solar installations through 2019. The tax credit percentage was stepped down in 2020, where the systems installed in 2020 and 2021 were eligible for a 26\% tax credit \parencite{doeitc}. ITC was originally set to phase down after 2022 (with a credit rate of 26\% in 2022, 22\% in 2023, 0\% by 2024) before the introduction of the Inflation Reduction Act (IRA) in 2022. IRA extended the ITC, now known as the Residential Clean Energy Credit, which provides a 30\% tax credit from 2022 through 2032. The credit rate will phase down to 26\% in 2033 and 22\% in 2034, unless otherwise noted. The federal tax credit places no limit on the total amount claimed, and any credit exceeding tax liability can be carried forward to future tax years until 2034 \parencite{irs}.
 
 \subsubsection{State incentives}
 
 \textbf{Solar tax credit}
 
-Since the early 2000s, the role of renewable energy in mitigating greenhouse gas emissions and addressing climate change has become increasingly evident. In response to this growing awareness, NM introduced the Solar Market Development Tax Credit (SMDTC) in 2006. This initiative was aimed at encouraging the adoption of solar energy through financial incentives. From January 1, 2006, until December 31, 2016, the SMDTC provided a 10\% tax credit on the total installation costs of solar panel systems, with a cap of \$9,000 per taxpayer per taxable year. 
+Since the early 2000s, the role of renewable energy in mitigating greenhouse gas emissions and addressing climate change has become increasingly evident. In response to this growing awareness, NM introduced the Solar Market Development Tax Credit (SMDTC) in 2006. %This initiative was aimed at encouraging the adoption of solar energy through financial incentives. 
+From January 1, 2006, until December 31, 2016, the SMDTC provided a 10\% tax credit on the total installation costs of solar PV systems, with a cap of \$9,000 per taxpayer per taxable year. 
 
 Recognizing the continued importance of fostering renewable energy adoption, NM reinstated this incentive in 2020 with the introduction of the New Solar Market Development Tax Credit (NSMDTC). Effective from March 1, 2020, this revised program also offers a 10\% tax credit on the total installation costs, but with a reduced maximum credit amount of \$6,000. To manage fiscal impacts, the total tax credit issuance was initially capped at \$8 million for the tax years 2020 and 2021, and increased to \$12 million annually from 2022. Due to high demand, this cap has been reached consistently each year, leading to a further increase to \$30 million in 2024.\footnote{In 2021, 2022, and 2023, the credit cap was reached. \url{https://nm-emnrd.maps.arcgis.com/apps/dashboards/e882d2ccd57e4a99bc6d2a4314fcd3bb}}
 
@@ -135,24 +136,26 @@ Under House Bill 233, enacted by the NM legislature in 2010, residential solar s
 The NM Gross Receipts Tax Exemption policy for solar energy systems, effective since 2007, allows businesses to deduct receipts from selling solar equipment or installation services \parencite{NMStat2021}. Essentially, for consumers, there is no sales tax on top of the cost of solar installation, which reduces the financial burden on solar adopters.
 
 
-\noindent\textbf{Renewable energy certificates}
-
-The NM Renewable Energy Certificate (REC) policy for solar PV is part of the state's broader Renewable Portfolio Standard (RPS). The RPS requires that IOUs must secure 50\% of their capacity through carbon-free renewables by 2030 and 100\% by 2045. For rural electric cooperatives, the goals are 40\% by 2025, 50\% by 2030, and 100\% by 2050. The IOUs in NM thus offered Renewable Energy Certificate (REC) purchase agreements to solar owners for a limited time to count residential solar generation toward their required RPS. The Public Service Company of New Mexico (PNM) offered a Solar Renewable Energy Certificate (SREC) program that awards systems a stepped purchased rate for the energy generated for residential systems. This program was discontinued at the end of 2022 \parencite{pnmrec}. The El Paso Electric Company (EPE) offered a tiered REC purchase rate for systems installed before 2017, which ended on December 31, 2020 \parencite{eperec, eperecmid}.\footnote{Details on the purchase agreements can be found on the respective company's websites.}
-
 \subsubsection{Utility incentives}
 
-Utility companies in NM, including IOUs, rural cooperatives, and public utilities, are mandated by the NM Public Regulatory Commission (NMPRC) to offer net energy metering (NEM) programs to solar customers. Under NEM, solar customers who generate excess electricity with their solar panel systems can send it back to the grid and receive credits. These credits can be used to offset future electricity use.\footnote{For example, if the solar panels generate more electricity during the day than the household consumes, the excess electricity is sent back to the grid, and the meter runs backward, creating a credit. At night, when solar panels do not produce electricity, the household consumes electricity from the grid and the meter runs forward.} However, the details of the NEM program vary by utility. For example, PNM offers a net metering program for all residential solar systems. For small PV systems (inverter capacity lower than 10 kW-AC), any excess generation for the month (when monthly usage is lower than total monthly generation) is credited to the customer’s account and can be used for future billing cycles, never expiring unless the account is closed. Excess generation from large PV systems (inverter capacity greater than 10 kW-AC) is paid each month at the predetermined energy purchase rate for that month \parencite{pnmnet}. EPE offers net metering for all systems within a billing cycle, but all excess generation for the month is paid out to customers at the predetermined purchase rate \parencite{epenet, epenetmid}. The purchase rate for the credits is typically lower than the retail electricity price for all utilities.\footnote{For example, in 2023, the PNM power purchase rate ranged from 3 to 12 cents per kilowatt hour (kWh), depending on the month, while the retail rate was 7.8 cents per kWh for the first 450 kWh per month, increasing to 15 cents per kWh thereafter.} The differences in NEM incentives provide a quasi-experimental setting to study how NEM policy design incentivizes residential solar adoption. 
+\noindent\textbf{Renewable energy certificates}
+
+The NM Renewable Energy Certificate (REC) policy for solar PV is part of the state's broader Renewable Portfolio Standard (RPS). The RPS requires that IOUs must secure 50\% of their capacity through carbon-free renewables by 2030 and 100\% by 2045. For rural electric cooperatives, the goals are 40\% by 2025, 50\% by 2030, and 100\% by 2050. The IOUs in NM thus offered REC purchase agreements to solar owners for a limited time to count residential solar generation toward the utilities' renewable portfolio. The Public Service Company of New Mexico (PNM) offered a Solar Renewable Energy Certificate (SREC) program that awards residential systems a stepped purchased rate for the energy generated. This program was discontinued at the end of 2022 \parencite{pnmrec}. The El Paso Electric Company (EPE) offered a tiered REC purchase rate for systems installed before 2017, which ended on December 31, 2020 \parencite{eperec, eperecmid}.\footnote{Details on the purchase agreements can be found on the respective company's websites.}
+
+\noindent\textbf{Net energy metering}
+
+Utility companies in NM, including IOUs, rural cooperatives, and public utilities, are mandated by the NM Public Regulatory Commission (NMPRC) to offer NEM programs to solar customers. Under NEM, solar customers who generate excess electricity with their solar panel systems can send it back to the grid and receive credits. These credits can be used to offset future electricity use.\footnote{For example, if the solar panels generate more electricity during the day than the household consumes, the excess electricity is sent back to the grid, and the meter runs backward, creating a credit. At night, when solar panels do not produce electricity, the household consumes electricity from the grid and the meter runs forward.} However, the details of the NEM program vary by utility. For example, PNM offers a differentiated net metering program based on system capacity. For small PV systems (inverter capacity lower than 10 kW-AC), any excess generation for the month (when monthly usage is lower than total monthly generation) is credited to the customer’s account and can be used for future billing cycles, never expiring unless the account is closed. Excess generation from large PV systems (inverter capacity greater than 10 kW-AC) is paid each month at the predetermined energy purchase rate for that month \parencite{pnmnet}. EPE offers net metering for all systems within a billing cycle, but all excess generation for the month is paid out to customers at the predetermined purchase rate \parencite{epenet, epenetmid}. The purchase rate for the credits is typically lower than the retail electricity price for all utilities.\footnote{For example, in 2023, the PNM power purchase rate ranged from 3 to 12 cents per kilowatt hour (kWh), depending on the month, while the retail rate was 7.8 cents per kWh for the first 450 kWh per month, increasing to 15 cents per kWh thereafter.} The differences in NEM incentives provide a quasi-experimental setting to study how NEM policy design incentivizes residential solar adoption. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{Current trend  and distribution of residential solar in New Mexico}
-\customsection{Current trend  and distribution}{Current trend  and distribution of residential solar in New Mexico} %header shows the name in first braces
+\customsection{Current trends  and distribution}{Current trends and distribution of residential solar PV in NM} %header shows the name in first braces
 
-In this section, we utilize detailed solar installation data collected from state agencies and utilities to illustrate the trends and distribution of solar installations in NM. Our focus is on the distribution across geographical areas, income groups, and racial and ethnic groups for both installation counts and system capacities.
+In this section, we utilize detailed solar installation data collected from state agencies and utilities at the system level to illustrate the trends and distribution of solar installations in NM. Our focus is on the distribution of installations across geographical areas, income groups, and racial and ethnic groups for both installation counts and system capacities. The unit of analysis is at the individual system level.
 
 \subsection{Data description}
 \label{section:data_collect}
 
-To provide a comprehensive overview of solar installations in NM, we assembled a unique dataset from various public and restricted sources. This dataset includes system-level characteristics, housing characteristics, census tract-level demographics, and spatial data on climate and community types. The following sections detail the dataset components.
+To provide a comprehensive overview of solar installations in NM, we assemble a unique dataset from various public and restricted sources. This dataset includes solar PV system-level characteristics, housing characteristics, census tract-level demographics, and spatial data on climate and community types. The following sections detail the dataset components.
 
 \subsubsection{Installation data}
 
@@ -160,14 +163,14 @@ We obtain system-level solar installation data from three sources: the New Mexic
 
 EMNRD oversees the state solar tax credit claims under the SMDTC and NSMDTC programs. Their data includes all systems that were approved for the state tax credits between the programs' active periods (2006-2016 and 2020 onwards). This data, acquired through a non-disclosure agreement, provides details on the installation location, grid connection date, system size, installer name, system cost, and approved state credit amount, encompassing 20,159 unique residential systems.
 
-The NMPRC eDocket database contains records of annual compliance filings by state-regulated utilities (IOUs and rural cooperatives) under Rule 17.9.570.13(G) NMAC.\footnote{Details of Rule 17.9.570 can be found here: \url{https://www.srca.nm.gov/parts/title17/17.009.0570.html}.} This rule mandates utilities to report the name and location of interconnected solar systems, annual purchases from these systems, and any rejected interconnection applications. Due to varying data quality, we obtain data of the two largest IOUs in the state, PNM and EPE, and one rural cooperative, Socorro Electric Coop (SEC). Together, they account for over 90\% of solar customers in NM, providing data on system location, interconnection date, and installed capacity for 50,416 residential systems.
+The NMPRC eDocket database contains records of annual compliance filings from state-regulated utilities (IOUs and rural cooperatives) under Rule 17.9.570.13(G) NMAC.\footnote{Details of Rule 17.9.570 can be found here: \url{https://www.srca.nm.gov/parts/title17/17.009.0570.html}.} This rule mandates utilities to report the name and location of interconnected solar systems, annual purchases from these systems, and any rejected interconnection applications. Due to varying data quality, we obtain data of the two largest IOUs in the state, PNM and EPE, and one rural cooperative, Socorro Electric Coop (SEC). Together, they account for over 90\% of solar customers in NM, providing data on system location, interconnection date, and installed capacity for 50,416 residential systems.
 
 Public utilities, not subject to NMPRC rulings, provided solar system data directly. We obtain data from the Los Alamos Department of Public Utilities (LADPU) for the 427 residential solar systems in their service area.
 
 
 \subsubsection{Housing characteristics data}
 
-We scrap housing characteristics data from Zillow using the addresses in the installation data. This data includes variables such as year built, number of bedrooms and bathrooms, estimated home value (Zestimate), living area size, lot size, parking features, heating and cooling technologies, and geographic coordinates.\footnote{NM is a non-disclosure state, meaning the actual transaction price of homes is not public information.} Housing information was available for 65,125 systems in the combined installation dataset.
+We scrape housing characteristics data from Zillow using the addresses in the installation data. This data includes variables such as year built, number of bedrooms and bathrooms, estimated home value (Zestimate), living area size, lot size, parking features, heating and cooling technologies, and geographic coordinates.\footnote{NM is a non-disclosure state, meaning the actual transaction price of homes is not public information.} Housing information was available for 65,125 systems in the combined installation dataset.
 
 \subsubsection{Census tract-level demographics data}
 
@@ -175,7 +178,7 @@ Using the geographical information from the housing data (longitude and latitude
 
 \subsubsection{Other relevant data}
 
-We complemented the main dataset with utility-level average annual electricity prices from the Energy Information Administration (EIA) \parencite{eiaprice}, spatial weather data from Solargis, including Global Horizontal Irradiation (GHI) and average annual temperature \parencite{solargis}, and the community disadvantage status from the CEJST \parencite{cejst}.
+We complement the main dataset with utility-level average annual electricity prices from the Energy Information Administration (EIA) \parencite{eiaprice}, spatial weather data from Solargis, including Global Horizontal Irradiation (GHI) and average annual temperature \parencite{solargis}, and the community disadvantage status from the CEJST \parencite{cejst}.
 
 In summary, our comprehensive dataset contains 54,462 unique solar installations (full sample) in NM, 49,993 of which have detailed geographical information (restricted sample). We use the full sample in the subsequent analysis when geographical information is not required and use the restricted sample when spatial analysis is needed.
 
@@ -195,7 +198,7 @@ NM has experienced exponential growth in residential solar installations since 2
 \end{figure}
 
 
-The rapid growth in residential solar can partially be attributed to the significant reduction in the cost of solar panels. \autoref{fig:installation_count} shows the annual installation count in relation to the unit price of the installation. The installation price per kilowatt (kW) of solar PV capacity in 2023 is less than one-third of the price in 2007, making solar an affordable energy source for many households.
+The rapid growth in residential solar can be partially attributed to the significant reduction in the cost of solar panels. \autoref{fig:installation_count} shows the annual installation count in relation to the unit price of the installation. The installation price per kilowatt (kW) of solar PV capacity in 2023 is less than one-third of the price in 2007, making solar an affordable energy source for many households.
 
 State solar tax credits, combined with federal and other incentives, have also facilitated the growing adoption of solar. Figures \ref{fig:culmulative_capacity} and \ref{fig:installation_count} show that in years with tax credits, the adoption level is high, especially when unit prices are lower.
 
@@ -214,17 +217,19 @@ State solar tax credits, combined with federal and other incentives, have also f
 \subsubsection{Spatial distribution}
 \label{subsec:Spatial distribution}
 
-The growth in solar adoption is not uniformly distributed across NM. \autoref{fig:tract_map} shows the total installations by census tract. It is evident that current solar installations are concentrated in the most populous cities of NM, namely Albuquerque, Santa Fe, and Las Cruces. Even after adjusting for population density (\autoref{fig:install_kpop}), there is still a higher installation per thousand people in these cities, indicating an urban/rural disparity in solar adoption.
+The growth in solar adoption is not uniformly distributed across NM. \autoref{fig:install_kpop} shows the total installations by census tract per thousand people. It is evident that current solar installations are concentrated in the most populous cities of NM, namely Albuquerque, Santa Fe, and Las Cruces, even after adjusting for population density.\footnote{\autoref{fig:tract_map} shows the absolute installation count per census tract.} This pattern suggest a potential urban/rural disparity in solar adoption.
 
-\begin{figure}[!ht]
+
+\begin{figure}[H]
     \centering
-\includegraphics[width=0.7\textwidth]{figures/tract_count_map.png}
-    \caption{Total installation count by census tract}
-    \label{fig:tract_map}
-    \begin{flushleft}
-        \footnotesize Note: The total installation count is up to the end of 2023 for each census tract. The census tracts are defined in the 2020 Decennial Census. The legend is on logarithmic scale.
+\includegraphics[width=0.7\textwidth]{figures/tract_count_per_kpop_map.png}
+    \caption{Installation per thousand people by 2020 census tract}
+    \label{fig:install_kpop}
+      \begin{flushleft}
+        \footnotesize Note: The total installation count is up to the end of 2023 for each census tract. The census tracts areas are defined in the 2020 Decennial Census. The tract-level population is taken at the 2022 level from the American Community Survey 1-year data. The legend is in logarithm scale. 
     \end{flushleft}
 \end{figure}
+
 
 \autoref{fig:disadvantage_installation} illustrates the distribution of installations with respect to disadvantaged census tracts within NM. Disadvantaged census tracts are defined as “census tracts that are overburdened and underserved” by the Justice40 Initiative \parencite{justice40}. While 86\% of the population in NM lives in disadvantaged communities, less than 29\% of the solar installations are within those communities (orange dots in the figure).
 
@@ -234,27 +239,27 @@ The growth in solar adoption is not uniformly distributed across NM. \autoref{fi
     \caption{Installation within and outside disadvantaged communities}
     \label{fig:disadvantage_installation}
         \begin{flushleft}
-        \footnotesize Note: Disadvantage communities shape file retrieved from the Climate and Economic Justice Screening Tool \url{https://screeningtool.geoplatform.gov/en/#10.84/36.2534/-104.868}. Census tracts that are overburdened and underserved are highlighted as being disadvantaged on the map.
+        \footnotesize Note: Disadvantaged communities shape file retrieved from the Climate and Economic Justice Screening Tool \url{https://screeningtool.geoplatform.gov/en/#10.84/36.2534/-104.868}. Census tracts that are overburdened and underserved are highlighted as being disadvantaged on the map.
     \end{flushleft}
 \end{figure}
 
 
 \subsubsection{Income distribution}
 
-Consistent with existing research, census tracts in NM with higher area median income (AMI) also have more households installing solar, even when adjusted for population (see \autoref{fig:comparative_histogram_installation}). \autoref{fig:population_ami_count} reveals a positive correlation between AMI and installation per thousand population.
+Consistent with existing research, census tracts in NM with higher area median income (AMI) also have higher per capita solar installation. \autoref{fig:population_ami_count} reveals a positive correlation between AMI and installation per thousand population.
 
 
 \begin{figure}[h]
     \centering
 \includegraphics[width=0.9\textwidth]{figures/population_ami_count.png}
-    \caption{Installation per thousand population by area median income}
+    \caption{Installation per thousand people by area median income}
     \label{fig:population_ami_count}
         \begin{flushleft}
         \footnotesize Note: The population and area median income (AMI) are based on 2022 data from the American Community Survey 1-year data. Census tracts with an AMI higher than 250,000 are capped at 250,000. The shaded area around the regression line represents the 95\% confidence interval.
     \end{flushleft}
 \end{figure}
 
-Analyzing the total solar installations from 2010 to 2022 by income quartile (\autoref{fig:comparative_histogram_installation}), we observe distinct patterns in the distribution across different income levels. The histogram for the bottom income quartile reveals a highly left-skewed distribution, indicating a concentration of census tracts with fewer installations. Conversely, the top income quartile demonstrates a more evenly spread distribution across various levels of installation counts, suggesting a broader uptake of solar technology among higher-income tracts.
+This AMI-installation relationship is more distinct when comparing across income quartiles. \autoref{fig:comparative_histogram_installation} show the total installation count in each census tracts by income group. We observe distinct patterns in the distribution across different income levels. The histogram for the bottom income quartile reveals a highly left-skewed distribution, indicating a concentration of census tracts with fewer installations. Conversely, the top income quartile demonstrates a more evenly spread distribution across various levels of installation counts, suggesting a broader uptake of solar technology among higher-income tracts.
 
 \begin{figure}[!ht]
     \centering
@@ -262,15 +267,15 @@ Analyzing the total solar installations from 2010 to 2022 by income quartile (\a
     \caption{Census tract total installation by income quartile}
     \label{fig:comparative_histogram_installation}
         \begin{flushleft}
-        \footnotesize Note: The income quartile classification is based on the average census tract area median income from 2010 - 2022. The total installation is the sum of installation in each census tract from 2010 - 2022.  
+        \footnotesize Note: The income quartile classification is based on the average census tract area median income from 2010 - 2022. The total installation is the sum of installation in each census tract from 2010 - 2022. We normalize the frequency with the count of census tracts in each income quartile group. There are 124 census tracts in the top income quartile, 249 census tracts in the middle quartiles, and 125 census tracts in the bottom quartile.
     \end{flushleft}
 \end{figure}
 
 \subsubsection{Racial and ethnic distribution}
 
-New Mexico features a racially and ethnically diverse composition. According to the 2020 Census, 51\% of the population identifies as White alone \parencite{uscensus2020}. Other significant groups include American Indian and Alaska Native (10\%), Black or African American (2.2\%), Asian (1.8\%), individuals identifying as Some Other Race alone (15.0\%), and those identifying as two or more races (19.9\%). The state’s population is nearly evenly divided between Hispanic (47.7\%) and non-Hispanic (52.3\%), with White non-Hispanics making up 36.5\%.
+NM features a racially and ethnically diverse composition. According to the 2020 Census, 51\% of the population identifies as White alone \parencite{uscensus2020}. Other significant groups include American Indian and Alaska Native (10\%), Black or African American (2.2\%), Asian (1.8\%), individuals identifying as Some Other Race alone (15.0\%), and those identifying as two or more races (19.9\%). The state’s population is nearly evenly divided between Hispanic (47.7\%) and non-Hispanic (52.3\%), with White non-Hispanics making up 36.5\%.
 
-Of the 612 census tracts in NM, 64\% are White-majority (where more than 50\% of the population identifies as White alone), and 38\% are Hispanic-majority. An analysis of the total installation count by majority status (\autoref{fig:installation_race}) shows a notable concentration of installations in White-majority census tracts over the years. The disparity between Hispanic-majority and non-Hispanic-majority tracts is less pronounced, with non-Hispanic tracts having slightly higher installation counts. This trend is further elaborated in \autoref{fig:population_quintiles}, which divides the data into five bins based on population shares, rather than majority status.
+Of the 612 census tracts in NM in the 2020 Decennial Census, 64\% are White-majority (where more than 50\% of the population identifies as White alone), and 38\% are Hispanic-majority. An analysis of the total installation count by majority status (\autoref{fig:installation_race}) shows a notable concentration of installations in White-majority census tracts over the years. The disparity between Hispanic-majority and non-Hispanic-majority tracts is less pronounced, with non-Hispanic tracts having slightly higher installation counts. This trend is further elaborated in \autoref{fig:population_quintiles}, which divides the census tracts into five bins based on population shares, rather than majority status.
 
 \begin{figure}[!ht]
     \centering
@@ -286,7 +291,7 @@ Of the 612 census tracts in NM, 64\% are White-majority (where more than 50\% of
 
 \subsubsection{Capacity distribution}
 
-The capacity of installed systems varies among solar households. \autoref{fig:capacity_density} displays the distribution and cumulative distribution function (CDF) of system capacities (in kW). Most system capacities are clustered between 2 kW and 8 kW, with half of the systems below 5 kW and 95\% below 10 kW.
+The capacity of installed systems varies among solar households. \autoref{fig:capacity_density} displays the density and cumulative distribution function (CDF) of system capacities (in kW). Most system capacities are clustered between 2 kW and 8 kW, with half of the systems below 5 kW and 95\% below 10 kW.
 
 
 \begin{figure}[!ht]
@@ -299,7 +304,7 @@ The capacity of installed systems varies among solar households. \autoref{fig:ca
     \end{flushleft}
 \end{figure}
 
-The choice of system capacity can be influenced by many factors, including household size and utility incentives. \autoref{fig:capacity_size} depicts the relationship between installed system capacity (in kW) and the size of the living area of the home (in square feet), differentiated by utilities. It shows that as the housing size increases, the installed system capacity tends to increase. However, the intensity of this correlation varies by utility. Systems within the PNM service area have the highest slope compared to those served by EPE or other utilities. This difference could be attributed to variations in utility-level incentives (e.g., NEM policies) or correlations between utility service areas and other factors such as urban/rural or installer characteristics. It is notable that the shares of systems installed within the PNM, EPE, and other service areas are 77.9\%, 16.7\%, and 5.4\%, respectively.
+The choice of system capacity typically reflects prior and projected electricity usage, which can be influenced by many factors, including household size, number of people in the households, type of cooling and heating technology, etc. The system capacity may also depend on utility incentives. Households served by utilities that offer more generous net-metering incentives are more likely to adopt a system with higher capacity as NEM increases the financial incentive of solar PV \parencite{borenstein_private_2017}. \autoref{fig:capacity_size} depicts the relationship between installed system capacity (in kW) and the size of the living area of the home (in square feet) by utility company. It shows that as the housing size increases, the installed system capacity tends to increase. However, the intensity of this correlation varies by utility. Systems within the PNM service area have the highest slope compared to those served by EPE or other utilities. This difference could be attributed to variations in utility-level incentives (e.g., NEM policies) or correlations between utility service areas and other factors such as urban/rural or installer characteristics. It is notable that the shares of systems installed within the PNM, EPE, and other service areas are 77.9\%, 16.7\%, and 5.4\%, respectively.
  
 \begin{figure}[!ht]
     \centering
@@ -325,7 +330,7 @@ The choice of system capacity can be influenced by many factors, including house
 \end{figure}
 
 
-In summary, residential solar adoption in NM has grown exponentially since 2000, driven by decreasing solar panel costs and supportive tax incentives. However, this growth has been unevenly distributed across different geographical, income, and demographic groups. Urban areas, higher-income neighborhoods, and White-majority tracts have seen higher adoption rates compared to their rural, lower-income, and disadvantaged counterparts. The capacity of installed systems also varies, with larger systems more common in larger homes and areas with stronger utility incentives. These trends and distributions directly motivates the empirical analyses we carry out in the following sections.
+In summary, residential solar adoption in NM has grown exponentially since 2000, driven by decreasing solar panel costs and supportive tax incentives. However, this growth has been unevenly distributed across different geographical, income, and demographic groups. Urban areas, higher-income neighborhoods, and White-majority tracts have seen higher adoption rates compared to their rural, lower-income, and non-White-majority counterparts. The capacity of installed systems also varies, with larger systems more common in larger homes and areas with stronger utility incentives. These trends and distributions directly motivate the empirical analyses we carry out in the following sections.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -335,7 +340,7 @@ In summary, residential solar adoption in NM has grown exponentially since 2000,
 
 An important aspect of solar equity is the adoption equity across different demographic and socioeconomic groups. In this section, we investigate the equity of solar adoption by examining the impact of key factors on both the extensive margin (the likelihood of solar PV adoption within census tracts) and the intensive margin (the magnitude of solar PV installations). This analysis is essential for understanding how census tract characteristics influence solar adoption. Additionally, we focus on estimating the effectiveness of the state solar tax credit in promoting the equitable adoption of solar PV.
 
-Our primary research question is: How do demographic and socioeconomic characteristics affect the likelihood and magnitude of solar PV adoption? This question is important for two reasons. First, it helps identify whether existing adoption patterns disproportionately favor certain demographic groups, potentially exacerbating social inequalities. Second, by analyzing the effectiveness of New Mexico's solar tax credit programs, SMDTC and NSMDTC, we can evaluate whether these incentives successfully mitigate disparities related to income, race, ethnicity, and education. 
+Our primary research question is: How do demographic and socioeconomic characteristics affect the likelihood and magnitude of solar PV adoption? This question is important for two reasons. First, it helps identify whether existing adoption patterns disproportionately favor certain demographic groups, potentially exacerbating social inequalities. Second, by analyzing the effectiveness of NM's solar tax credit programs, SMDTC and NSMDTC, we can evaluate whether these incentives successfully mitigate disparities related to income, race, ethnicity, and education. 
 
 \subsection{Data description}
 
@@ -345,12 +350,12 @@ The key variable we use to estimate the adoption disparities is the aggregate co
 
 The dataset comprises 498 tracts in NM from 2010 through 2022 after excluding one census tract with a zero population across all study years. Table \ref{tab:datasource} provides detailed explanations of variables used in the empirical analysis and their respective data sources. 
 
-\begin{table}[H]
+\begin{table}[!ht]
 \caption{Variable descriptions and data sources}
 \centering
 \singlespacing
 \label{tab:datasource}
-\resizebox{0.945\textwidth}{!}{%
+\resizebox{0.9\textwidth}{!}{%
 \begin{tabular}{lll}
 \hline
 Variable & Description & Data sources \\ \hline
@@ -364,14 +369,14 @@ Owner occupied & Owner occupied rate & U.S. Census Bureau (DP04) \\
 Electricity & \begin{tabular}[c]{@{}l@{}}Share of of housing with electricity \\ as main the heating source\end{tabular} & U.S. Census Bureau (B25040) \\
 Built year group & \begin{tabular}[c]{@{}l@{}}Median housing age year group\\ Built after 2020 = 1;\\ Built between 2010 and 2019 = 2; \\ Built between 2000 and 2009 = 3; \\ Built between 1990 and 1999 = 4; \\ Built between 1980 and 1989 = 5, \\ Built between 1970 and 1979 = 6; \\ Built between 1960 and 1969 = 7; \\ Built between 1950 and 1959 = 8; \\ Built between 1940 and 1949 = 9; \\ Built in 1939 or earlier = 10.\end{tabular} & \begin{tabular}[c]{@{}l@{}}Authors' calculation based on \\ Census Bureau (DP04) \end{tabular} \\
 \textbf{Racial composition} &  &  \\
-Racial diversity & Racial diversity & \begin{tabular}[c]{@{}l@{}}Authors' calculation based on \\ Census Bureau (DP05) \end{tabular}  \\
+Racial diversity & \begin{tabular}[c]{@{}l@{}} Racial diversity index calculated as the sum\\ of squared percentage of each race \end{tabular} & \begin{tabular}[c]{@{}l@{}}Authors' calculation based on \\ Census Bureau (DP05) \end{tabular}  \\
 White & Share of one race White population & U.S. Census Bureau (DP05) \\
 Hispanic & Share of Hispanic population & U.S. Census Bureau (DP05) \\
 Non-Hispanic White & Share of Non-Hispanic White population & U.S. Census Bureau (DP05) \\
 \textbf{Electricity provider variables} &  &  \\
 Utility type & \begin{tabular}[c]{@{}l@{}} IOU only = 1; \\ Cooperative only = 2; \\ Public utility only = 3; \\ IOU \& Cooperative = 4; \\ IOU \& Public utility = 5; \\ Cooperative \& Public utility = 6; \\ IOU \& Cooperative \& Public \\ utility = 7\end{tabular} & \begin{tabular}[c]{@{}l@{}}Homeland Infrastructure Foundation\\ -Level Data (HIFLD)\end{tabular} \\
 PNM & \begin{tabular}[c]{@{}l@{}}Dummy for PNM service area\\ Yes = 1, other = 0\end{tabular} & \begin{tabular}[c]{@{}l@{}}Public Service Company of New \\ Mexico\end{tabular} \\
-Electricity price & Average electricity price (cent/kWh) & \begin{tabular}[c]{@{}l@{}}Authors' calculation based on U.S. \\ Energy Information \\ Administration\end{tabular} \\
+Electricity price & Average annual electricity price (cent/kWh) & \begin{tabular}[c]{@{}l@{}}Authors' calculation based on U.S. \\ Energy Information \\ Administration\end{tabular} \\
 \textbf{Weather variables} &  &  \\
 Temperature & Average temperature & Solargis \\
 GHI & Global Horizontal Irradiance (W/m$^2$) & Solargis \\
@@ -392,7 +397,7 @@ We empirically investigate the disparity in solar PV adoptions across different 
 
 \subsection{The extensive margin of adoption}
 
-To estimate adoption equity on the extensive margin, we use the aggregated installation data to generate a binary dependent variable indicating the presence of any new solar installation within a census tract-year. Figure \ref{fig:stack_installation} shows the number of census tracts with solar installation in each year. In 2022, 403 census tracts had at least one installation, while 95 census tracts had no installations. This represents a substantial increase in the extensive margin compared to 2010 when 221 census tracts had at least one installation and 277 census tracts had none.
+To estimate adoption equity on the extensive margin, we use the aggregated installation data to generate a binary dependent variable indicating the presence of any new solar installation within a census tract-year. Figure \ref{fig:stack_installation} shows the number of census tracts with solar installation in each year. In 2022, 403 census tracts had at least one installation, while 95 census tracts had no installations. This represents a substantial increase in the extensive margin compared to 2010 where the with and without installation ratio is 221 to 277.
 
 Table \ref{tab:first-stage summary stat} presents summary statistics for all variables over the sample period. We observe large standard deviations of income and housing value, indicating significant variability across the dataset and a wide financial disparity across census tract. To account for these skewed distributions, we take the logarithm of these variables in the regression analysis. 
 
@@ -403,93 +408,93 @@ Table \ref{tab:first-stage summary stat} presents summary statistics for all var
     \label{fig:stack_installation}
 \end{figure}
 
-We compare the impact of various demographic and socioeconomic characteristics on the probability of having solar installations through a linear probability model (LPM) with county and year-fixed effects. Below is the LPM specification. Considering the limitations of the LPM, such as the linearity assumption, we use the fixed effect Logit model as a robustness check.
+We compare the impact of various demographic and socioeconomic characteristics on the probability of having solar installations through a linear probability model (LPM) with county and year-fixed effects. Considering the limitations of the LPM, such as the linearity assumption, we use the fixed effect Logit model as a robustness check. The LPM is specified as follows:
 
 
 \begin{equation}\label{reg_1}
-W_{it}= \alpha_{0} + \alpha_{1}H_{it} + \alpha_{2}WH_{it} + \alpha_{3}ln(INC_{it}) + \alpha_{4}EDU_{it} + \alpha_{5}DIS_{it} +\sum_{l}\gamma_{l}C_{it} + \lambda_{t} + \nu_{j} + \epsilon_{jt},
+W_{it}= \alpha_{0} + \alpha_{1}H_{it} + \alpha_{2}WH_{it} + \alpha_{3}\log(\text{INC}_{it}) + \alpha_{4}EDU_{it} + \alpha_{5}DIS_{i} +\gamma C_{it} + \lambda_{t} + \nu_{j} + \epsilon_{it},
 \end{equation}
-where $W_{it}$ is the binary variable indicating whether there is any solar adoption within census tract $i$ in year $t$. We consider four key explanatory variables from race, ethnicity, financial, and education perspectives. Specifically, $H$ represents the share of the Hispanic population, $WH$ represents the share of the White population, $INC$ is the area median household income, $EDU$ is the share of the population with a bachelor's degree or higher, and $DIS$ is a dummy variable indicating whether a census tract in year t is disadvantaged. $C$ is the vector of control variables, which includes total population, average solar installation price, housing characteristics, and share of urban housing units. Other unobserved policies and incentives at the county level are accounted for through fixed effects. We specify $Year$ in the fixed effect as continuous to capture the trend over time.
+where $W_{it}$ is the binary variable indicating whether there is any solar adoption within census tract $i$ in year $t$. We consider five key explanatory variables from race and ethnicity, financial, and education perspectives. Specifically, $H$ represents the share of the Hispanic population, $WH$ represents the share of the White population, $INC$ is the area median household income, $EDU$ is the share of the population with a bachelor's degree or higher, and $DIS$ is a dummy variable indicating whether a census tract is disadvantaged. $C$ is the vector of control variables, which includes total population, average solar installation price, housing characteristics, and share of urban housing units. Other unobserved policies and incentives at the county level are accounted for through county fixed effect $\nu_j$. We specify the year fixed effect $\lambda_t$ as continuous to capture the time trend.
 
 
-Table \ref{tab:probability_regression} presents the model results for the extensive margin of solar adoption (full results in Table \ref{tab:probability_regression_full}). Comparing the outputs of the LPM with the logit marginal effects, we find that the LPM sufficiently captures the impact of key characteristics on the likelihood of solar adoption. There is a general increasing trend in solar adoption over the study period. The probability of new solar installation is positively correlated with the Hispanic population share, White population share, and education, although these correlations are relatively modest. Income has the highest impact on the likelihood of adoption; a 1\% increase in the area median income increases the likelihood by 12 percentage points. 
+Table \ref{tab:probability_regression} presents the model results for the extensive margin of solar adoption (full results in Table \ref{tab:probability_regression_full}). Comparing the outputs of the LPM with the average marginal effects of the Logit model, we find that the LPM sufficiently captures the impact of key characteristics on the likelihood of solar adoption. There is a general increasing trend in solar adoption over the study period. The probability of new solar installation is positively correlated with the Hispanic population share, White population share, and education, although these correlations are relatively modest. Income has the highest impact on the likelihood of adoption; a 1\% increase in the area median income increases the likelihood of having any installations by 12 percentage points. 
 
 The extensive margin analysis indicates that demographic and socioeconomic factors, particularly income, significantly influence the likelihood of solar adoption. Next, we will examine the intensive margin to understand how these factors impact the scale of solar PV installations within census tracts.
 
 \begin{table}[!ht]
 \centering
-\caption{Regression results for the extensive margin}
+\caption{Regression results for the extensive margin of solar adoption}
 \label{tab:probability_regression}
-\resizebox{0.7\textwidth}{!}{
-\begin{tabular}{@{\extracolsep{2pt}}lcc}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{\extracolsep{2pt}}lcccc}
 \small
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
-& \multicolumn{2}{c}{\textit{Dependent Variable: Having new installation}} \
-\cr \cline{2-3}
-\\[-1.8ex] & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} \\
+& \multicolumn{4}{c}{Dependent Variable: Having Installation (binary)} \\ \cline{2-5}
+\\[-1.8ex] & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} \\
 \hline \\[-1.8ex]
-Hispanic & 0.001$^{**}$ & 0.001$^{***}$ \\
-& (0.000) & (0.000) \\
-White & 0.003$^{***}$ & 0.003$^{***}$ \\
-& (0.000) & (0.000) \\
-Log Area Median Income & 0.120$^{***}$ & 0.140$^{***}$ \\
-& (0.019) & (0.018) \\
-Bachelor & 0.003$^{***}$ & 0.004$^{***}$ \\
-& (0.001) & (0.001) \\
-Disadvantaged & 0.003 & 0.013 \\
-& (0.013) & (0.012) \\
+Hispanic & 0.001$^{**}$ & 0.001$^{***}$ & 0.001$^{*}$ & 0.001 \\
+& (0.000) & (0.000) & (0.000) & (0.000) \\
+White & 0.003$^{***}$ & 0.003$^{***}$ & 0.003$^{***}$ & 0.005$^{***}$ \\
+& (0.000) & (0.000) & (0.000) & (0.001) \\
+Log Area Median Income & 0.120$^{***}$ & 0.140$^{***}$ & 0.134$^{***}$ & 0.146$^{***}$ \\
+& (0.019) & (0.018) & (0.020) & (0.019) \\
+Bachelor & 0.003$^{***}$ & 0.004$^{***}$ & 0.003$^{***}$ & 0.003$^{***}$ \\
+& (0.001) & (0.001) & (0.001) & (0.001) \\
+Disadvantaged & 0.003 & 0.013 & 0.001 & 0.013 \\
+& (0.013) & (0.012) & (0.013) & (0.012) \\
 \hline \\[-1.8ex]
-Control & Yes & Yes \\
-Year FE & Yes & Yes \\
-County FE & Yes & Yes \\
-Year trend & 0.043$^{***}$ & 0.048$^{***}$ \\
-\hline \\[-1.8ex]
-Observations & 6,472 & 6,446 \\
-R-squared & 0.522 &  \\
+Observations & 6,472 & 6,446 & 6,472 & 6,446 \\
+R-squared & 0.522 &  & 0.523 &  \\
+Year FE & Yes & Yes & Yes & Yes \\
+County FE & Yes & Yes & Yes & Yes \\
+Control & Main & Main & All & All \\
+Year trend & 0.043$^{***}$ & 0.048$^{***}$ & 0.0470$^{***}$ & 0.0443$^{***}$ \\
 \hline
 \hline \\[-1.8ex]
-\textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
-    \end{tabular}}
+\textit{Note:} & \multicolumn{4}{r}{$^{*}p<0.05$; $^{**}p<0.01$; $^{***}p<0.001$} \\
+\end{tabular}
+}
 \end{table}
 
 \subsection{The intensive margin of adoption}
 
-Given the spatial disparities in adoption across different census tracts, our next step is to assess the extent of solar PV adoption within these tracts and identify whether certain demographic and socioeconomic groups are installing more systems by estimating adoption equity on the intensive margin. We use the count of solar installations within a census tract-year as the dependent variable. Table \ref{tab: second-stage summary stat} presents summary statistics for the main variables, conditional on having at least one installation within a tract-year over the sample period. 
+Given the disparities in extensive margin of residential solar PV adoption across census tracts, our next step is to assess the magnitude of adoption within solar-adopting census tracts to identify whether certain demographic and socioeconomic groups are installing more systems. This analysis will provide insights into the adoption equity on the intensive margin. We use the count of solar installations within a census tract-year as the dependent variable.\footnote{We use the absolute count of installations instead of per capita installation because we want to control for the effect of population while examining the impact of other explanatory variables on solar adoption.} Table \ref{tab: second-stage summary stat} presents summary statistics for the main variables, conditional on having at least one installation within a tract-year over the sample period.\footnote{We focus on the intensive margin of adoption in this step of the analysis, that is, the magnitude of adoption conditional on having any adoption. We also show the full sample result as a robustness check for the overall effect in \autoref{tab:count_regression_full_unconditional}.}
 
-The average number of residential solar PV installations per census tract-year is 10.64, with installation counts ranging from a minimum of 1 to a maximum of 155, and a standard deviation of 14.84. We aim to identify the key demographic and socioeconomic factors leading to this variability in installation count through a count model. Given the presence of over-dispersion in our dependent variable, we choose the Negative Binomial (NB) model over the Poisson model. The NB regression with county and year fixed effect model can be specified as follows:
+The average number of residential solar PV installations per census tract-year is 10.64, with installation counts ranging from a minimum of 1 to a maximum of 155, and a standard deviation of 14.84. We aim to identify the key demographic and socioeconomic factors leading to this variability in installation count through a count model. Given the presence of over-dispersion in our dependent variable, we choose the Negative Binomial (NB) model over the Poisson model. The NB regression with county and year fixed effect model is specified as follows:
 
 \begin{equation}
 \label{reg_2}
 \begin{aligned}
-\log(\mu_{it}) &= \beta_{0} + \beta_{1}H_{it} + \beta_{2}WH_{it} + \beta_{3}\log(\text{Inc}_{it}) + \beta_{4}EDU_{it} + \beta_{5}DIS_{it} + \beta_{6}CR_{it} \\
-&\quad + \sum_{m}\delta_{m}C_{it} + \theta_{t} + \phi_{j} + \eta_{jt}
+\log(\mu_{it}) =& \beta_{0} + \beta_{1}H_{it} + \beta_{2}WH_{it} + \beta_{3}\log(\text{INC}_{it}) + \beta_{4}EDU_{it} + \beta_{5}DIS_{i} + \beta_{6}CR_{t} \\
+& + \delta C_{it} + \theta_{t} + \phi_{j} + \eta_{it}
 \end{aligned}
 \end{equation}
-In this regression, we assume that the installed system count follow a Negative Binomial distribution, and $\mu_{i,t}$ is the average system count.
+In this regression, we assume that the installed system count follow a Negative Binomial distribution, and $\mu_{i,t}$ is the average system count in census tract $i$ in year $t$. $CR_t$ is a dummy variable that equals 1 for year $t$ if state tax credit is available and 0 if not. Other covariates are the same as in equation (\ref{reg_1}).
 
-
-Table \ref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression with the system count as the dependent variable (model (2)) for comparison with the marginal effect from the NB model (full results in \autoref{tab:count_regression_full}). The linear model yields estimates similar to the NB marginal effects. Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} suggest that solar installations are concentrated in census tracts with high White population shares (greater than 50\%), but decreases as White population shares exceeds 80\%. To confirm this pattern, we introduce a non-linear term into the OLS model as the third model specification (model (3)). Following \textcite{ros_residential_2023}, we add lagged system count into the NB model (model (4)) to capture any potential non-contemporaneous relationship between the explanatory variables and solar installation counts. This dynamic model can be expressed as 
+\autoref{tab:count_regression} displays the intensive margin of solar adoption estimation within the census tract-year. We also estimate an OLS regression with the system count as the dependent variable (model (2)) for comparison with the marginal effect from the NB model. %The linear model yields estimates similar to the NB marginal effects. 
+Descriptive analysis in Figures \ref{fig:installation_race} and \ref{fig:install_kpop} suggest that solar installations are concentrated in census tracts with high White population shares (greater than 50\%), but decreases as White population shares exceeds 80\%. To confirm this pattern, we introduce a quadratic term of White population rate into the OLS model as the third model specification (model (3)). Following \textcite{ros_residential_2023}, we add lagged system count into the NB model (model (4)) to capture any potential non-contemporaneous relationship between the explanatory variables and solar installation counts. This dynamic model can be expressed as 
 \begin{equation}
 \label{reg_2.2}
 \begin{aligned}
-\log(\mu_{it}) &= \beta_{0} + \beta_{1}H_{it} + \beta_{2}WH_{it} + \beta_{3}\log(\text{Inc}_{it}) + \beta_{4}EDU_{it} + \beta_{5}DIS_{it} + \beta_{6}CR_{it} + \beta_7Count_{i,t-1}\\
-&\quad + \sum_{m}\delta_{m}C_{it} + \theta_{t} + \phi_{j} + \eta_{jt},
+\log(\mu_{it}) = &\beta_{0} + \beta_{1}H_{it} + \beta_{2}WH_{it} + \beta_{3}\log(\text{INC}_{it}) + \beta_{4}EDU_{it} + \beta_{5}DIS_{i} + \beta_{6}CR_{t}\\ 
+&+ \beta_7Count_{i,t-1}
+ + \delta C_{it} + \theta_{t} + \phi_{j} + \eta_{it},
 \end{aligned}
 \end{equation}
 where $Count_{i,t-1}$ is the lagged system count.
 
 \begin{table}[!ht]
-\caption{Regression results for the intensive margin}
+\caption{Regression results for the intensive margin of solar adoption}
 \label{tab:count_regression}
 \centering
 \resizebox{1\textwidth}{!}{
 \begin{tabular}{lcccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
- & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
+ & \multicolumn{4}{c}{Dependent Variable: System Count (if $>0$)} \\ \cline{2-5}
  & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
- & NB & OLS & OLS with non-linear term & NB with lagged count  \\ 
+ & NB & OLS & OLS with quadratic term & NB with lagged count  \\ 
  & Marginal Effect &  &  & Marginal Effect \\ \cline{1-5}
 Hispanic & 0.027** & 0.022 & 0.016 & 0.034** \\
  & (0.012) & (0.018) & (0.018) & (0.014) \\
@@ -519,33 +524,29 @@ Observations & 3,849 & 3,849 & 3,849 & 3,628 \\
 \end{table}
 
 
-To evaluate the impact of the main demographic characteristics on solar installations in NM, we compare results of different model specifications in Table \ref{tab:count_regression}. We highlight several key findings: 
+To evaluate the impact of the main demographic characteristics on solar installations in NM, we compare results of different model specifications in Table \ref{tab:count_regression}.\footnote{The full result is shown in \autoref{tab:count_regression_full}.} We highlight several key findings: 
 
 First, we found that the Hispanic population in NM does not experience a disadvantage in solar PV adoption; rather, it has a slight advantage. This is contrary to findings from other studies using national samples, which suggest significant disparities \parencite{gao_solar_2022, darghouth_characterizing_2022}. While the Hispanic population rate does show a statistically significant positive impact on installation counts in NB models (models (1) and (4)), the overall numerical effect remains small, indicating that ethnic factors do not play a significant role in shaping solar PV adoption across census tracts in NM.
 
-Second, the result shows that being White does not confer an advantage in solar PV adoption, as evidenced by the small and statistically insignificant coefficients for the White population rate in both OLS and NB models. However, model (3) indicates a significant non-linear relationship. The positive first-order coefficient suggests that higher percentages of White residents correlate with increased solar adoption, but the negative second-order coefficient indicates that this effect diminishes at higher rates. This non-linear dynamic explains why the average effect may appear insignificant, capturing the complexity of how demographic factors influence solar adoption.
+Second, the result shows that being White does not confer a significant advantage in solar PV adoption, evident by the small and statistically insignificant coefficients for the White population rate in both OLS and NB models. However, model (3) indicates a significant non-linear relationship. The positive first-order coefficient suggests that higher percentages of White residents correlate with increased solar adoption, but the negative second-order coefficient indicates that this effect diminishes at higher white rates. This non-linear relationship explains why the average effect may appear insignificant, capturing the complexity of how demographic factors influence solar adoption.
 
-Third, the consistent result across all model specifications reveals that demographic factors such as income, educational attainment, and residence in underserved communities continue to influence disparities in solar PV adoption, with income showing the most significant impact. Specifically, a one percent increase in the area median income within a census tract correlates with approximately four additional solar installations per year. Conversely, tracts categorized as disadvantaged experience fewer installations, typically around two less annually compared to non-disadvantaged tracts. These findings align with literature by that highlighted the role of higher income and educational levels in fostering greater environmental awareness and investment capacity in solar technologies \parencite{oshaughnessy_income-targeted_2021, darghouth_characterizing_2022}. In contrast, disadvantaged areas encounter significant barriers, leading to reduced adoption rates. Furthermore, the availability of solar tax credits has been found to boost installations across all demographic groups, underscoring the effectiveness of financial incentives in promoting solar energy adoption \parencite{borenstein_private_2017}. 
+Third, the consistent result across all model specifications reveals that demographic factors such as income, educational attainment, and residence in underserved communities continue to influence disparities in solar PV adoption, with income showing the most significant impact. Specifically, a one percent increase in the area median income within a census tract correlates with approximately four additional solar installations per year. Conversely, tracts categorized as disadvantaged experience fewer installations, typically around two less annually, compared to non-disadvantaged tracts. These findings align with literature that highlights the role of higher income and educational levels in fostering greater environmental awareness and investment capacity in solar technologies \parencite{oshaughnessy_income-targeted_2021, darghouth_characterizing_2022}. In contrast, disadvantaged areas encounter significant barriers, leading to reduced adoption rates. Furthermore, the availability of solar tax credits has been found to boost installations across all demographic groups, underscoring the effectiveness of financial incentives in promoting solar energy adoption \parencite{borenstein_private_2017}. 
 
 
 Lastly, we observe a statistically significant positive impact from the lagged system count on current period installations in model (4), indicating that NM is still experiencing a growth phase in solar installations. The positive coefficient (0.364) suggests that higher installation numbers in one period are likely to lead to even more in the following period. While we do not delve into specific mechanisms, we refer to insights from the literature to gain some plausible explanations. The growing trend in solar installation may be attributed to peer effects, which reduce the uncertainty and lead to increased trust in the reliability of solar PV, consequently resulting in higher installations \parencite{oshaughnessy_role_2023}.  Additionally, learning-by-doing among installers may lead to decreased costs over time \parencite{oshaughnessy_non-monotonic_2019}. When combined with state tax credits, these reduced costs make solar installations more financially accessible for households, further encouraging adoption. However, it is important to note that as the market matures and potentially approaches saturation, the positive impact of previous installations might diminish, possibly even turning negative.
 
-Given the significantly positive impact of income on solar installations, we further explore how this impact varies across different income brackets. Additionally, we assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income. To answer these research questions, we estimate the marginal effect of NB model on two subsamples: (1) divided by income quartile, and (2) divided by the availability of state solar incentives.
-
-\subsubsection{Adoption disparity by income groups}
-
-To assess the impact of tract-level characteristics on solar installation across different income brackets, we calculate the average area median income over the study period and segmented the census tracts into three groups: the top income quartile, the bottom income quartile, and the middle. Table \ref{tab:count_regression_income} presents the NB model estimation results for each group, revealing several notable observations.
+Given the significantly positive impact of income on solar installations, we further explore how this impact varies across different income brackets. 
+% 
+% Additionally, we assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income. To answer these research questions, we estimate the marginal effect of NB model on two subsamples: (1) divided by income quartile, and (2) divided by the availability of state solar incentives.
+% 
+% \subsubsection{Adoption disparity by income groups}
+% 
+% To assess the impact of tract-level characteristics on solar installation across different income brackets, 
+We calculate the average AMI over the study period and segment the census tracts into three groups: the top income quartile, the bottom income quartile, and the middle. Table \ref{tab:count_regression_income} presents the NB model estimation results for each group, revealing several notable observations.
 
 First, within the bottom income quartile, solar installations appear to be largely uninfluenced by key demographic factors. While the Hispanic population rate shows a positive and statistically significant effect, its overall numerical impact is small. Interestingly, being classified as disadvantaged within the bottom income quartile is correlated with an additional two installations per year, which contrasts with results from the full sample. This suggests little disparity in solar adoption among this income group. 
 
-Second, in the top income quartile, the white population share negatively impacts solar installations. Specifically, a 1 percent increase in the white population correlates with an average decrease of 0.57 solar installations. This negative trend may be attributed to the non-linear effects of white population share on solar installations. As shown in Figure \ref{fig:combined_income_WH}, census tracts in the top income quartile generally have higher shares of white populations. Moreover, racial diversity has a strong positive impact on installations; areas with less racial diversity in the top quartile tend to have more installations.
-
-Third, the top income quartile exhibits greater sensitivity to financial factors compared to the other income groups. Contrary to expectations, income significantly boosts solar installations in this group; a 1 percent increase in area median income correlates with approximately six additional installations. Financial responsiveness also extends to installation costs and state incentives. A one-dollar increase in the average installation price per watt leads to six fewer installations, while the availability of state solar incentives is associated with an average increase of 11.6 installations. These findings indicate that households in top quartile areas demonstrate heightened financial sensitivity when making solar investment decisions and show a higher uptake of the state tax incentive compared to other income groups.
-
-
-% As expected, income positively affects solar installations across all income groups, with the strongest effect in the top quartile (5.352) and a notable impact in the middle group (4.345). However, the income effect is not significant in the bottom quartile, likely due to the low income variation within this group, which diminishes its influence on solar adoption. Moreover, households in the bottom quartile face a larger financial burden, making small income increases insufficient to significantly promote solar adoption. 
-
-% We also find that the rate of Hispanic population has a positive and significant effect in the bottom and top income quartiles, suggests that solar adoption among Hispanic communities is more pronounced in the lowest and highest income groups. However, the overall impact is relatively minor from a numerical standpoint, suggesting that changes in Hispanic population rate do not significantly influence solar adoption counts. On the other hand, the White population rate shows a significant negative effect in the top income quartile, indicating a 1.3\% increase in the White population correlates with an average decrease of 1 solar installation (a 1\% increase in the White population correlates with an average decrease of 0.78 solar installations). From the frequency of White population rate within top income quartile shown in Figure \ref{fig:combined_income_WH}, areas with higher median income tend to have higher proportions of the White population. Then, this negative effect in the top income quartile reinforces the finding that wealthier areas with higher White population percentages experience diminishing rates of solar PV adoption.
+Second, in the top income quartile, the white population rate negatively impacts solar installations. Specifically, a 1 percent increase in the white population correlates with an average decrease of 0.57 solar installations. This negative trend may be attributed to the non-linear effects of white population rate on solar installations. As shown in Figure \ref{fig:combined_income_WH}, census tracts in the top income quartile generally have higher shares of white populations. Moreover, racial diversity has a strong positive impact on installations, i.e., areas with less racial diversity in the top quartile tend to have more installations, which might also capture some of the effect of the higher white rate. 
 
 \begin{figure}[!ht]
     \centering
@@ -553,28 +554,99 @@ Third, the top income quartile exhibits greater sensitivity to financial factors
     \caption{White population rate in census tracts by income quartile}
     \label{fig:combined_income_WH}
      \begin{flushleft}
-        \footnotesize Note: The income quartile classification is based on the average census tract area median income from 2010 to 2022. The share of White population in each census tract is the average of White population rate from 2010 to 2022. 
+        \footnotesize Note: The income quartile classification is based on the average census tract area median income from 2010 to 2022. The share of White population in each census tract is the average of White population rate from 2010 to 2022. We normalize the frequency with the count of census tracts in each income quartile group. There are 124 census tracts in the top income quartile, 249 census tracts in the middle quartiles, and 125 census tracts in the bottom quartile.
     \end{flushleft}
 \end{figure}
+
+Third, the top income quartile exhibits greater sensitivity to financial factors compared to the other income groups. Contrary to expectations, income significantly boosts solar installations in this group; a 1 percent increase in AMI correlates with approximately six additional installations. Financial responsiveness also extends to installation costs and state incentives. A one-dollar increase in the average installation price per watt leads to six fewer installations, while the availability of state solar incentives is associated with an average increase of 11.6 installations. These findings indicate that households in top quartile areas demonstrate heightened financial sensitivity when making solar investment decisions and show a higher uptake of the state tax incentive compared to other income groups.
+
+This analysis of the intensive margin of solar PV adoption across different census tracts suggests significant disparities influenced by demographic and socioeconomic factors, with income being the leading cause. This finding motivates us to assess the effectiveness of NM's solar tax credit incentives in reducing adoption disparities related to income and other demographic factors.
+
+% As expected, income positively affects solar installations across all income groups, with the strongest effect in the top quartile (5.352) and a notable impact in the middle group (4.345). However, the income effect is not significant in the bottom quartile, likely due to the low income variation within this group, which diminishes its influence on solar adoption. Moreover, households in the bottom quartile face a larger financial burden, making small income increases insufficient to significantly promote solar adoption. 
+
+% We also find that the rate of Hispanic population has a positive and significant effect in the bottom and top income quartiles, suggests that solar adoption among Hispanic communities is more pronounced in the lowest and highest income groups. However, the overall impact is relatively minor from a numerical standpoint, suggesting that changes in Hispanic population rate do not significantly influence solar adoption counts. On the other hand, the White population rate shows a significant negative effect in the top income quartile, indicating a 1.3\% increase in the White population correlates with an average decrease of 1 solar installation (a 1\% increase in the White population correlates with an average decrease of 0.78 solar installations). From the frequency of White population rate within top income quartile shown in Figure \ref{fig:combined_income_WH}, areas with higher median income tend to have higher proportions of the White population. Then, this negative effect in the top income quartile reinforces the finding that wealthier areas with higher White population percentages experience diminishing rates of solar PV adoption.
+
+
 
 % Educational attainment also significantly increases solar adoption in the top income quartile and middle income group, but not in the bottom quartile. Regarding the lack of significance in the bottom quartile, several factors could contribute to this result. Firstly, there is a high correlation of 0.69 between education and income (shown in Figure \ref{fig:corr_matrix}). Income may capture most of the variation in solar adoption behavior in the low-income areas. Secondly, the presence of an information barrier could be another factor. Low-income areas may face challenges in accessing information about solar adoption and relative policies, leading to fewer adoptions despite potentially favorable educational backgrounds.
 
 % The result reveals that top income quartile areas are more sensitive to financial factors such as installation price and state solar incentives compared to other income groups. Specifically, a one-cent increase in the average installation price per watt correlates to a decrease of 5 solar installations in the top income quartile, while other income brackets experience a smaller reduction of 3 installations on average. Similarly, the availability of state solar incentives leads to an increase of 15 solar installations in the top income quartile, while middle brackets and bottom quartile only experience a 5-unit increase and 3-unit increase respectively. This suggests that households in higher-income areas may be more price-sensitive when making decisions on renewable energy investments.
 
 %%%%%%%%%%%%%
-\subsubsection{Effectiveness of the state solar tax credit}
+\subsection{Effectiveness of the state solar tax credit}
 
-To evaluate whether state-level solar incentives alleviate or exacerbate disparities, we divide the observations into three groups based on the availability of solar incentives. The first group includes data from 2010 to 2016 when the initial solar tax credit, SMDTC, was available. The second group comprises data from 2017 to 2019 when state-level solar incentives were absent. The last group spans from 2020 to 2022, when the New Solar Market Development Tax Credit (NSMDTC) was reintroduced. Table \ref{tab:count_regression_3 periods} shows the estimation results for each period. We analyze the effects of the state solar tax credit on adoption disparities by race and income separately.
+To evaluate whether state-level solar incentives alleviate or exacerbate disparities, we divide the observations into three groups based on the availability of solar incentives. The first group includes data from 2010 to 2016 when the initial solar tax credit, SMDTC, was available. The second group comprises data from 2017 to 2019 when state-level solar incentives were absent. The last group spans from 2020 to 2022, when the solar tax credit was reintroduced as NSMDTC (\autoref{fig:culmulative_capacity}). Table \ref{tab:count_regression_3 periods} shows the estimation results of equation (\ref{reg_2}) for each period. The dependent variable is the census tract-year installation count if greater than zero because the tax credit has a higher impact on intensive margin of adoption. We discuss the effects of the state solar tax credit on adoption disparities by race and income separately.
 
+\begin{table}[!ht]
+\caption{Negative binomial marginal effects for system count by state credit availability}
+\centering
+\singlespacing
+\label{tab:count_regression_3 periods}
+\resizebox{0.65\textwidth}{!}{
+\begin{tabular}{lccc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+ & \multicolumn{3}{c}{Dependent variable: System count (if $>0$)} \\ \cline{2-4}
+ & (1) & (2) & (3) \\
+ & SMDTC & No credit & NSMDTC\\
+ & 2010-2016 & 2017-2019 & 2020-2022 \\ \cline{1-4}
+Hispanic & 0.011 & 0.063** & -0.016 \\
+ & (0.009) & (0.032) & (0.032) \\
+White & 0.014 & 0.343*** & -0.000 \\
+ & (0.028) & (0.110) & (0.053) \\
+Log area median income & 3.722*** & 5.950*** & -2.600 \\
+ & (0.504) & (1.920) & (1.664) \\
+Bachelor & 0.111*** & 0.026 & 0.072* \\
+ & (0.013) & (0.040) & (0.040) \\
+Disadvantage & -0.560** & -1.600* & -3.388*** \\
+ & (0.280) & (0.918) & (0.975) \\
+Log population & 4.256*** & 2.526 & 3.151 \\
+ & (0.767) & (2.764) & (2.436) \\
+Electricity & 0.013 & 0.204*** & -0.112** \\
+ & (0.015) & (0.052) & (0.047) \\
+Electricity price & 0.218* & 0.301 & 0.732 \\
+ & (0.119) & (0.416) & (0.474) \\
+Installation price & -1.336*** & -4.248*** & -36.52*** \\
+ & (0.131) & (0.805) & (8.084) \\
+Log total housing unit & 0.403 & 9.155*** & 5.507** \\
+ & (0.765) & (2.846) & (2.422) \\
+Urban & -0.021*** & 0.061*** & 0.086*** \\
+ & (0.004) & (0.016) & (0.015) \\
+Owner occupied & 0.017*** & 0.226*** & 0.263*** \\
+ & (0.006) & (0.035) & (0.034) \\
+Built year group & 0.111 & -1.143*** & -1.641*** \\
+ & (0.089) & (0.286) & (0.298) \\
+PNM & -0.103 & -2.906*** & -3.915*** \\
+ & (0.265) & (0.834) & (0.971) \\
+GHI & 0.011** & 0.038** & 0.044** \\
+ & (0.005) & (0.016) & (0.017) \\
+Racial Diversity & -0.728 & -19.86** & 7.222 \\
+ & (2.268) & (8.461) & (4.960) \\ \cline{1-4}
+Year FE & Yes & Yes & Yes \\
+County FE & Yes & Yes & Yes \\
+% State credit & SMDTC & - & NSMDTC \\
+Observations & 1,791 & 882 & 1,176 \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
+\end{tabular}}
+\end{table}
 
-Our findings indicate that in NM, state solar credits significantly mitigate racial disparities in solar adoption. When state incentives were available, no significant racial disparities were observed. In contrast, during periods without these incentives, a 1 percentage point increase in the White population correlated with an average increase of 0.3 solar installations, suggesting that areas with higher White population share were more likely to adopt solar technology. This pattern underscores the effectiveness of state incentives to help create a more equitable environment for solar adoption across different racial groups. 
+The comparison of the racial variable coefficients across three periods indicate that the state solar tax credits significantly mitigate racial disparities in solar adoption. When state incentives were available, no significant racial disparities were observed. In contrast, during periods without these incentives, a 1 percentage point increase in the White population correlated with an average increase of 0.3 solar installations%, suggesting that areas with higher White population share were more likely to adopt solar technology
+. This pattern underscores the effectiveness of state incentives to help create a more equitable environment for solar adoption across different racial groups. 
 
-Further analysis of income’s influence on solar adoption highlights a significant trend: during the years without state incentives (2017-2019), the correlation between income and solar installation counts was notably strong, as indicated by a coefficient of 5.950, pointing to increased income-related disparities. However, with the reintroduction of the NSMDTC in 2020, this impact significantly diminished, with the income coefficient turning negative (-2.600). This reversal suggests that the state tax credits have effectively reduced income-based disparities. 
+The coefficients of the income variable highlight a significant increase in income-related adoption disparity when the tax credit was removed, as indicated by a statistically significant coefficient of 5.950. With the reintroduction of the NSMDTC in 2020, this impact diminished, with the income coefficient turning insignificant and negative (-2.600). This reversal suggests that the state tax credits have effectively reduced income-based disparities. 
 
-Nonetheless, when examining the income subsample regression (\autoref{tab:count_regression_income}), it becomes evident that while the top income quartile is highly responsive to the state tax credit, the bottom quartile is not. This discrepancy may be due to the non-refundable nature of the tax credit. Therefore, those in the bottom income quartile with insufficient tax liability cannot benefit from it. Consequently, while the state tax credit reduces within-group disparity among income quartiles, it does not substantially narrow the gap across groups, diverging from the effects suggested by \textcite{oshaughnessy_rooftop_2022}. This outcome underscores the importance of incentive design in achieving equitable benefits across different income levels, as highlighted by \textcite{borenstein_distributional_2016}.
+% Nonetheless, when examining the income subsample regression (\autoref{tab:count_regression_income}), it becomes evident that while the top income quartile is highly responsive to the state tax credit, the bottom quartile is not. This discrepancy may be due to the non-refundable nature of the tax credit. Therefore, those in the bottom income quartile with insufficient tax liability cannot directly benefit from the credit. Consequently, while the state tax credit reduces within-group disparity for each income quartiles, it does not substantially narrow the gap across groups, diverging from the effects suggested by \textcite{oshaughnessy_rooftop_2022}. This outcome underscores the importance of incentive design in achieving equitable benefits across different income levels, as highlighted by \textcite{borenstein_distributional_2016}.
 
-% On the other hand, while individuals with higher educational attainment were generally more likely to adopt solar technology in the early stages, this trend has weakened with the widespread adoption of solar energy. The state-level incentives did not significantly affect educational disparities. The coefficients in 2017-2019 and 2020-2022 are positive but not significant, suggesting that potential information barriers may still exist but have been alleviated by some other unobserved interventions over the years. There has been some progress in making solar technology more accessible across different educational levels in New Mexico.
+Several other observations can be made from the regression analysis: 
 
+While individuals with higher educational attainment were generally more likely to adopt solar PV, this trend has weakened as solar energy has become more widely adopted. A similar pattern is observed in population centers, where new adoption is now more dispersed rather than concentrated solely in populous areas. However, disparities between disadvantaged and non-disadvantaged communities, as well as between homeowners and renters, persist even with the tax credit in place.
+
+%The state-level incentives did not significantly affect education-level disparities. The coefficients in 2017-2019 and 2020-2022 are positive but not significant, suggesting that potential information barriers may still exist but have been alleviated by some other unobserved interventions over the years. 
+% There has been some progress in making solar technology more accessible across different educational levels in New Mexico.
+
+To conclude, the state solar tax credit has been highly effective in narrowing the adoption gap related to the primary causes of disparity, namely income and race. However, it has been less effective in reducing other barriers, such as disadvantaged status and home ownership.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -582,24 +654,24 @@ Nonetheless, when examining the income subsample regression (\autoref{tab:count_
 \section{Distributional equity analysis}
 % Section on credit claim
 
-Another important aspect of solar equity is distributional equity, which pertains to whether the benefits of clean energy incentives are uniformly distributed across different demographic groups. In this section, we focus on the distributional equity of the state solar tax credit programs, SMDTC and NSMDTC, as they are the most prominent and salient forms of financial incentives for households. Given that solar tax credits are financed through tax dollars, understanding their distributional effects and potential regressivity is crucial for evaluating the effectiveness of these policies. Furthermore, the main motivation for solar tax credits is to promote solar adoption by reducing the financial burdens on households and to facilitate energy transition. Since the electricity produced by residential solar panels crowds out kWh for kWh of electricity from other generation sources in the grid regardless of the location and household characteristics (unless off-grid), having only a subset of households benefiting from the credit can be considered inequitable.
+Another important aspect of solar equity is distributional equity, which pertains to whether the benefits of clean energy incentives are uniformly distributed across different demographic groups. In this section, we focus on the distributional equity of the state solar tax credit programs, SMDTC and NSMDTC, as they are the most prominent and salient forms of financial incentives for households. Given that solar tax credits are financed through tax dollars, understanding their distributional effects and potential regressivity is crucial for evaluating the efficiency and equity of these policies. Furthermore, the main motivation for solar tax credits is to promote solar adoption by reducing the financial burdens on households and to facilitate energy transition. Since the electricity produced by residential solar panels crowds out kWh for kWh of electricity from other generation sources in the grid regardless of the location and household characteristics (unless off-grid), having only a subset of households benefiting from the credit can be viewed as inequitable.
 
 Our main research question is: Conditional on adopting solar, how do household and tract-level characteristics affect the probability of receiving state tax credits? Studying this question is crucial for several reasons. Firstly, it helps identify whether existing policies inadvertently favor certain demographic groups over others, which can exacerbate social inequalities. If solar incentives disproportionately benefit higher-income households or specific racial or ethnic groups, it indicates a need to redesign these policies to be more inclusive and equitable. Secondly, by understanding the factors that influence the distribution of these incentives, policymakers can develop targeted strategies to enhance the accessibility of solar energy for underrepresented and disadvantaged communities, contributing to a more just and sustainable energy transition. Lastly, evaluating the regressivity of solar tax credits ensures that public funds are used efficiently and equitably, promoting broader societal support for clean energy initiatives. Overall, this research provides valuable insights into designing more equitable and effective solar incentive programs.
 
-We would like to note a few details about the state solar tax credit in New Mexico. First, the tax credit is 10\% of the total installation cost, with a cap of \$9,000 in the first period and \$6,000 in the second. Second, the tax credit can only be approved if the household applies for it (obviously), and approval for the tax credit requires an extensive set of documents from installers, utilities, permitting agencies, county assessors, and homeowners. Third, a household only qualifies for the tax credit if the system is owned and not leased. These specific incentive structures may also affect which types of households eventually receive the credit.
+We would like to emphasize a few details about the state solar tax credit in New Mexico. First, the tax credit is 10\% of the total installation cost, with a cap of \$9,000 in the first period and \$6,000 in the second. Second, the tax credit can only be approved if the household applies for it (obviously), and approval for the tax credit requires an extensive set of documents from installers, utilities, permitting agencies, county assessors, and homeowners. Third, a household only qualifies for the tax credit if the system is owned and not leased. These specific incentive structures may also affect which types of households eventually receive the credit.
 
 Our main hypotheses to be tested given the incentive structure are the following:
 \begin{itemize}
     \item[\textbf{H1}] Households with more expensive systems, reflected by higher installed capacity, are more likely to claim the tax credit. This is because, with the flat 10\% credit, systems with a higher price tag can receive a higher absolute return.
     \item[\textbf{H2}] Less wealthy families are more likely to claim the tax credit as they have a higher marginal utility of wealth. Since we do not observe income or wealth at the household level, we use housing value as a proxy.
-    \item[\textbf{H3}] Households in census tracts with higher education levels are more likely to claim credits as the application process may pose information barriers.
+    \item[\textbf{H3}] Households in census tracts with higher education levels and lower Hispanic rates are more likely to claim credits as the application process may pose information and language barriers.
 \end{itemize}
 
 \subsection{Data and descriptive analysis}
 
 We use the system-level data described in section \ref{section:data_collect} for the years when tax credits were available (2006-2016 and after 2020). Since the demographics data spans from 2010 to 2022, we restrict our sample to the overlapping years: 2010-2016 and 2020-2022. 
 
-\autoref{fig:credit_claim} shows the number of newly installed systems each year that received or did not receive solar tax credits within PNM, EPE, SEC, and LADPU service areas. It also shows the total credit amount claimed each year by all residential solar systems. During the first phase of the tax credit program (SMDTC), the majority of installations benefited from the 10\% credit. In contrast, in the second phase (NSMDTC), more than half of the installations did not receive the credit. This gap can partially be explained by the annual funding cap implemented with NSMDTC. In 2020 and 2021, the cap was \$8 million, increasing to \$12 million in 2022 and 2023.\footnote{In 2024, Governor Lujan Grisham signed House Bill 252 into law to raise the annual aggregate cap to \$30 million per year \parencite{newsolarcap}.} The aggregate cap was reached in 2021 and 2022, resulting in 190 and 226 tax credit application rejections, respectively. Only 1\% and 3\% of the applications exceeded the individual system cap in the first and second periods, respectively.
+\autoref{fig:credit_claim} shows the number of newly installed systems each year that received or did not receive solar tax credits within PNM, EPE, SEC, and LADPU service areas. It also shows the total credit amount claimed each year by all residential solar systems. During the first phase of the tax credit program (SMDTC), the majority of installations benefited from the 10\% credit. In contrast, in the second phase (NSMDTC), more than half of the installations did not receive the credit. This gap can partially be explained by the annual funding cap implemented with NSMDTC. In 2020 and 2021, the cap was \$8 million, increasing to \$12 million in 2022 and 2023.\footnote{In 2024, Governor Lujan Grisham signed House Bill 252 into law to raise the annual aggregate cap to \$30 million per year \parencite{newsolarcap}.} The aggregate cap was reached in 2021 and 2022, resulting in 190 and 226 tax credit application rejections, respectively. Among the systems approved for tax credits, around 1\% and 3\% of the applications exceeded the individual system cap in the first and second phase, respectively.
 
 \begin{figure}[!ht]
     \centering
@@ -623,7 +695,7 @@ We use the system-level data described in section \ref{section:data_collect} for
     \end{flushleft}
 \end{figure}
 
-To answer the research question, we need to match the two data sources of solar installations to identify which systems received solar credits. The EMNRD data contains a wealth of information but only for systems that received tax credits, while the utility data includes the universe of all systems installed. We match the recorded address of the installed systems. Since the recorded address for the same system may vary across datasets, some of the systems in the EMNRD data cannot be found in the utility dataset despite our best efforts. \autoref{tab:compare_emnrd_utility} shows the result of the matching, which, although imperfect, remains statistically insignificant. We also dropped any households with living areas of less than 100 square feet to avoid extreme outliers. The resulting dataset includes 26,735 unique systems.
+To answer the research question, we need to match the two data sources of solar installations to identify which systems received solar credits. The EMNRD data contains a wealth of information but only for systems that received tax credits, while the utility data includes the universe of all systems installed. We match the recorded address of the installed systems between the two data sources. Since the recorded address for the same system may vary across data sources, some of the systems in the EMNRD data cannot be found in the utility dataset despite our best efforts. \autoref{tab:compare_emnrd_utility} shows the result of the matching, which, although imperfect, remains statistically insignificant. We also dropped any households with living areas of less than 100 square feet to avoid extreme outliers. The resulting dataset includes 26,735 unique systems.
 
 
 \autoref{tab:sumstat} shows the summary statistics of the matched dataset, and \autoref{fig:corr_matrix} displays the correlation matrix of the key variables.
@@ -633,7 +705,7 @@ To answer the research question, we need to match the two data sources of solar 
 
 \subsection{The extensive margin of tax credit claim}
 
-The dependent variable in our analysis is whether a household received a tax credit upon adopting solar energy. We use the linear probability model (LPM) as a preliminary step to decompose the effect of various household and tract-level characteristics on the probability of claiming credit. We run the logit model as a robustness check. The model is specified as follows:
+The dependent variable in our analysis is whether a household received a tax credit upon adopting solar energy. We use the linear probability model (LPM) as a preliminary step to decompose the effect of various household and tract-level characteristics on the probability of claiming credit. We run the Logit model as a robustness check. The model is specified as follows:
 
 \begin{equation}\label{reg_3}
     \text{SolarTaxCredit}_{hlt} = \alpha + \beta_1 X_{ht} + \beta_2 C_{lt}  + \gamma_t +  \delta_c + \theta_u + \varepsilon_{lt},
@@ -642,7 +714,7 @@ where $\text{SolarTaxCredit}_{hlt}$ is a binary variable indicating whether hous
 
 We test five model variations: (1) including only household-level variables, (2) including both household- and census tract-level variables, (3) with year fixed effects, (4) with year and utility fixed effects, and (5) with year and county fixed effects.
 
-Model (1) examines how household-level characteristics alone affect the probability of claiming the credit. Model (2) examines whether the tax credit benefits concentrate in communities with certain demographic characteristics. Model (3) controls for time-varying unobserved factors, such as changes in solar PV price trends and societal awareness and acceptance of solar PV. Model (4) controls for time-invariant utility-specific characteristics, including utility type (IOU, coop, or public utility), solar incentives, and infrastructure. Model (5) controls for county-specific characteristics, including regulatory environment and geographic factors not captured by the demographic controls. The results of these models are presented in \autoref{tab:credit_claim_full_regression}. The regression result of the logit model with the same model specifications is reported in \autoref{tab:reg_logit}.
+Model (1) examines how household-level characteristics alone affect the probability of claiming the credit. Model (2) examines whether the tax credit benefits concentrate in communities with certain demographic characteristics. Model (3) controls for time-varying unobserved factors, such as changes in solar PV price trends and societal awareness and acceptance of solar PV. Model (4) controls for time-invariant utility-specific characteristics, including utility type (IOU, coop, or public utility), solar incentives, and infrastructure. Model (5) controls for county-specific characteristics, including regulatory environment and geographic factors not captured by the demographic controls. The results of these models are presented in \autoref{tab:credit_claim_full_regression}. The regression result of the Logit model with the same model specifications is reported in \autoref{tab:reg_logit}.
 
 
 \begin{table}[!ht] \centering
@@ -703,11 +775,11 @@ Model (1) examines how household-level characteristics alone affect the probabil
 }
 \end{table}
 
-The results suggest that households with higher system capacity, higher housing values, and older residences are more likely to obtain tax credits. Housing value has the most significant positive impact: a 1 percent increase in housing value increases the probability of claiming the credit by 15.6 percentage points, contrary to our initial hypothesis. Additionally, households in census tracts with higher education levels, higher owner-occupancy rates, lower mortgage rates, and higher Hispanic populations are more likely to receive tax credits. Conversely, disadvantaged census tracts have fewer tax credit claims.
+We find that households with higher system capacity, higher housing values, and older residences are more likely to obtain tax credits. Housing value has the most significantly positive impact: a 1 percent increase in housing value increases the probability of claiming the credit by 15.6  percentage points in model (5), contrary to our initial hypothesis (H2). Additionally, households in census tracts with higher education levels, higher owner-occupancy rates, lower mortgage rates, and lower Hispanic populations are more likely to receive tax credits. Conversely, disadvantaged census tracts have fewer tax credit claims.
 
-These results provide evidence that tax credits are concentrated among wealthier households, all else being equal, similar to findings in the literature related to other green energy incentive programs \parencite{borenstein_distributional_2016}. \autoref{fig:credit_by_zestimate_quintile} illustrates that the rate of credit claims increases for higher housing value quintiles, with more than 65\% of households in the top quintile claiming the credit, compared to only around 25\% in the bottom quintile. 
+These results provide evidence that tax credits are concentrated among wealthier households, all else being equal, similar to findings in the literature related to other green energy incentive programs \parencite{borenstein_distributional_2016}. \autoref{fig:credit_by_zestimate_quintile} illustrates the percentage of systems claimed tax credit by housing value quintile. It is evident that the rate of credit claims increases for higher housing value quintiles, with more than 65\% of households in the top quintile claiming the credit, compared to only around 25\% in the bottom quintile. 
 
-The results also suggest potential information barriers to ethnic minorities and populations with lower education levels in the tax credit program. The negative and significant coefficient for the mortgage rate suggests that more solar systems may be under leasing contracts in these census tracts, which do not qualify for the tax credits.
+The positive coefficient of education level and negative coefficient of Hispanic population share suggest potential information barriers to ethnic minorities and populations with lower education levels in the tax credit program, confirming our initial hypothesis H3. The negative coefficient of the mortgage rate suggests that more solar systems may be under leasing contracts in these census tracts, which do not qualify for the tax credits.
 
 \begin{figure}[!ht]
     \centering
@@ -719,7 +791,7 @@ The results also suggest potential information barriers to ethnic minorities and
     % \end{flushleft}
 \end{figure}
 
-We estimate model (5) of the main regression for the two tax credit program periods (SMDTC and NSMDTC) separately to examine whether some of the distributional effects change over time. \autoref{tab:reg_by_program} reports the regression results. \autoref{fig:coefficient_trend} shows the time trend of the household-level explanatory variable coefficients.
+We estimate model specification (5) of equation (\ref{reg_3}) for the two tax credit program phases separately to examine whether some of the distributional effects change over time. \autoref{tab:reg_by_program} reports the regression results. \autoref{fig:coefficient_trend} shows the time trend of the household-level explanatory variable coefficients.
 
 \begin{table}[!ht] \centering
   \caption{Regression results on state credit claim by program period}
@@ -777,62 +849,67 @@ We estimate model (5) of the main regression for the two tax credit program peri
 \end{tabular}}
 \end{table}
 
-In the first program period (before 2016), around 60\% of the systems claimed tax credits, whereas in the second period (after 2020), the rate dropped to 36\%. Under SMDTC, none of the housing characteristics significantly impacted the probability of claims. However, census tract characteristics such as higher educational levels, higher owner occupancy rates, higher median age, and lower percentage of white population increased the probability of credit claims. In contrast, under NSMDTC, housing value has a significantly positive impact on the outcome. Moreover, census tracts with higher Hispanic populations and those that are disadvantaged have fewer claims.
+% In the first program period (before 2016), around 60\% of the systems claimed tax credits, whereas in the second period (after 2020), the rate dropped to 36\%. 
+Under SMDTC, none of the housing characteristics significantly impacted the probability of claims. However, census tract characteristics such as higher educational levels, higher owner occupancy rates, higher median age, and lower percentage of white population increased the probability of credit claims. In contrast, under NSMDTC, housing value has a significantly positive impact on the outcome. Moreover, census tracts with higher Hispanic populations and those that are disadvantaged have fewer claims.
 
-The change in determining characteristics for credit claims over time suggests discernible differences between early and late adopters of solar PV. Early adopters are likely to be more tech-savvy and have a preference for clean energy. For them, the likelihood of claiming the credit depends on their awareness of the program, which is potentially correlated with education level, and their financial savviness, potentially correlated with age and racial status. Additionally, if the system is under a leasing contract, potentially correlated with the mortgage rate, it is less likely to receive credit. Late adopters, on the other hand, could be more motivated by the financial gains of installing solar. Therefore, they are more sensitive to the financial benefits of the tax credit, as shown by the significant positive effect of system capacity in the second period.
+The change over time in the key characteristics affecting credit claims highlights discernible differences between early and late adopters of solar PV. Early adopters are likely to be more tech-savvy and have a preference for clean energy. For them, the likelihood of claiming the credit depends on their awareness of the program, which is potentially correlated with education level, and their financial savviness, potentially correlated with age and racial status. Additionally, if the system is under a leasing contract, potentially correlated with the mortgage rate, it is less likely to receive credit. Late adopters, on the other hand, could be more motivated by the financial gains of installing solar. Therefore, they are more sensitive to the financial benefits of the tax credit, as shown by the significant positive effect of system capacity in the second period.
 
-The findings also reveal persistent equity issues, as disadvantaged and Hispanic-majority census tracts are less likely to benefit from tax credits under the NSMDTC. A notable difference between SMDTC and NSMDTC is the introduction of an aggregate cap under NSMDTC. This cap negatively affects distributional equity by imposing a negative effect on areas that are disadvantaged and have higher Hispanic populations. Thus, these results support increasing the aggregate cap and allowing for retroactive tax credit applications from rejected applications due to the cap being reached between 2021 and 2023, as passed by the new House Bill 252 \parencite{newsolarcap}. 
+The findings also reveal persistent equity issues, as disadvantaged and Hispanic-majority census tracts are less likely to benefit from tax credits under the NSMDTC. A notable difference between SMDTC and NSMDTC is the introduction of an aggregate cap under NSMDTC. This cap negatively affects distributional equity by imposing a negative effect on areas that are disadvantaged and have higher Hispanic populations. Thus, these results support the recent policy change to increase the aggregate cap and allowing for retroactive tax credit applications from rejected applications due to the cap being reached \parencite{newsolarcap}. 
 
 \subsection{The intensive margin of tax credit claim}
 
-To deepen our understanding of the determinants of tax credit claims, we explore the intensive margin—that is, conditional upon receiving tax credits, which household characteristics lead to higher claimed amounts? To address this question, we employ the following OLS regression with the claimed amount as the dependent variable:
+We further explore the distributional equity on the intensive margin. We examine the research question: conditional on receiving tax credits, which household characteristics lead to higher claimed amounts? To answer this question, we estimate the following OLS regression with the claimed amount as the dependent variable:
 
 \begin{equation}\label{reg_4}
     \log(\text{TaxCreditAmount})_{ht} = \alpha + \beta X_{ht} + \gamma C_{lt}  + \delta_t + \varepsilon_{lt},
 \end{equation}
-where TaxCreditAmount$_{ht}$ is the dollar amount tax credit approved for household $h$ in year $t$, $X_{ht}$ is a vector of household level explanatory variables, $C_{lt}$ is a vector of census tract demographic controls, $\delta_t$ is the year fixed effect, and $\varepsilon_{lt}$ is the error term clustered at the census tract level. $\beta$ is the vector of coefficients of interest. We test three model specifications: (1) with only household-level variables, (2) adding census tract controls, and (3) incorporating year-fixed effects. \autoref{tab:sum_stat_dis_intensive} provides the summary statistics, and \autoref{tab:reg_claim_amount} displays the regression results.
+where TaxCreditAmount$_{ht}$ is the dollar amount tax credit approved for household $h$ in year $t$, $X_{ht}$ is a vector of household level explanatory variables, $C_{lt}$ is a vector of census tract demographic controls, $\delta_t$ is the year fixed effect, and $\varepsilon_{lt}$ is the error term clustered at the census tract level. $\beta$ is the vector of coefficients of interest. We test three model specifications for the full sample: (1) with only household-level variables, (2) adding census tract controls, and (3) incorporating year-fixed effects. We also run subsample analysis for the SMDTC and NSMDTC separately. \autoref{tab:sum_stat_dis_intensive} provides the summary statistics, and \autoref{tab:reg_claim_amount} displays the regression results.\footnote{Full regression results are detailed in \autoref{tab:reg_5_full}.}
 
 \begin{table}[!ht] \centering 
   \caption{Regression results of linear models for tax credit claim amount} 
   \label{tab:reg_claim_amount} 
- \resizebox{0.6\textwidth}{!}{
- \begin{tabular}{@{\extracolsep{5pt}}lccc} 
+ \resizebox{0.9\textwidth}{!}{
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-4} 
-\\[-1.8ex] & \multicolumn{3}{c}{Log(Tax credit amount)} \\ 
-\\[-1.8ex] & (1) & (2) & (3)\\ 
+ & \multicolumn{5}{c}{\textit{Dependent variable: Log(Tax credit claimed)}} \\ 
+\cline{2-6}  
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\\[-1.8ex] & Full sample & Full sample & Full sample & SMDTC & NSMDTC\\ 
 \hline \\[-1.8ex] 
- System capacity & 0.109$^{***}$ & 0.112$^{***}$ & 0.115$^{***}$ \\ 
-  & (0.001) & (0.001) & (0.002) \\ 
-  Log Zestimate & 0.049$^{***}$ & 0.070$^{***}$ & 0.059$^{***}$ \\ 
-  & (0.010) & (0.013) & (0.013) \\ 
-  Year built & $-$0.001$^{***}$ & $-$0.001$^{***}$ & $-$0.001$^{***}$ \\ 
-  & (0.0002) & (0.0002) & (0.0002) \\ 
-  Log Housing size (sq ft) & 0.083$^{***}$ & 0.057$^{***}$ & 0.054$^{***}$ \\ 
-  & (0.015) & (0.015) & (0.015) \\ 
-  \# of Bedrooms & 0.026$^{***}$ & 0.027$^{***}$ & 0.028$^{***}$ \\ 
-  & (0.005) & (0.005) & (0.005) \\ 
+ System capacity & 0.109$^{***}$ & 0.112$^{***}$ & 0.115$^{***}$ & 0.130$^{***}$ & 0.108$^{***}$ \\ 
+  & (0.001) & (0.001) & (0.002) & (0.003) & (0.002) \\ 
+  Log Zestimate & 0.049$^{***}$ & 0.070$^{***}$ & 0.059$^{***}$ & 0.237$^{***}$ & $-$0.086$^{***}$ \\ 
+  & (0.010) & (0.013) & (0.013) & (0.021) & (0.016) \\ 
+  Year built & $-$0.001$^{***}$ & $-$0.001$^{***}$ & $-$0.001$^{***}$ & $-$0.002$^{***}$ & $-$0.001$^{***}$ \\ 
+  & (0.0002) & (0.0002) & (0.0002) & (0.0003) & (0.0002) \\ 
+  Log Housing size (sq ft) & 0.083$^{***}$ & 0.057$^{***}$ & 0.054$^{***}$ & $-$0.036 & 0.135$^{***}$ \\ 
+  & (0.015) & (0.015) & (0.015) & (0.024) & (0.019) \\ 
+  No. of Bedrooms & 0.026$^{***}$ & 0.027$^{***}$ & 0.028$^{***}$ & 0.028$^{***}$ & 0.018$^{***}$ \\ 
+  & (0.005) & (0.005) & (0.005) & (0.008) & (0.006) \\ 
  \hline \\[-1.8ex] 
-Census Tract Controls & No & Yes & Yes \\ 
-Year Fixed Effects & No & No & Yes \\ 
-Observations & 11,034 & 11,034 & 11,034 \\ 
-R$^{2}$ & 0.435 & 0.448 & 0.461 \\ 
-Adjusted R$^{2}$ & 0.435 & 0.447 & 0.459 \\ 
+Census Tract Controls & No & Yes & Yes & Yes & Yes \\ 
+Year Fixed Effects & No & No & Yes & Yes & Yes \\ 
+Observations & 11,034 & 11,034 & 11,034 & 4,940 & 6,094 \\ 
+R$^{2}$ & 0.435 & 0.448 & 0.461 & 0.458 & 0.507 \\ 
+Adjusted R$^{2}$ & 0.435 & 0.447 & 0.459 & 0.455 & 0.505 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular}}
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
 \end{table} 
 
-The regression results highlight two primary factors influencing solar tax credit claims. First, higher system capacity consistently leads to higher tax credit claims across all model specifications. This trend is anticipated, considering the tax credit amounts to 10\% of the total installation cost, and systems with greater capacity generally incur higher costs.
+The regression results highlight two primary factors influencing the intensive margin of solar tax credit claims. First, higher system capacity consistently leads to higher tax credit claims across all model specifications. This trend is expected, as the tax credit amounts to 10\% of the total installation cost, and systems with greater capacity generally incur higher costs. It is also important to note that system capacity typically reflects the household’s electricity consumption. Therefore, this result implies that energy-intensive solar adopters receive higher subsidies.
 
-Secondly, households with higher property values claim larger tax credits. This observation raises concerns about equity within the subsidy program, as it suggests that wealthier households are reaping greater benefits from government solar incentives. This disparity could be perceived as exacerbating existing socioeconomic inequities by disproportionately favoring already affluent households. However, a deeper examination reveals that households with higher property values likely face higher costs for installing solar systems of the same capacity. Factors contributing to these costs include the need for custom solutions to fit specific property aesthetics, the use of premium materials, more complex installation requirements, and stricter compliance with local regulations in affluent areas. 
+Secondly, households with higher property values claim larger tax credits in both the full sample and SMDTC regressions. However, in the NSMDTC subsample, this correlation is reversed. This observation reinforces equity concerns within the subsidy program, as it suggests that wealthier households are not only more likely to claim credits, as shown in the extensive margin analysis, but also claim higher amounts. Under NSMDTC, although wealthier households are still more likely to claim credits, the absolute amount claimed is lower when they do. 
+% However, a deeper examination reveals that households with higher property values likely face higher costs for installing solar systems of the same capacity. Factors contributing to these costs include the need for custom solutions to fit specific property aesthetics, the use of premium materials, more complex installation requirements, and stricter compliance with local regulations in affluent areas. 
 
 
-We follow \textcite{borenstein_distributional_2016} to illustrate the concentration of solar credit claims by income quintile and calculate the concentration index for the full sample period, SMDTC, and NSMDTC. \autoref{fig:credit_claim_distribution} shows the concentration curves for the three samples. The 45-degree line represents perfect equality; the more convex the curve, the more regressive the policy, favoring wealthier households. The curves indicate that NSMDTC is less equitable than SMDTC. The concentration index, calculated as the ratio of the area between the concentration curve and the 45-degree line over the total area under the 45-degree line, for the full sample, SMDTC, and NSMDTC are 0.444, 0.498, and 0.405, respectively.\footnote{If we use the full credit claim data from EMNRD for the study period, the concentration index for the full sample, SMDTC, and NSMDTC are 0.387, 0.449, and 0.356, respectively. This suggests that solar adopters are shifting towards low-income populations as the market matures, and the distributional inequality gap is shrinking. \autoref{fig:concentration_index} shows the year trend of the concentration index.}%This comparison underscores the need for continuous evaluation and adaptation of incentive programs to address the lack of credit claims among less wealthy solar adopters, likely due to systems being leased rather than owned.
-\textcite{borenstein_distributional_2016} showed that the concentration index for the federal Residential Energy Credit, which is the federal solar tax credit, is 0.606, higher than what we find at the state level. %We want to note the differences between our two approaches. \textcite{borenstein_distributional_2016} used individual tax return data from the Internal Revenue Service, and the concentration data is calculated based on the percentage claimed in each income bracket of all tax filers. Since we do not observe individual income levels and solar tax credit claims in the same dataset, we made the following adjustments to their approach. First, we calculate the concentration index conditional on solar adoption and credit claims. As we show in \autoref{sec:adoption_equity}, lower-income households are less likely to adopt solar, so our sample already has an upward bias on the income bracket. Second, we do not observe household income level and therefore used estimated housing value (Zestimate) as a proxy for household wealth. Although income and wealth are positively correlated, this approach may still capture other aspects of household differences that are not income-related. These two methodological differences may result in a much lower concentration index compared to similar policies.
+We follow \textcite{borenstein_distributional_2016} to illustrate the concentration of solar credit claims by income quintile and calculate the concentration index for the full sample period, SMDTC, and NSMDTC. \autoref{fig:credit_claim_distribution} shows the concentration curves for the three samples. The 45-degree line represents perfect equality; the more convex the curve, the more regressive the policy, favoring wealthier households. The curves indicate that NSMDTC is more equitable than SMDTC. The concentration index, calculated as the ratio of the area between the concentration curve and the 45-degree line over the total area under the 45-degree line, for the full sample, SMDTC, and NSMDTC are 0.444, 0.498, and 0.405, respectively.\footnote{If we use the full credit claim data from EMNRD for the study period, the concentration index for the full sample, SMDTC, and NSMDTC are 0.387, 0.449, and 0.356, respectively. This suggests that solar adopters are shifting towards low-income populations as the market matures, and the distributional inequality gap is shrinking. \autoref{fig:concentration_index} shows the year trend of the concentration index.} 
+\textcite{borenstein_distributional_2016} showed that the concentration index for the federal Residential Energy Credit, which is the federal solar tax credit, is 0.606, higher than what we find at the state level. 
+
+It is important to note a caveat in how the concentration index is calculated: the income quintile is based on census tracts, not individual households, as we only observe census tract-level AMI. Given that income levels vary within census tracts and households adopting solar are likely on the higher end of the income distribution, our calculated concentration index is likely a lower bound estimation. Nevertheless, it shows significant concentration of the tax credits among more affluent groups. 
+
 
 \begin{figure}[!ht]
     \centering
@@ -910,13 +987,13 @@ We generate $Credit$ for each year to show the state solar incentive availabilit
 
 \subsection{Supplementary Figures}
 
-\begin{figure}[H]
+\begin{figure}[!ht]
     \centering
-\includegraphics[width=0.7\textwidth]{figures/tract_count_per_kpop_map.png}
-    \caption{Installation per thousand people by 2020 census tract}
-    \label{fig:install_kpop}
-      \begin{flushleft}
-        \footnotesize Note: The total installation count is up to the end of 2023 for each census tract. The census tracts areas are defined in the 2020 Decennial Census. The tract-level population is taken at the 2022 level from the American Community Survey 1-year data. The legend is in logarithm scale. 
+\includegraphics[width=0.7\textwidth]{figures/tract_count_map.png}
+    \caption{Total installation count by census tract}
+    \label{fig:tract_map}
+    \begin{flushleft}
+        \footnotesize Note: The total installation count is up to the end of 2023 for each census tract. The census tracts are defined in the 2020 Decennial Census. The legend is on logarithmic scale.
     \end{flushleft}
 \end{figure}
 
@@ -939,6 +1016,9 @@ We generate $Credit$ for each year to show the state solar incentive availabilit
 \includegraphics[width=1\textwidth]{figures/key_coefficient_trend.png}
     \caption{Coefficient trend by year for household-level explanatory variables}
     \label{fig:coefficient_trend}
+      \begin{flushleft}
+        \footnotesize Note: Red and blue error bars show statistically significant and insignificant coefficient estimates, respectively.
+    \end{flushleft}
 \end{figure}
 
 \begin{figure}[H]
@@ -1002,46 +1082,61 @@ Credit & 6474 & 0.77 & 0.42 & 1 & 1 & 0 \\ \hline
 \singlespacing
 \caption{Full results for regression model (\ref{reg_1})}
 \label{tab:probability_regression_full}
-\resizebox{0.7\textwidth}{!}{
-\begin{tabular}{@{\extracolsep{2pt}}lcc}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{@{\extracolsep{2pt}}lcccc}
 \small
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
-& \multicolumn{2}{c}{\textit{Dependent Variable: Having new installation}} \
-\cr \cline{2-3}
-\\[-1.8ex] & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} \\
+& \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
+\\[-1.8ex] & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} & \multicolumn{1}{c}{Linear Probability} & \multicolumn{1}{c}{Logit Marginal Effect} \\
 \hline \\[-1.8ex]
-Hispanic & 0.001$^{**}$ & 0.001$^{***}$ \\
-& (0.000) & (0.000) \\
-White & 0.003$^{***}$ & 0.003$^{***}$ \\
-& (0.000) & (0.000) \\
-Log Area Median Income & 0.120$^{***}$ & 0.140$^{***}$ \\
-& (0.019) & (0.018) \\
-Bachelor & 0.003$^{***}$ & 0.004$^{***}$ \\
-& (0.001) & (0.001) \\
-Disadvantaged & 0.003 & 0.013 \\
-& (0.013) & (0.012) \\
-Log population & 0.022 & 0.0433* \\
- & (0.023) & (0.022) \\
-Electricity & -0.002*** & -0.001*** \\
- & (0.000) & (0.000) \\
-Electricity price & -0.012*** & -0.010** \\
- & (0.005) & (0.005) \\
-Installation price & 0.020*** & 0.030*** \\
- & (0.007) & (0.006) \\
-Log total housing unit & 0.142*** & 0.091*** \\
- & (0.022) & (0.022) \\
+Hispanic & 0.001$^{**}$ & 0.001$^{***}$ & 0.001$^{*}$ & 0.001 \\
+& (0.000) & (0.000) & (0.000) & (0.000) \\
+White & 0.003$^{***}$ & 0.003$^{***}$ & 0.003$^{***}$ & 0.005$^{***}$ \\
+& (0.000) & (0.000) & (0.000) & (0.001) \\
+Log Area Median Income & 0.120$^{***}$ & 0.140$^{***}$ & 0.134$^{***}$ & 0.146$^{***}$ \\
+& (0.019) & (0.018) & (0.020) & (0.019) \\
+Bachelor & 0.003$^{***}$ & 0.004$^{***}$ & 0.003$^{***}$ & 0.003$^{***}$ \\
+& (0.001) & (0.001) & (0.001) & (0.001) \\
+Disadvantaged & 0.003 & 0.013 & 0.001 & 0.013 \\
+& (0.013) & (0.012) & (0.013) & (0.012) \\
+Log population & 0.022 & 0.043$^{*}$ & 0.037 & 0.072$^{***}$ \\
+& (0.023) & (0.022) & (0.025) & (0.024) \\
+Electricity & -0.002$^{***}$ & -0.001$^{***}$ & -0.002$^{***}$ & -0.002$^{***}$ \\
+& (0.000) & (0.000) & (0.001) & (0.001) \\
+Electricity price & -0.012$^{***}$ & -0.010$^{**}$ & -0.010$^{**}$ & -0.010$^{**}$ \\
+& (0.005) & (0.005) & (0.005) & (0.005) \\
+Installation price & 0.020$^{***}$ & 0.030$^{***}$ & 0.021$^{***}$ & 0.029$^{***}$ \\
+& (0.007) & (0.006) & (0.007) & (0.006) \\
+Log total housing unit & 0.142$^{***}$ & 0.091$^{***}$ & 0.132$^{***}$ & 0.066$^{***}$ \\
+& (0.022) & (0.022) & (0.023) & (0.023) \\
+Credit &  &  & 0.103$^{***}$ & 0.124$^{***}$ \\
+&  &  & (0.011) & (0.011) \\
+Urban &  &  & -0.000 & 0.000 \\
+&  &  & (0.000) & (0.000) \\
+Owner Occupied &  &  & -0.001$^{***}$ & 0.000 \\
+&  &  & (0.000) & (0.000) \\
+Built year group &  &  & 0.006 & 0.006 \\
+&  &  & (0.004) & (0.004) \\
+Permit Number &  &  & 0.024 & 0.007 \\
+&  &  & (0.015) & (0.014) \\
+GHI &  &  & 0.000 & -0.000 \\
+&  &  & (0.000) & (0.000) \\
+Racial diversity &  &  & -0.008 & -0.230$^{***}$ \\
+&  &  & (0.039) & (0.049) \\
+
 \hline \\[-1.8ex]
-Year FE & Yes & Yes \\
-County FE & Yes & Yes \\
-Year trend & 0.043$^{***}$ & 0.048$^{***}$ \\
-\hline \\[-1.8ex]
-Observations & 6,472 & 6,446 \\
-R-squared & 0.522 &  \\
+Observations & 6,472 & 6,446 & 6,472 & 6,446 \\
+R-squared & 0.522 &  & 0.523 &  \\
+Year FE & Yes & Yes & Yes & Yes \\
+County FE & Yes & Yes & Yes & Yes \\
+% Control & Main & Main & All & All \\
+Year trend & 0.043$^{***}$ & 0.048$^{***}$ & 0.0470$^{***}$ & 0.0443$^{***}$ \\
 \hline
 \hline \\[-1.8ex]
-\textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
-    \end{tabular}}
+\textit{Note:} & \multicolumn{4}{r}{$^{*}p<0.05$; $^{**}p<0.01$; $^{***}p<0.001$} \\
+\end{tabular}
+}
 \end{table}
 
 
@@ -1096,9 +1191,9 @@ Credit & 3849 & 0.77 & 0.42 & 1 & 1 & 0 \\ \hline
 \begin{tabular}{lcccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
- & \multicolumn{4}{c}{Dependent Variable: System Count} \\ \cline{2-5}
+ & \multicolumn{4}{c}{Dependent Variable: System Count (if $>0$)} \\ \cline{2-5}
   & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)} & \multicolumn{1}{c}{(4)} \\
- & NB & OLS & OLS with non-linear term & NB with lagged count  \\ 
+ & NB & OLS & OLS with quadratic term & NB with lagged count  \\ 
  & Marginal Effect &  &  & Marginal Effect \\ \cline{1-5}\\ 
 Hispanic & 0.027** & 0.022 & 0.016 & 0.034** \\
  & (0.012) & (0.018) & (0.018) & (0.014) \\
@@ -1146,6 +1241,66 @@ Observations & 3,849 & 3,849 & 3,849 & \multicolumn{1}{c}{3,628} \\
 \end{table}
 
 
+\begin{table}[H]
+\caption{Results for regression model (\ref{reg_2}) with full sample (all census tract-year)}
+\label{tab:count_regression_full_unconditional}
+\centering
+\singlespacing
+\resizebox{0.6\textwidth}{!}{%
+\begin{tabular}{lcc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+ & \multicolumn{2}{c}{Dependent Variable: System Count} \\ \cline{2-3}
+ & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} \\
+ & \multicolumn{1}{c}{NB Marginal Effect} & \multicolumn{1}{c}{OLS} \\ \cline{1-3}
+Hispanic & 0.025*** & 0.037*** \\
+ & (0.009) & (0.011) \\
+White & 0.111*** & 0.013 \\
+ & (0.013) & (0.011) \\
+Log Area Median Income & 3.682*** & 3.002*** \\
+ & (0.466) & (0.568) \\
+Bachelor & 0.075*** & 0.123*** \\
+ & (0.013) & (0.017) \\
+Disadvantage & -1.656*** & -0.653* \\
+ & (0.283) & (0.368) \\
+Credit & 6.868*** & 7.091*** \\
+ & (0.502) & (0.658) \\
+Log population & 3.221*** & 3.917*** \\
+ & (0.660) & (0.684) \\
+Electricity & -0.025** & -0.035** \\
+ & (0.013) & (0.015) \\
+Electricity price & 0.093 & -0.605*** \\
+ & (0.112) & (0.134) \\
+Installation price & -3.731*** & -2.853*** \\
+ & (0.179) & (0.183) \\
+Log total housing unit & 2.887*** & 0.504 \\
+ & (0.644) & (0.639) \\
+Urban & 0.003 & 0.008* \\
+ & (0.004) & (0.005) \\
+Owner occupied & 0.030*** & 0.101*** \\
+ & (0.006) & (0.007) \\
+Built year group & -0.512*** & -0.961*** \\
+ & (0.087) & (0.114) \\
+PNM & -1.323*** & -3.517*** \\
+ & (0.276) & (0.410) \\
+GHI & 0.011*** & 0.015*** \\
+ & (0.004) & (0.005) \\
+Racial diveristy & -2.070* & 2.812*** \\
+ & (1.149) & (1.088) \\
+\hline
+Observations & 6,472 & 6,472 \\
+R-squared & & 0.439 \\
+Year FE & Yes & Yes \\
+County FE & Yes & Yes \\
+Year & All & All \\
+Sample & All & All \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
+\end{tabular}}
+\end{table}
+
+
 
 
 \begin{table}[H]
@@ -1153,7 +1308,7 @@ Observations & 3,849 & 3,849 & 3,849 & \multicolumn{1}{c}{3,628} \\
 \centering
 \singlespacing
 \label{tab:count_regression_income}
-\resizebox{0.75\textwidth}{!}{
+\resizebox{0.7\textwidth}{!}{
 \begin{tabular}{lccc}
 \\[-1.8ex]\hline
 \hline \\[-1.8ex]
@@ -1205,59 +1360,7 @@ Year & All & All & All \\
 \end{table}
 
 
-\begin{table}[H]
-\caption{Negative binomial marginal effects for system count by state credit availability}
-\centering
-\singlespacing
-\label{tab:count_regression_3 periods}
-\resizebox{0.7\textwidth}{!}{
-\begin{tabular}{lccc}
-\\[-1.8ex]\hline
-\hline \\[-1.8ex]
- & \multicolumn{3}{c}{Dependent variable: System count} \\ \cline{2-4}
- & (1) & (2) & (3) \\
- & 2010-2016 & 2017-2019 & 2020-2022 \\ \cline{1-4}
-Hispanic & 0.011 & 0.063** & -0.016 \\
- & (0.009) & (0.032) & (0.032) \\
-White & 0.014 & 0.343*** & -0.000 \\
- & (0.028) & (0.110) & (0.053) \\
-Log area median income & 3.722*** & 5.950*** & -2.600 \\
- & (0.504) & (1.920) & (1.664) \\
-Bachelor & 0.111*** & 0.026 & 0.072* \\
- & (0.013) & (0.040) & (0.040) \\
-Disadvantage & -0.560** & -1.600* & -3.388*** \\
- & (0.280) & (0.918) & (0.975) \\
-Log population & 4.256*** & 2.526 & 3.151 \\
- & (0.767) & (2.764) & (2.436) \\
-Electricity & 0.013 & 0.204*** & -0.112** \\
- & (0.015) & (0.052) & (0.047) \\
-Electricity price & 0.218* & 0.301 & 0.732 \\
- & (0.119) & (0.416) & (0.474) \\
-Installation price & -1.336*** & -4.248*** & -36.52*** \\
- & (0.131) & (0.805) & (8.084) \\
-Log total housing unit & 0.403 & 9.155*** & 5.507** \\
- & (0.765) & (2.846) & (2.422) \\
-Urban & -0.021*** & 0.061*** & 0.086*** \\
- & (0.004) & (0.016) & (0.015) \\
-Owner occupied & 0.017*** & 0.226*** & 0.263*** \\
- & (0.006) & (0.035) & (0.034) \\
-Built year group & 0.111 & -1.143*** & -1.641*** \\
- & (0.089) & (0.286) & (0.298) \\
-PNM & -0.103 & -2.906*** & -3.915*** \\
- & (0.265) & (0.834) & (0.971) \\
-GHI & 0.011** & 0.038** & 0.044** \\
- & (0.005) & (0.016) & (0.017) \\
-Racial Diversity & -0.728 & -19.86** & 7.222 \\
- & (2.268) & (8.461) & (4.960) \\ \cline{1-4}
-Year FE & Yes & Yes & Yes \\
-County FE & Yes & Yes & Yes \\
-State credit & SMDTC & - & NSMDTC \\
-Observations & 1,791 & 882 & 1,176 \\
-\hline
-\hline \\[-1.8ex]
-\textit{Note:} & \multicolumn{3}{r}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\
-\end{tabular}}
-\end{table}
+
 
 
 
@@ -1400,6 +1503,64 @@ Akaike Inf. Crit. & 32,361.440 & 30,405.120 & 28,283.590 & 28,204.620 \\
 \end{tabular}
 }
 \end{table}
+
+
+\begin{table}[H] \centering 
+  \caption{Full results for regression model (\ref{reg_4})} 
+  \label{tab:reg_5_full} 
+  \centering
+  \singlespacing
+  \resizebox{1\textwidth}{!}{
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+  & \multicolumn{5}{c}{\textit{Dependent variable: Log(Tax credit claimed)}} \\ 
+\cline{2-6}  
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\\[-1.8ex] & Full sample & Full sample & Full sample & SMDTC & NSMDTC\\ 
+\hline \\[-1.8ex] 
+ System capacity & 0.109$^{***}$ & 0.112$^{***}$ & 0.115$^{***}$ & 0.130$^{***}$ & 0.108$^{***}$ \\ 
+  & (0.001) & (0.001) & (0.002) & (0.003) & (0.002) \\ 
+  Log Zestimate & 0.049$^{***}$ & 0.070$^{***}$ & 0.059$^{***}$ & 0.237$^{***}$ & $-$0.086$^{***}$ \\ 
+  & (0.010) & (0.013) & (0.013) & (0.021) & (0.016) \\ 
+  Year built & $-$0.001$^{***}$ & $-$0.001$^{***}$ & $-$0.001$^{***}$ & $-$0.002$^{***}$ & $-$0.001$^{***}$ \\ 
+  & (0.0002) & (0.0002) & (0.0002) & (0.0003) & (0.0002) \\ 
+  Log Housing size (sq ft) & 0.083$^{***}$ & 0.057$^{***}$ & 0.054$^{***}$ & $-$0.036 & 0.135$^{***}$ \\ 
+  & (0.015) & (0.015) & (0.015) & (0.024) & (0.019) \\ 
+  No. of Bedrooms & 0.026$^{***}$ & 0.027$^{***}$ & 0.028$^{***}$ & 0.028$^{***}$ & 0.018$^{***}$ \\ 
+  & (0.005) & (0.005) & (0.005) & (0.008) & (0.006) \\ 
+  Population share with bachelor degree ($>$25) &  & $-$0.378$^{***}$ & $-$0.358$^{***}$ & $-$0.611$^{***}$ & $-$0.097$^{**}$ \\ 
+  &  & (0.038) & (0.038) & (0.070) & (0.042) \\ 
+  Owner occupancy rate &  & $-$0.165$^{***}$ & $-$0.194$^{***}$ & $-$0.082$^{*}$ & $-$0.005 \\ 
+  &  & (0.020) & (0.026) & (0.042) & (0.054) \\ 
+  Mortgage rate &  & 0.136$^{***}$ & 0.119$^{***}$ & $-$0.046 & 0.080 \\ 
+  &  & (0.035) & (0.035) & (0.062) & (0.054) \\ 
+  Log Area Median Income &  & 0.091$^{***}$ & 0.092$^{***}$ & 0.167$^{***}$ & $-$0.022 \\ 
+  &  & (0.016) & (0.016) & (0.028) & (0.021) \\ 
+  Log Population &  & $-$0.037$^{***}$ & $-$0.044$^{***}$ & $-$0.073$^{***}$ & $-$0.016 \\ 
+  &  & (0.008) & (0.009) & (0.014) & (0.011) \\ 
+  Log Median Age &  & 0.024 & 0.018 & 0.020 & 0.012 \\ 
+  &  & (0.025) & (0.025) & (0.046) & (0.030) \\ 
+  White rate &  & $-$0.248$^{***}$ & $-$0.175$^{***}$ & $-$0.439$^{***}$ & 0.035 \\ 
+  &  & (0.045) & (0.045) & (0.076) & (0.053) \\ 
+  Hispanic rate &  & $-$0.194$^{***}$ & $-$0.159$^{***}$ & $-$0.425$^{***}$ & $-$0.011 \\ 
+  &  & (0.030) & (0.030) & (0.054) & (0.033) \\ 
+  Urban share &  & $-$0.017 & $-$0.014 & 0.050$^{**}$ & $-$0.056$^{***}$ \\ 
+  &  & (0.013) & (0.013) & (0.021) & (0.015) \\ 
+  Within disadvantaged census tracts &  & 0.017 & 0.012 & $-$0.015 & 0.022$^{*}$ \\ 
+  &  & (0.012) & (0.011) & (0.020) & (0.013) \\ 
+ \hline \\[-1.8ex] 
+Census Tract Controls & No & Yes & Yes & Yes & Yes \\ 
+Year Fixed Effects & No & No & Yes & Yes & Yes \\ 
+Observations & 11,034 & 11,034 & 11,034 & 4,940 & 6,094 \\ 
+R$^{2}$ & 0.435 & 0.448 & 0.461 & 0.458 & 0.507 \\ 
+Adjusted R$^{2}$ & 0.435 & 0.447 & 0.459 & 0.455 & 0.505 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} }
+\end{table} 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newpage
