@@ -1,0 +1,202 @@
+---
+title: "Extensive Margin Analysis"
+author: "Yuting Yang"
+date: "2024-06-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+## Extensive margin regression (Table 2)
+
+```{r read data, echo=FALSE}
+# Load necessary libraries
+library(readr)
+library(dplyr)
+library(stargazer)
+library(tinytex)
+library(sandwich)
+library(lmtest)
+library(zoo)
+
+# Read the CSV file
+data <- read_csv("~/PycharmProjects/NMSolarPV/data/projects/reg_data_distribution_analysis_with_credit.csv", show_col_types = FALSE)
+
+percentage_rate_vars <- c("bachelor_percentage", "owner_occupied_rate", "mortgage_rate", 
+                          "white_rate", "non_his_white_rate", "other_non_his_rate", "hispanic_rate", "urban_percent")
+
+# Multiply the relevant variables by 100
+data <- data %>%
+  mutate(across(all_of(percentage_rate_vars), ~ . * 100))
+
+```
+
+### Full sample
+
+```{r model 1, echo=FALSE}
+# Create dummy variables for income quintiles
+income_dummies <- data %>%
+  mutate(across(inc_quintile_housing_weighted, as.factor)) %>%
+  model.matrix(~ inc_quintile_housing_weighted - 1, data = .) %>%
+  as.data.frame()
+
+# Add the dummy variables to your dataset
+data_inc <-  bind_cols(income_dummies, select(data, -inc_quintile_housing_weighted))
+
+# Create dummy variables for 'installation_year' and drop the first category
+year_dummy <- data_inc %>%
+  mutate(across(installation_year, as.factor)) %>%
+  model.matrix(~ installation_year - 1, data = .) %>%
+  as.data.frame()
+
+# Combine the dummy variables with the original data (excluding the original 'installation_year' column)
+data_with_year_dummy <- bind_cols(year_dummy, select(data_inc, -installation_year))
+
+# Define the list of independent variables
+independent_vars_2 <- c("system_capacity", "log_zestimate", "yearBuilt", "log_housesize", "bedrooms",  
+    "bachelor_percentage","owner_occupied_rate", "mortgage_rate", "log_population",
+    "log_age",  "non_his_white_rate", "other_non_his_rate", "urban_percent", 'disadvantaged')
+
+# Add income dummy
+independent_vars_3 <- c(independent_vars_2, grep("inc_quintile_housing_weighted", names(data_inc), value = TRUE))
+
+# Add year dummy
+independent_vars_4 <- c(independent_vars_3, grep("installation_year", names(data_with_year_dummy), value = TRUE))
+
+# Select the subset of the data that includes only the relevant columns
+model <- data_with_year_dummy %>%
+  select(c('state_credit', all_of(independent_vars_4), 'tract_2010')) 
+
+# Define the formula for the logistic regression model
+formula <- as.formula(paste("state_credit ~", paste(independent_vars_4, collapse = " + ")))
+
+# Fit the logistic regression model
+logit_model <- glm(formula, data = model, family = binomial)
+
+```
+
+## Subsample regression by program phase
+
+```{r}
+smdtc <- data_inc %>%
+  filter(installation_year <= 2016)
+
+year_dummy_smdtc <- smdtc %>%
+  mutate(across(installation_year, as.factor)) %>%
+  model.matrix(~ installation_year - 1, data = .) %>%
+  as.data.frame()
+
+# Combine the dummy variables with the original data (excluding the original 'installation_year' column)
+smdtc_with_year_dummy <- bind_cols(year_dummy_smdtc, select(smdtc, -installation_year))
+
+nsmdtc <- data_inc %>%
+  filter(installation_year >= 2020)
+
+year_dummy_nsmdtc <- nsmdtc %>%
+  mutate(across(installation_year, as.factor)) %>%
+  model.matrix(~ installation_year - 1, data = .) %>%
+  as.data.frame()
+
+# Combine the dummy variables with the original data (excluding the original 'installation_year' column)
+nsmdtc_with_year_dummy <- bind_cols(year_dummy_nsmdtc, select(nsmdtc, -installation_year))
+
+independent_vars_smdtc <- c(independent_vars_3, grep("installation_year", names(smdtc_with_year_dummy), value = TRUE))
+independent_vars_nsmdtc <- c(independent_vars_3, grep("installation_year", names(nsmdtc_with_year_dummy), value = TRUE))
+
+# Select the subset of the data for subsample smdtc (installation_year <= 2016)
+model_smdtc <- smdtc_with_year_dummy %>%
+  select(c('state_credit', all_of(independent_vars_smdtc)))
+
+# Define the formula for the logistic regression model
+formula_smdtc <- as.formula(paste("state_credit ~", paste(independent_vars_smdtc, collapse = " + ")))
+
+# Fit the logistic regression model for smdtc
+logit_model_smdtc <- glm(formula_smdtc, data = model_smdtc, family = binomial)
+
+
+# Select the subset of the data for subsample nsmdtc (installation_year <= 2020)
+model_nsmdtc <- nsmdtc_with_year_dummy %>%
+  select(c('state_credit', all_of(independent_vars_nsmdtc)))
+
+# Define the formula for the logistic regression model
+formula_nsmdtc <- as.formula(paste("state_credit ~", paste(independent_vars_nsmdtc, collapse = " + ")))
+
+# Fit the logistic regression model for nsmdtc
+logit_model_nsmdtc <- glm(formula_nsmdtc, data = model_nsmdtc, family = binomial)
+
+
+```
+
+```{r}
+# Save model comparison result with stargazer for the full and subsample data
+stargazer(logit_model, logit_model_smdtc, logit_model_nsmdtc,
+          type = "latex",
+          title = "Regression results of logistic models for state credit claim",
+           covariate.labels = c('System capacity', 'Log Zestimate', 'Year built', 'Log Housing size (sq ft)', 
+                               'No. of Bedrooms', 'Percent population with bachelor degree ($>$25)', 
+                               'Owner occupancy rate', 'Mortgage rate', 
+                               'Log Population', 'Log Median Age', 
+                               'Non-Hispanic White Rate', 'Other Non-Hispanic rate', 'Urban share', 
+                               'Within disadvantaged census tracts', 'Q1', 'Q2', 'Q3', 'Q4', 'Q5'),
+          dep.var.labels = "State credit",
+          keep = independent_vars_3,
+          omit.stat = c("f", "ser"),
+          no.space = TRUE,
+          column.labels = c( "Full sample", "SMDTC", "NSMDTC"),
+          add.lines = list(
+            c('Year FE', 'Yes', 'Yes', 'Yes')
+          )
+)
+
+```
+### Figure 5: Month fixed effect
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+
+# Extract coefficients and standard errors for both models
+month_coeffs_with_controls <- coef(logit_model_month_fe)[grep("installation_month", names(coef(logit_model_month_fe)))]
+month_se_with_controls <- sqrt(diag(vcov(logit_model_month_fe)))[grep("installation_month", names(coef(logit_model_month_fe)))]
+
+month_coeffs_without_controls <- coef(logit_model_month_fe_no_control)[grep("installation_month", names(coef(logit_model_month_fe_no_control)))]
+month_se_without_controls <- sqrt(diag(vcov(logit_model_month_fe_no_control)))[grep("installation_month", names(coef(logit_model_month_fe_no_control)))]
+
+# Create data frames for plotting
+months <- c('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec')
+
+plot_data_with_controls <- data.frame(
+  Month = factor(months, levels = months),
+  Coefficients = month_coeffs_with_controls,
+  SE = month_se_with_controls,
+  Lower_CI = month_coeffs_with_controls - 1.96 * month_se_with_controls,
+  Upper_CI = month_coeffs_with_controls + 1.96 * month_se_with_controls,
+  Model = "With Controls"
+)
+
+plot_data_without_controls <- data.frame(
+  Month = factor(months, levels = months),
+  Coefficients = month_coeffs_without_controls,
+  SE = month_se_without_controls,
+  Lower_CI = month_coeffs_without_controls - 1.96 * month_se_without_controls,
+  Upper_CI = month_coeffs_without_controls + 1.96 * month_se_without_controls,
+  Model = "Without Controls"
+)
+
+plot_data_combined <- bind_rows(plot_data_with_controls, plot_data_without_controls)
+
+# Plot the coefficients with error bars for both models
+plot <- ggplot(plot_data_combined, aes(x = Month, y = Coefficients, color = Model)) +
+  geom_line(aes(group = Model), size = 1) +  # Line plot for each model
+  geom_point(size = 3) +  # Points for each month
+  geom_errorbar(aes(ymin = Lower_CI, ymax = Upper_CI), width = 0.2) +  # Error bars for confidence intervals
+  labs( x = "Month", y = "Coefficient Estimate") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+# Save the plot as a PNG file
+ggsave(filename = "month_fixed_effects_comparison.png", plot = plot, width = 7, height =4, dpi = 300)
+```

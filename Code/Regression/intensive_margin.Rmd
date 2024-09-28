@@ -1,0 +1,94 @@
+---
+title: "Intensive Margin Analysis"
+author: "Yuting Yang"
+date: "2024-06-12"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+## Intensive margin regression (Table 4) 
+
+```{r read data, echo=FALSE}
+# Load necessary libraries
+library(readr)
+library(dplyr)
+library(stargazer)
+library(tinytex)
+library(tidyr)
+library(ggplot2)
+
+# Read the CSV file
+data <- read_csv("~/PycharmProjects/NMSolarPV/data/projects/intensive_margin_data.csv", show_col_types = FALSE)
+```
+
+```{r tax credit, echo=FALSE}
+
+percentage_rate_vars <- c("bachelor_percentage", "owner_occupied_rate", "mortgage_rate", 
+                          "white_rate", "non_his_white_rate", "other_non_his_rate", "hispanic_rate", "urban_percent")
+
+# Multiply the relevant variables by 100
+data <- data %>%
+  mutate(across(all_of(percentage_rate_vars), ~ . * 100))
+
+filtered_df <- data %>% 
+  filter(
+    (installation_year <= 2016 & tax_credit_state < 9000) | 
+    (installation_year >= 2020 & tax_credit_state < 6000)
+  )
+
+
+filtered_df$log_zestimate_sq <- filtered_df$log_zestimate^2
+filtered_df$log_elec_price <- log(filtered_df$electricity_price_average_cent_per_kwh)
+
+
+independent_vars_y <- c('log_zestimate', 'housing_age', "log_housesize", 'bedrooms', 'log_elec_price', 'PVOUT', 'TEMP', 'pnm','electric_cooling',
+    "bachelor_percentage","owner_occupied_rate", "mortgage_rate",  "log_population",
+     "non_his_white_rate", "other_non_his_rate", "urban_percent", 'disadvantaged', 'log_ami')
+
+
+reg_data_year <- filtered_df %>%
+  select(c('system_capacity', 'tax_credit_state', 'system_cost_unit', 'installation_year', all_of(independent_vars_y))) 
+
+year_dummy <- reg_data_year %>%
+  mutate(across(installation_year, as.factor)) %>%
+  model.matrix(~ installation_year - 1, data = .) %>%
+  as.data.frame()
+
+# Combine the dummy variables with the original data (excluding the original 'installation_year' column)
+reg_with_year_dummy <- bind_cols(year_dummy, select(reg_data_year, -installation_year))
+
+independent_vars_yfe <- c(independent_vars_y, grep("installation_year", names(reg_with_year_dummy), value = TRUE))
+
+# Define the formula for the logistic regression model
+formula_tax <- as.formula(paste("log(tax_credit_state) ~", paste(independent_vars_yfe, collapse = " + ")))
+formula_capacity <- as.formula(paste("log(system_capacity) ~", paste(independent_vars_yfe, collapse = " + ")))
+formula_price <- as.formula(paste("log(system_cost_unit) ~", paste(independent_vars_yfe, collapse = " + ")))
+
+# Fit the logistic regression model
+model_tax_yfe <- lm(formula_tax, data = reg_with_year_dummy)
+model_capacity_yfe <- lm(formula_capacity, data = reg_with_year_dummy)
+model_price_yfe <- lm(formula_price, data = reg_with_year_dummy)
+
+stargazer(model_tax_yfe, model_capacity_yfe, model_price_yfe,
+          type = "latex",
+          title = "OLS regression on distributional equity",
+          covariate.labels = c('Log Zestimate', 'Age of house', 'Log Housing size (sq ft)', 
+                              'No. of Bedrooms', 'Log Average electricity price', 'PV Output', 'Average temperature', 
+                              'Net metering with credit roll over', 'Refrigerated cooling', 'Percentage population with Bachelor degree', 
+                              'Owner occupied rate', 'Mortgage rate', 'Log Population', 'Non Hispanic White rate', 'Other non-Hispanic rate', 
+                              'Urban percent', 'Disadvantaged', 'Log AMI'),
+          #column.labels = c("Log(Tax credit)", "Log(System capacity)", "Log(Unit price)"),
+          dep.var.labels = c("Log(Tax credit)", "Log(System capacity)", "Log(Unit price)"),
+          keep = independent_vars,
+          omit.stat = c("f", "ser"),
+          add.lines = list(
+          c('Year FE', 'Yes', 'Yes', 'Yes')),
+          no.space = TRUE
+          )
+
+summary(model_capacity_yfe)
+```

@@ -1,10 +1,12 @@
 # "Disentangle the distributional inequity of solar tax credits" Online Supplementary Information
 
-## Code to reproduce regression results
-[Code/Regression](Code/Regression)
 
-1. Section 3 - Adoption Equity Analysis
-   - Stata Do file
-2. Section 4 - Distributional Equity Analysis
-   - Python code
-   - R code
+## Code to reproduce descriptive figures
+
+[Python code to reproduce descriptive figures](Code/Descriptive%20Figures/descriptive_figures.ipynb)
+
+## Code to reproduce regression results
+* Section 4 Extensive Margin
+  * [R code](Code/Regression/extensive_margin.Rmd)
+* Section 5 Intensive Margin
+  * [R code](Code/Regression/intensive_margin.Rmd)
