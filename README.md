@@ -1,8 +1,4 @@
-# "Equity in Solar PV Adoption in New Mexico" Online Supplementary Information
-
-## Full paper 
-
-Please check the .pdf file under the main directory for the most up-to-date version of the paper.
+# "Disentangle the distributional inequity of solar tax credits" Online Supplementary Information
 
 ## Code to reproduce regression results
 [Code/Regression](Code/Regression)
